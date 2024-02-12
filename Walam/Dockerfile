@@ -1,6 +1,20 @@
-FROM openjdk:17-jdk-slim
+FROM maven:3.9-eclipse-temurin-17-alpine as build
+
 WORKDIR /app
-COPY --from=build /app/target/pets-0.0.1-SNAPSHOT.jar /app/pets.jar
+
+COPY src src/
+COPY pom.xml ./
+
+RUN mvn clean install -DskipTests
+
+
+FROM eclipse-temurin:17-jre-alpine
+
+VOLUME /tmp
 EXPOSE 8080
-CMD ["java", "-jar", "pets.jar"]
+
+ARG JAR_FILE=/app/target/*.jar
+COPY --from=build ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]
 
