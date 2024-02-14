@@ -6,9 +6,9 @@ spring:
       enabled: always
   datasource:
     #    url: jdbc:mariadb://localhost/cocode_db
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${DEV_DB_URL}
+    username: ${DEV_DB_USERNAME}
+    password: ${DEV_DB_PASSWORD}
     hikari:
       maximum-pool-size: 1
   jpa:
