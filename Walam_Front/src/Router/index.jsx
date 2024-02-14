@@ -1,0 +1,73 @@
+import { Suspense } from 'react'
+import { createBrowserRouter } from 'react-router-dom'
+import Loader from '../components/Loader/Loader'
+import { MainLayout } from '../Layouts'
+
+import {
+  Users
+
+} from '../Routes'
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: (
+      <Suspense fallback={<Loader />}>
+        <MainLayout />
+      </Suspense>
+    ),
+    // errorElement: <NotFound />,
+    children: [
+      // {
+      //   index: true,
+      //   element: (
+      //     <Suspense fallback={<Loader />}>
+      //       <Users />
+      //     </Suspense>
+      //   )
+      // },
+      {
+        path: '/Users',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Users />
+          </Suspense>
+        )
+      }
+
+      // {
+      //   path: '/Login',
+      //   element: (
+      //     <Suspense fallback={<Loader />}>
+      //       <Login />
+      //     </Suspense>
+      //   )
+      // },
+      // {
+      //   path: '/Reset-password',
+      //   element: (
+      //     <Suspense fallback={<Loader />}>
+      //       <ResetPassword />
+      //     </Suspense>
+      //   )
+      // }
+
+    ]
+  }
+])
+
+/*
+if you wants to add a new route please create a new component
+on the  routes file ./Routes
+
+then
+
+add a new object with the path and element properties
+
+    {
+        path: '',
+        element: <>
+      },
+
+      inside the children propertie.
+*/
