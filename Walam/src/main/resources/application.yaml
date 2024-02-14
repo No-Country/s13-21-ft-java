@@ -1,28 +1,4 @@
-server:
-  port: 8080
+# Punto de entrada de entornos de trabajo
 spring:
-  output:
-    ansi:
-      enabled: always
-  datasource:
-    #    url: jdbc:mariadb://localhost/cocode_db
-    url: ${DEV_DB_URL}
-    username: ${DEV_DB_USERNAME}
-    password: ${DEV_DB_PASSWORD}
-    hikari:
-      maximum-pool-size: 1
-  jpa:
-    properties:
-      hibernate:
-        format_sql: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-springdoc:
-  swagger-ui:
-    enabled: true
-  api-docs:
-    enabled: true
-    swagger-ui:
-      path: /swagger-ui.html
+  profiles:
+    active: dev
