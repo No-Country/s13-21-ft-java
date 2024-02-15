@@ -1,0 +1,4 @@
+# Punto de entrada de entornos de trabajo
+spring:
+  profiles:
+    active: dev
