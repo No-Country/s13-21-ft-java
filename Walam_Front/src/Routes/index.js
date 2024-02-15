@@ -2,6 +2,10 @@ import { lazy } from 'react'
 const Users = lazy(() => import('./Users/Component/Users'))
 const OnBoarding = lazy(() => import('./OnBoarding/Component/OnBoarding'))
 const Login = lazy(() => import('./Login/Component/Login'))
+const Register = lazy(() => import('./Register/Component/Register'))
+const Register2 = lazy(() => import('./Register2/Component/Register2'))
+const UsersData = lazy(() => import('./UsersData/Component/UsersData'))
+const UsersData2 = lazy(() => import('./UsersData2/Component/UsersData2'))
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -14,5 +18,9 @@ const Login = lazy(() => import('./Login/Component/Login'))
 export {
   Users,
   OnBoarding,
-  Login
+  Login,
+  Register,
+  Register2,
+  UsersData,
+  UsersData2
 }
