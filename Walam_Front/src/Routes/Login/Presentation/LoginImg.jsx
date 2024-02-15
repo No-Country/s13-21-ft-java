@@ -1,7 +1,7 @@
 function LoginImg () {
   return (
     <>
-      <p>Pendiente video o animación</p>
+      <p className='hidden xl:block'>Pendiente video o animación</p>
     </>
   )
 }
