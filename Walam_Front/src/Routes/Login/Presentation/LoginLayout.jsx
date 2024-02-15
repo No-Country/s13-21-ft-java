@@ -1,6 +1,6 @@
 const LoginLayout = ({ children }) => {
   return (
-    <div>
+    <div className='w-full flex flex-col justify-center py-10 items-center'>
       {children}
     </div>
   )

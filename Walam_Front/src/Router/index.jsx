@@ -5,8 +5,8 @@ import { MainLayout } from '../Layouts'
 
 import {
   Users,
-  OnBoarding
-
+  OnBoarding,
+  Login
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -43,16 +43,15 @@ export const router = createBrowserRouter([
             <OnBoarding />
           </Suspense>
         )
+      },
+      {
+        path: '/Login',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+        )
       }
-
-      // {
-      //   path: '/Login',
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Login />
-      //     </Suspense>
-      //   )
-      // },
       // {
       //   path: '/Reset-password',
       //   element: (
