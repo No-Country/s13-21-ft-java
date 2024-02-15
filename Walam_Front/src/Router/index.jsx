@@ -4,7 +4,8 @@ import Loader from '../components/Loader/Loader'
 import { MainLayout } from '../Layouts'
 
 import {
-  Users
+  Users,
+  OnBoarding
 
 } from '../Routes'
 
@@ -31,6 +32,15 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Users />
+          </Suspense>
+        )
+      },
+
+      {
+        path: '/OnBoarding',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <OnBoarding />
           </Suspense>
         )
       }
