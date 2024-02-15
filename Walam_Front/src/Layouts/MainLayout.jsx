@@ -15,7 +15,7 @@ const MainLayout = () => {
     lg:grid-rows-[1r,auto,1fr]'
     >
       <header>
-        <div className='w-[100%]'>
+        <div className='w-[100%] bg-black'>
           <NavBar />
         </div>
       </header>
