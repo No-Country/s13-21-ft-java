@@ -1,5 +1,7 @@
 import { lazy } from 'react'
 const Users = lazy(() => import('./Users/Component/Users'))
+const OnBoarding = lazy(() => import('./OnBoarding/Component/OnBoarding'))
+const Login = lazy(() => import('./Login/Component/Login'))
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -10,5 +12,7 @@ const Users = lazy(() => import('./Users/Component/Users'))
 // const MyPurchases = lazy(() => import('./MyPurchases/Container/MyPurchases'))
 
 export {
-  Users
+  Users,
+  OnBoarding,
+  Login
 }

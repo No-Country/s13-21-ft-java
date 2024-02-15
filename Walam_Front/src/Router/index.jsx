@@ -4,8 +4,9 @@ import Loader from '../components/Loader/Loader'
 import { MainLayout } from '../Layouts'
 
 import {
-  Users
-
+  Users,
+  OnBoarding,
+  Login
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -33,16 +34,24 @@ export const router = createBrowserRouter([
             <Users />
           </Suspense>
         )
-      }
+      },
 
-      // {
-      //   path: '/Login',
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Login />
-      //     </Suspense>
-      //   )
-      // },
+      {
+        path: '/OnBoarding',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <OnBoarding />
+          </Suspense>
+        )
+      },
+      {
+        path: '/Login',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+        )
+      }
       // {
       //   path: '/Reset-password',
       //   element: (
