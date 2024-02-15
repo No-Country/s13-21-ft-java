@@ -6,8 +6,13 @@ import { MainLayout } from '../Layouts'
 import {
   Users,
   OnBoarding,
-  Login
+  Login,
+  Register,
+  Register2,
+  UsersData,
+  UsersData2
 } from '../Routes'
+
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +37,38 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Users />
+          </Suspense>
+        )
+      },
+      {
+        path: '/Register',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Register />
+          </Suspense>
+        )
+      },
+      {
+        path: '/Register2',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Register2 />
+          </Suspense>
+        )
+      },
+      {
+        path: '/UsersData',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <UsersData />
+          </Suspense>
+        )
+      },
+      {
+        path: '/UsersData2',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <UsersData2 />
           </Suspense>
         )
       },
