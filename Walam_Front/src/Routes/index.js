@@ -1,5 +1,7 @@
 import { lazy } from 'react'
 const Users = lazy(() => import('./Users/Component/Users'))
+const OnBoarding = lazy(() => import('./OnBoarding/Component/OnBoarding'))
+const Login = lazy(() => import('./Login/Component/Login'))
 const Register = lazy(() => import('./Register/Component/Register'))
 const Register2 = lazy(() => import('./Register2/Component/Register2'))
 const UsersData = lazy(() => import('./UsersData/Component/UsersData'))
@@ -15,6 +17,8 @@ const UsersData2 = lazy(() => import('./UsersData2/Component/UsersData2'))
 
 export {
   Users,
+  OnBoarding,
+  Login,
   Register,
   Register2,
   UsersData,
