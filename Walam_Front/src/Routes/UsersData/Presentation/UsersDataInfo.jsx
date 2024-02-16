@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
 import { useNavigate } from 'react-router-dom'
+import { FaArrowLeft } from 'react-icons/fa'
 
 
 export default function UsersData () {
@@ -35,10 +36,7 @@ export default function UsersData () {
           <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
           <div className='bg-white rounded-xl p-6 h-full'>
             <div className='flex justify-between'>         
-              <Link to='/Register2'>
-                  {/* icono flecha atras */}
-                <button className=''>Atrás</button>
-              </Link>
+              <Link to='/Register2'><FaArrowLeft /></Link>
               <div>
                 <span className='border rounded-full px-2 py-0.5  bg-black text-white'>1</span>
                 <span>-</span>

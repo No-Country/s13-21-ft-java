@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
 import { useNavigate } from 'react-router-dom'
+import { FaArrowLeft } from 'react-icons/fa'
 
 
 export default function Register () {
@@ -24,10 +25,7 @@ export default function Register () {
           <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
           <div className='bg-white rounded-xl p-6 h-full'>
             <div className='flex justify-between'>         
-              <Link to='/OnBoarding'>
-                  {/* icono flecha atras */}
-                <button className=''>Atrás</button>
-              </Link>
+              <Link to='/OnBoarding'><FaArrowLeft /></Link>
               <div>
                 <span className='border rounded-full px-2 py-0.5  bg-black text-white'>1</span>
                 <span>-</span>
@@ -36,7 +34,7 @@ export default function Register () {
             </div>           
             <h2 className='text-xl mt-6 font-semibold'>Registro</h2>
             <h1 className='text-3xl font-semibold '>Ingresa tu correo electrónico</h1>
-            <div className='w-full flex flex-col pt-6 h-4/5'>
+            <div className='w-full flex flex-col pt-6 h-[85%]'>
                 <Formik
                 initialValues={{email: ""}}      
                 onSubmit={handleSubmit}
