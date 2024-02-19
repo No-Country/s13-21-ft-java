@@ -6,9 +6,9 @@ spring:
     ansi:
       enabled: always
   datasource:
-    url: ${DB_URL}
-    username: ${DEV_DB_USERNAME}
-    password: ${DEV_DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/s13-21
+    username: postgres
+    password: 1234
     hikari:
       maximum-pool-size: 1
   jpa:
@@ -26,3 +26,14 @@ springdoc:
     enabled: true
     swagger-ui:
       path: /swagger-ui.html
+
+email:
+  host: smtp.gmail.com
+  port: 587
+  username: nocountryc1529@gmail.com
+  password: yogbzwcgpgvgxrce
+  properties:
+    mail:
+      smtp:
+        starttls:
+          enable: true
