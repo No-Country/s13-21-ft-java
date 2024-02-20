@@ -7,9 +7,10 @@ import {
   Users,
   OnBoarding,
   Login,
-  Register 
+  Register,
+  ForgotPassword,
+  DashboardUser    
 } from '../Routes'
-
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,22 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loader />}>
             <Login />
+          </Suspense>
+        )
+      },
+      {
+        path: '/ForgotPassword',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <ForgotPassword />
+          </Suspense>
+        )
+      },
+      {
+        path: '/DashboardUser',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <DashboardUser />
           </Suspense>
         )
       }

@@ -3,6 +3,8 @@ const Users = lazy(() => import('./Users/Component/Users'))
 const OnBoarding = lazy(() => import('./OnBoarding/Component/OnBoarding'))
 const Login = lazy(() => import('./Login/Component/Login'))
 const Register = lazy(() => import('./Register/Component/Register'))
+const ForgotPassword = lazy(() => import('./ForgotPassword/Component/ForgotPassword'))
+const DashboardUser = lazy(() => import('./DashboardUser/Component/DashboardUser'))
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -16,5 +18,7 @@ export {
   Users,
   OnBoarding,
   Login,
-  Register   
+  Register,
+  ForgotPassword,
+  DashboardUser
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
@@ -12,7 +12,7 @@ export default function Register () {
   const [showPassword, setShowPassword] = useState(false)
   const [showPassword2, setShowPassword2] = useState(false)
 
-  //Post a la API (onsubmit)
+  // Post a la API (onsubmit)
 
   //Validaciones
   const validationSchema = Yup.object().shape({    

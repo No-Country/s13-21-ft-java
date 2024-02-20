@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 const OnBoardingInfo = () => {
     return (
       <>
-        <div className='pt-6'>
+        <div className='pt-10'>
           <p>EcoPay</p>
         </div>
-        <div className='py-2 text-wrap text-2xl'>
+        <div className='py-2 text-wrap text-2xl text-center'>
           <p>Bienvenido a la primer Green FinTech latinoamericana</p>
         </div>
 
-        <div className='p-[150px]'>
+        <div className='p-[120px] text-center'>
           <p>video o animación</p>
         </div>
 
