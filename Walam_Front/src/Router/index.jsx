@@ -8,11 +8,8 @@ import {
   OnBoarding,
   Login,
   Register,
-  Register2,
-  UsersData,
-  UsersData2,
   ForgotPassword,
-  DashboardUser
+  DashboardUser    
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -48,32 +45,7 @@ export const router = createBrowserRouter([
             <Register />
           </Suspense>
         )
-      },
-      {
-        path: '/Register2',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Register2 />
-          </Suspense>
-        )
-      },
-      {
-        path: '/UsersData',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <UsersData />
-          </Suspense>
-        )
-      },
-      {
-        path: '/UsersData2',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <UsersData2 />
-          </Suspense>
-        )
-      },
-
+      },            
       {
         path: '/OnBoarding',
         element: (
