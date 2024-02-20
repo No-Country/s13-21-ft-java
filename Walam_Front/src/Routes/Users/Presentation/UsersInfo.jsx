@@ -41,7 +41,7 @@ export default function UsersInfo () {
         <section className='p-6 h-4/5 lg:w-2/3 max-w-lg '>
           <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
           <div className='bg-white rounded-xl p-6 h-full '>
-            <Link to='/Register2'><FaArrowLeft /></Link>                      
+            <Link to='/'><FaArrowLeft /></Link>                      
             <h2 className='text-xl mt-6 font-semibold'>Datos</h2>
             <h1 className='text-3xl font-semibold '>Ultimos pasos para completar tu registro</h1>
             <div className='w-full flex flex-col px-2 py-6 h-4/5 overflow-y-auto'>
