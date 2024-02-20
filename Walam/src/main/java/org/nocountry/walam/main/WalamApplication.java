@@ -8,6 +8,7 @@ public class WalamApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WalamApplication.class, args);
+
     }
 
 }
