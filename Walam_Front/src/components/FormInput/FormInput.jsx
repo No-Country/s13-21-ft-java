@@ -5,9 +5,9 @@ export default function FormInput ({ id, name, type, placeholder, errors, value 
 
   const normal = 'focus:outline-none  text-gray-700 '
   return (
-    <div className='mb-2 w-full'>
+    <div className='mb-2 h-[90px]'>
       <label
-        className='block text-gray-900 text-xs mb-1 pl-1'
+        className='block text-gray-700 text-sm mb-2'
         htmlFor={id}
       >
         {name}
