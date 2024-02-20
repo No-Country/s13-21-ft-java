@@ -1,4 +1,25 @@
-# Punto de entrada de entornos de trabajo
+## ENTORNO DE TRABAJO DE DESARROLLO ##
+
 spring:
-  profiles:
-    active: dev
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+    swagger-ui:
+      path: /swagger-ui.html
