@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
-import { useNavigate } from 'react-router-dom'
 import { FaAngleDoubleDown, FaArrowLeft } from 'react-icons/fa'
 
 
@@ -11,18 +10,18 @@ export default function UsersDataFormInfo () {
 
   //Conexion a la API (onsubmit/onreset)
 
-  //Validaciones
-  const validationSchema = Yup.object().shape({    
+  // Validaciones
+  const validationSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Nombre requerido'),
-    lastname: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Apellido requerido'),  
+    lastname: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Apellido requerido'),
     birth: Yup.date().required('Fecha requerida'),
-    phone: Yup.number().min(6,'Mínimo 6 caractares').required('Teléfono requerido'),
+    phone: Yup.number().min(6, 'Mínimo 6 caractares').required('Teléfono requerido'),
     country: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('País requerido'),
     residence: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('País  requerido'),  
     docNumber: Yup.number().min(6,'Mínimo 6 caractares').required('Número de documento requerido')          
   })
 
-  const initialValues = {    
+  const initialValues = {
     name: '',
     lastname: '',
     birth: '',
@@ -82,9 +81,9 @@ export default function UsersDataFormInfo () {
                          
           </div>    
         </section>
-        <section className='p-24 hidden lg:block text-white'>
+      <section className='p-24 hidden lg:block text-white'>
           <p>Espacio para video, animacion, textos, botones</p>
-        </section>  
-    </div>        
+        </section>
+    </div>
   )
 }

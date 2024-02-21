@@ -10,23 +10,27 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
-
 @Configuration
 public class EmailConfig {
 
-    @Value("${email.username}")
-    private String email /*= "nocountryc1529@gmail.com"*/;
+    @Value("${email.username:nocountryc1529@gmail.com}")
+    private String email;
 
-    @Value("${email.password}")
-    private String password /*= "yogbzwcgpgvgxrce"*/;
+    @Value("${email.password:yogbzwcgpgvgxrce}")
+    private String password;
+
+    @Value("${email.smtp.host:smtp.gmail.com}")
+    private String host;
+
+    @Value("${email.smtp.port:587}")
+    private int port;
 
     private Properties getMailProperties() {
         Properties properties = new Properties();
-
-        properties.put("mail.smtp.auth", "true");//auth required before send email
-        properties.put("mail.smtp.starttls.enable", "true");//tls is a secured channel to send email
-        properties.put("mail.smtp.host", "smtp.gmail.com"); // email server host
-        properties.put("mail.smtp.port", "587"); // Ejemplo: 587 // 597 is secured common port to sending email
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.smtp.host", host);
+        properties.put("mail.smtp.port", port);
         return properties;
     }
 
@@ -44,3 +48,4 @@ public class EmailConfig {
         return new DefaultResourceLoader();
     }
 }
+
