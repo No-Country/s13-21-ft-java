@@ -15,9 +15,9 @@ const OnBoardingInfo = () => {
         </div>
 
         <div className='flex flex-wrap justify-center content-between'>
-        <button className='font-bold bg-white text-black py-2 px-10 rounded border-2 border-black shadow'>Iniciar sesión</button>
+        <Link to='/Register' className='font-bold bg-white text-black py-2 px-10 rounded border-2 border-black shadow'> Registrarse</Link>
         <div className='w-2'></div>
-        <Link to='/Login' className='font-bold bg-black py-2 px-10 rounded border-2 border-black shadow'> Registrarse</Link>
+        <Link to='/Login' className='font-bold bg-black py-2 px-10 rounded border-2 border-black shadow'> Iniciar sesión</Link>
         </div>
       </>
     )
