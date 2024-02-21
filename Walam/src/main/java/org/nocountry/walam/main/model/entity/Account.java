@@ -26,10 +26,9 @@ public class Account {
     @Column(nullable = false, unique = true)
     @Size(max = 22)
     @NotBlank
-    private int cvu;
+    private String cvu;
 
     @NotNull  // Asegura que balance no sea nulo.
-    @Digits(integer = 10, fraction = 2)  // Limita el número de dígitos enteros de balance a 10 y el número de dígitos decimales a 2.
     @Column(nullable = false)
     private Double balance;
 
