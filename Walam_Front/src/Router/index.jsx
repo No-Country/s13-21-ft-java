@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         )
       },            
       {
-        path: '/OnBoarding',
+        path: '/',
         element: (
           <Suspense fallback={<Loader />}>
             <OnBoarding />
