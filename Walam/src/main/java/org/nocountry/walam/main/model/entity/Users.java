@@ -1,17 +1,11 @@
 package org.nocountry.walam.main.model.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import java.util.List;
 
 @Data
 @Builder
@@ -33,7 +27,7 @@ public class Users {
   @ManyToOne
   @JoinColumn(name = "nationality")
   private Countries nationality;
-  
+
   private String phone;
   private Date birthDate;
   private int points;
@@ -42,5 +36,18 @@ public class Users {
   // UserType 1-1
   // Memberships 1-n
   boolean active;
-  
+
+  @ManyToOne
+  @JoinColumn(name = "country_id")
+  private Countries country;
+
+  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  private Account account;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+  private List<UserSupportTickets> supportTickets;
+
+  @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+  private AccountCard accountCard;
+
 }

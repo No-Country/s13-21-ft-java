@@ -2,15 +2,11 @@ import React from 'react'
 
 function Loader () {
   return (
-    <div className='flex items-center justify-center min-h-screen p-5 max-w-screen'>
-
-      <div className='flex space-x-2 animate-pulse'>
-        <div className='w-3 h-3 bg-gray-500 rounded-full' />
-        <div className='w-3 h-3 bg-gray-500 rounded-full' />
-        <div className='w-3 h-3 bg-gray-500 rounded-full' />
+    <>
+      <div className='bg-[#585858] text-white w-full h-screen flex flex-col justify-center items-center'>
+        <img src="/img/Logo.png" alt="Logo EcoPay" />
       </div>
-
-    </div>
+    </>
   )
 }
 
