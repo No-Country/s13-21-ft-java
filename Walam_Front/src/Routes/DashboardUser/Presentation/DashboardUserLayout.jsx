@@ -1,6 +1,6 @@
 const DashboardUserLayout = ({ children }) => {
   return (
-    <div>
+    <div className='w-full flex justify-center'>
       {children}
     </div>
   )
