@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,7 +45,7 @@ public class Users {
   private Account account;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-  private List<UserSupportTickets> supportTickets;
+  private List<UserSupportTicket> supportTickets;
 
   @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
   private AccountCard accountCard;
