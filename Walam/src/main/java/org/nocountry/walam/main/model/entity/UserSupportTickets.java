@@ -36,4 +36,8 @@ public class UserSupportTickets {
     @Column(name = "state", nullable = false)
     private TicketState state;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
+
 }

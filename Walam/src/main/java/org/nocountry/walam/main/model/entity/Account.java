@@ -33,4 +33,10 @@ public class Account {
     @Column(nullable = false)
     private Double balance;
 
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Users user;
+
+
+
 }
