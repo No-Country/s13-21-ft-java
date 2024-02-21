@@ -1,4 +1,18 @@
-# Punto de entrada de entornos de trabajo
+## ENTORNO DE TRABAJO DE PRODUCCION ##
 spring:
-  profiles:
-    active: dev
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 1
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: always
