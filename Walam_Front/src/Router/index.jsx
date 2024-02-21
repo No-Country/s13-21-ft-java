@@ -4,7 +4,7 @@ import Loader from '../components/Loader/Loader'
 import { MainLayout } from '../Layouts'
 
 import {
-  Users,
+  UsersDataForm,
   OnBoarding,
   Login,
   Register,
@@ -31,10 +31,10 @@ export const router = createBrowserRouter([
       //   )
       // },
       {
-        path: '/Users',
+        path: '/UsersDataForm',
         element: (
           <Suspense fallback={<Loader />}>
-            <Users />
+            <UsersDataForm />
           </Suspense>
         )
       },

@@ -58,7 +58,7 @@ export default function Register () {
         <section className='p-6 h-4/5 lg:w-2/3 max-w-lg'>
           <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
           <div className='bg-white rounded-xl p-6 h-full'>                    
-            <Link to='/OnBoarding'><FaArrowLeft /></Link> 
+            <Link to='/'><FaArrowLeft /></Link> 
             <h2 className='text-xl mt-6 font-semibold'>Registro</h2>
             <h1 className='text-3xl font-semibold '>Ingresa tu correo electrónico</h1>
             <div className='w-full flex flex-col pt-6 h-[85%]'>
