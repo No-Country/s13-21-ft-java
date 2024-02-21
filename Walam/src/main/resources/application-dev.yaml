@@ -6,8 +6,8 @@ spring:
     ansi:
       enabled: always
   datasource:
-    url: jdbc:postgresql://localhost:5432/s13-21
-    username: postgres
+    url: jdbc:mysql://localhost:3306/securitydb
+    username: root
     password: 1234
     hikari:
       maximum-pool-size: 1

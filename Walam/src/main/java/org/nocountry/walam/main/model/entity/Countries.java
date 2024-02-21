@@ -13,6 +13,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
@@ -26,7 +28,8 @@ public class Countries {
     private String code;
     private String name;
 
-    @JsonIgnore
-    @OneToMany(targetEntity = Users.class, fetch = FetchType.LAZY, mappedBy = "nationality")
-    private List<Users> users;
+    //@JsonIgnore
+    //@OneToMany(targetEntity = User.class, fetch = FetchType.LAZY, mappedBy = "nationality")
+    //private List<User> user;
+
 }
