@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import profilePhoto from '../../../assets/Avatar Style 6.jpg'
 import circle from '../../../assets/greenCircle.png'
 import cardImg from '../../../assets/cardImg.png'
@@ -15,7 +16,7 @@ const DashboardUserInfo = () => {
           <p>
             Hola,
             <br />
-            Pedrita
+            <Link to='/Users'>Pedrita</Link>
           </p>
           <IoIosArrowRoundForward className='text-[40px]' />
         </div>

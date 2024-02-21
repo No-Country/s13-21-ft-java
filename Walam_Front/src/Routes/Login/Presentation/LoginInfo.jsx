@@ -8,12 +8,14 @@ import { useState } from 'react'
 // import axios from 'axios'
 
 const LoginInfo = () => {
+  const navigate = useNavigate()
   const [error, setError] = useState('')
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const onSubmit = async (values) => {
     console.log(values)
+    navigate('/Dashboarduser')
     // try {
     //   const response = await axios.post('/api/users/login', values)
     //   setError('')
@@ -42,7 +44,7 @@ const LoginInfo = () => {
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
     email: Yup.string().email('El correo no es válido').required('El correo es requerido'),
-    password: Yup.string().min(8, 'La contraseña debe tener mínimo 8 caracteres')
+    password: Yup.string().min(12, 'La contraseña debe tener mínimo 8 caracteres')
       .matches(
         /^(?=.*[a-z])/,
         'Debe contener al menos una letra en minúscula'
@@ -77,7 +79,7 @@ const LoginInfo = () => {
       <h1 className='text-white text-2xl font-medium pb-2 hidden xl:block'>EcoPay</h1>
       <div className='xl:rounded-xl xl:bg-white p-4 w-full'>
         <div className='w-[87%] xl:w-full flex justify-between'>
-          <Link to='/OnBoarding'><FaArrowLeft className='xl:hidden' /></Link>
+          <Link to='/'><FaArrowLeft className='xl:hidden' /></Link>
           <div className='xl:border-2 xl:border-black xl:p-2 xl:rounded-xl '>
             <BsQrCode className='text-[36px] hidden xl:block ' />
           </div>
