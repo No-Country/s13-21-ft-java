@@ -73,7 +73,7 @@ const LoginInfo = () => {
   }
 
   return (
-    <div className=' w-full xl:max-w-[490px]'>
+    <div className=' w-full md:w-1/2 xl:max-w-[490px]'>
       <h1 className='text-white text-2xl font-medium pb-2 hidden xl:block'>EcoPay</h1>
       <div className='xl:rounded-xl xl:bg-white p-4 w-full'>
         <div className='w-[87%] xl:w-full flex justify-between'>
