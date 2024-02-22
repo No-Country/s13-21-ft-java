@@ -1,4 +1,4 @@
-package org.nocountry.walam.main.googleauth.util;
+package org.nocountry.walam.main.googleauth;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
