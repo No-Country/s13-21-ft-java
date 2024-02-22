@@ -24,4 +24,9 @@ public class AccountController {
         Account DTOtoEntity = accountService.mapDTOToAccount(accountDTO);
         return ResponseEntity.ok("DTOtoEntity : " + DTOtoEntity);
     }
+
+    @GetMapping("/")
+    public ResponseEntity<?> test() {
+        return ResponseEntity.ok("Hola testeador, funciona la api");
+    }
 }
