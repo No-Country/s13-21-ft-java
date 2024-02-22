@@ -12,8 +12,8 @@ import static org.nocountry.walam.main.googleauth.util.GoogleAuthenticatorUtils.
 public class GoogleMainApplication {
 
     public static void main(String[] args) throws IOException, WriterException {
-        String secretKey = "{secretKey}";
-        String email = "{email}";
+        String secretKey = GoogleAuthenticatorUtils.generateSecretKey();
+        String email = "cositaCosa@gmail.com";
         String companyName = "Ecopay";
         String barCodeUrl = GoogleAuthenticatorUtils.getGoogleAuthenticatorBarCode(secretKey, email, companyName);
         System.out.println(barCodeUrl);
