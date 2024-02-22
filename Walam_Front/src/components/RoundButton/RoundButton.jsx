@@ -1,7 +1,7 @@
 import { BsQrCode } from 'react-icons/bs'
-import { FaRegAddressCard } from 'react-icons/fa'
-import { GiReceiveMoney } from 'react-icons/gi'
+import { FaRegAddressCard, FaPlus } from 'react-icons/fa'
 import { FaMoneyBillTrendUp } from 'react-icons/fa6'
+import { MdOutlinePhoneAndroid } from 'react-icons/md'
 
 export default function RoundButton ({ info, option }) {
   let Icon
@@ -9,7 +9,7 @@ export default function RoundButton ({ info, option }) {
   // Asign the icon acording to the iconType received
   switch (option) {
     case 'option1':
-      Icon = GiReceiveMoney
+      Icon = MdOutlinePhoneAndroid
       break
     case 'option2':
       Icon = BsQrCode
@@ -19,6 +19,9 @@ export default function RoundButton ({ info, option }) {
       break
     case 'option4':
       Icon = FaMoneyBillTrendUp
+      break
+    case 'option5':
+      Icon = FaPlus
       break
     default:
       Icon = null

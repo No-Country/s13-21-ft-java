@@ -9,7 +9,7 @@ import {
   Login,
   Register,
   ForgotPassword,
-  DashboardUser    
+  DashboardUser
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
             <Register />
           </Suspense>
         )
-      },            
+      },
       {
         path: '/',
         element: (

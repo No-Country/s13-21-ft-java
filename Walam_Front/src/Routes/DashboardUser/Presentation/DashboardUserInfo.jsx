@@ -44,6 +44,7 @@ const DashboardUserInfo = () => {
         <RoundButton info='QR' option='option2' />
         <RoundButton info='CVU' option='option3' />
         <RoundButton info='Divisas' option='option4' />
+        <RoundButton info='Ver más' option='option5' />
       </section>
       <section className='w-full mt-8 '>
         <button className='border w-full bg-zinc-700 flex justify-center items-center rounded-lg'>

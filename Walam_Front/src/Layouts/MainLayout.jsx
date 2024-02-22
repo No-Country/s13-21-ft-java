@@ -1,9 +1,13 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import { Footer, NavBar } from '../components'
 
 import '../index.css'
 
 const MainLayout = () => {
+  const location = useLocation()
+  const showNavbarMobileRoutes = ['/Users', '/Dashboarduser']
+  const showNavbarMobile = showNavbarMobileRoutes.includes(location.pathname)
+
   return (
     <div className='
     w-full
@@ -14,9 +18,12 @@ const MainLayout = () => {
     grid-rows-[1fr,auto,1fr]
     lg:grid-rows-[1r,auto,1fr]'
     >
-      <header>
-        <div className='w-[100%]'>
+      <header className='w-[100%]'>
+        {/* <div className='hidden md:block'>
           <NavBar />
+        </div> */}
+        <div className='md:hidden'>
+          {showNavbarMobile && <NavBar />}
         </div>
       </header>
       <main className='row-start-2'>
