@@ -19,6 +19,14 @@ const OnBoardingInfo = () => {
         <div className='w-2'></div>
         <Link to='/Login' className='font-bold bg-black py-2 px-10 rounded border-2 border-black shadow'> Iniciar sesión</Link>
         </div>
+
+        <div className='flex flex-wrap justify-center content-between'>
+        <Link to='/DashboardUser' className='font-bold  py-2 px-10 '> DashboardUser</Link>
+        <div className='w-2'></div>
+        <Link to='/ForgotPassword' className='font-bold  py-2 px-10'> ForgotPassword</Link>
+        <div className='w-2'></div>
+        <Link to='/UsersDataForm' className='font-bold  py-2 px-10'> UsersDataForm</Link>
+        </div>
       </>
     )
   }

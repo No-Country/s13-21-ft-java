@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
-import { MainLayout } from '../Layouts'
+import { MainLayout, UserLayout } from '../Layouts'
 
 import {
   UsersDataForm,
@@ -32,52 +32,39 @@ export const router = createBrowserRouter([
       // },
       {
         path: '/UsersDataForm',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <UsersDataForm />
-          </Suspense>
-        )
+        element: <UsersDataForm />
       },
       {
         path: '/Register',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Register />
-          </Suspense>
-        )
+        element: <Register />
       },            
       {
         path: '/',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <OnBoarding />
-          </Suspense>
-        )
+        element: <OnBoarding />
       },
       {
         path: '/Login',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Login />
-          </Suspense>
-        )
+        element: <Login />
       },
       {
         path: '/ForgotPassword',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <ForgotPassword />
-          </Suspense>
-        )
+        element: <ForgotPassword />
       },
       {
-        path: '/DashboardUser',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <DashboardUser />
-          </Suspense>
-        )
+      path: '/',
+      element: (
+        <Suspense fallback={<Loader />}>
+          <UserLayout />
+        </Suspense>
+      ),
+      children: [
+        {
+          path: '/DashboardUser',
+          element: <DashboardUser />
+        }
+      ]
       }
+      
       // {
       //   path: '/Reset-password',
       //   element: (
