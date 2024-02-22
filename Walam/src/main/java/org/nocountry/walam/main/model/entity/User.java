@@ -1,7 +1,6 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
-<<<<<<< HEAD
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

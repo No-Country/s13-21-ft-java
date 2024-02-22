@@ -1,4 +1,4 @@
-package org.nocountry.walam.main.controller.dto;
+package org.nocountry.walam.main.model.dto;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
