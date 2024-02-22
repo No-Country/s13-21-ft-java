@@ -1,4 +1,40 @@
-# Punto de entrada de entornos de trabajo
+## ENTORNO DE TRABAJO DE DESARROLLO ##
+server:
+  port: 8080
 spring:
-  profiles:
-    active: dev
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 1
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+    swagger-ui:
+      path: /swagger-ui.html
+
+email:
+  host: smtp.gmail.com
+  port: 587
+  username: nocountryc1529@gmail.com
+  password: yogbzwcgpgvgxrce
+  properties:
+    mail:
+      smtp:
+        starttls:
+          enable: true
+
