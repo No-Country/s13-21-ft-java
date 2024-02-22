@@ -16,9 +16,11 @@ const DashboardUserInfo = () => {
           <p>
             Hola,
             <br />
-            <Link to='/Users'>Pedrita</Link>
+            <Link to='/UsersDataForm'>Pedrita</Link>
           </p>
-          <IoIosArrowRoundForward className='text-[40px]' />
+          <Link to='/UsersDataForm'>
+            <IoIosArrowRoundForward className='text-[40px]' />
+          </Link>
         </div>
       </section>
       <section className='flex gap-6'>

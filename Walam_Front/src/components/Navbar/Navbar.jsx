@@ -42,16 +42,23 @@ const Navbar = () => {
             {/* Contenido del menú */}
             <ul className='mt-2'>
               <li className='mb-1'>
-                <Link href='' className='block px-4 py-2 text-sm'>Inicio</Link>
+                <Link to='/DashboardUser' className='block px-4 py-2 text-sm'>Inicio</Link>
               </li>
               <li className='mb-1'>
-                <Link href='#' className='block px-4 py-2 text-sm'>Acerca de</Link>
+                <Link to='/UsersDataForm' className='block px-4 py-2 text-sm'>
+                  Perfil de usuario
+                </Link>
               </li>
               <li className='mb-1'>
-                <Link href='#' className='block px-4 py-2 text-sm'>Servicios</Link>
+                <Link to='#' className='block px-4 py-2 text-sm'>
+                  Historial de movimientos
+                </Link>
               </li>
               <li className='mb-1'>
-                <a href='#' className='block px-4 py-2 text-sm'>Contacto</a>
+                <Link to='#' className='block px-4 py-2 text-sm'>Servicios</Link>
+              </li>
+              <li className='mb-1'>
+                <Link to='#' className='block px-4 py-2 text-sm'>Recargas</Link>
               </li>
             </ul>
           </div>

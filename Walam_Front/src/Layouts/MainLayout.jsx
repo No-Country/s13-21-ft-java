@@ -5,7 +5,7 @@ import '../index.css'
 
 const MainLayout = () => {
   const location = useLocation()
-  const showNavbarMobileRoutes = ['/Users', '/Dashboarduser']
+  const showNavbarMobileRoutes = ['/DashboardUser', '/UsersDataForm']
   const showNavbarMobile = showNavbarMobileRoutes.includes(location.pathname)
 
   return (
@@ -19,12 +19,7 @@ const MainLayout = () => {
     lg:grid-rows-[1r,auto,1fr]'
     >
       <header className='w-[100%]'>
-        {/* <div className='hidden md:block'>
-          <NavBar />
-        </div> */}
-        <div className='md:hidden'>
-          {showNavbarMobile && <NavBar />}
-        </div>
+        {showNavbarMobile && <NavBar />}
       </header>
       <main className='row-start-2'>
         <Outlet />
