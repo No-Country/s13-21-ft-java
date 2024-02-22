@@ -51,8 +51,8 @@ public class User implements UserDetails {
     @Column(name = "birth_date")
     private Date birthday;
 
-    @Column(name = "active", columnDefinition = "TINYINT(1) default 1", nullable = false)
-    private boolean active = true;
+    @Column(name = "active", columnDefinition = "BOOLEAN default true", nullable = false)
+    private boolean active;
 
     @Column(name = "rol", columnDefinition = "varchar(5) default 'USER'")
     @Enumerated(EnumType.STRING)
