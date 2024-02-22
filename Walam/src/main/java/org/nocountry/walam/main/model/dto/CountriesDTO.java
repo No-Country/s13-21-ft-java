@@ -16,6 +16,8 @@ import java.util.List;
 @Builder
 public class CountriesDTO implements Serializable {
 
+    Integer id;
+
     @NotBlank
     @Size(min = 5, max = 25)
     private String name;

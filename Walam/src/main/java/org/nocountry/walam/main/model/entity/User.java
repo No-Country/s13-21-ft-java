@@ -1,11 +1,8 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,88 +11,54 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-//import lombok.EqualsAndHashCode;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Builder
+@SQLDelete(sql = "UPDATE users SET active = 0 WHERE id=?" )
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User implements UserDetails {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /* CONSTRAINS AND VALIDATIONS APPLIED TO COLUMNS*/
-
-    // User
-    @NotEmpty
-    @NotBlank
-    @Column(name = "username", nullable = true)
+    @Column(name = "name", length = 25)
     private String username;
 
-    // Password
-    @NotEmpty
-    @NotBlank
-    @Column(name = "password", nullable = true)
-    private String password;
+    @Column(name = "lastname", length = 20)
+    private String lastName;
 
-    // Firstname
-    @Column(name = "firstname", nullable = true)
-    private String firstname;
+    @Column(name = "no_identidad", length = 15, unique = true)
+    private String noIdentidad;
 
-    // Secondname
-    @Column(name = "secondname", nullable = true)
-    private String secondname;
-
-    // Lastname
-    @NotEmpty
-    @NotBlank
-    @Column(name = "lastname", nullable = true)
-    private String lastname;
-
-    // Second lastname
-    @Column(name = "secondlastname", nullable = true)
-    private String secondlastname;
-
-    // Country
-    @NotEmpty
-    @NotBlank
-    @Column(name = "country", nullable = true)
-    private String country;
-
-    // EmaiL
-    @NotEmpty
-    @NotBlank
-    @Email
-    @Column(name = "email", nullable = true)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    // User Role (ADMIN/USER)
-    @Enumerated(EnumType.STRING)
-    Role role;
+    @Column(name = "password", length = 12, nullable = false)
+    private String password;
 
-    //Phone number
-    @Pattern(regexp = "\\d{10}")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "countries")
+    private Countries country;
+
+    @Column(name = "phone", length = 12)
     private String phone;
 
-    // Birthday
-    @Past
+    @Column(name = "birth_date")
     private Date birthday;
 
-    // Points
-    @Min(0)
-    private int points;
+    @Column(name = "active", columnDefinition = "TINYINT(1) default 1", nullable = false)
+    private boolean active = true;
 
-    // User Nationality
-    //@ManyToOne
-    //@JoinColumn(name = "nationality")
-    //private Countries nationality;
+    @Column(name = "rol", columnDefinition = "varchcar(5) default 'USER'")
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    // User Status?
-    boolean active;
+
 
 
 
