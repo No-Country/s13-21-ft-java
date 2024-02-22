@@ -15,7 +15,7 @@ const LoginInfo = () => {
   const [showPassword, setShowPassword] = useState(false)
   const onSubmit = async (values) => {
     console.log(values)
-    navigate('/Dashboarduser')
+    navigate('/DashboardUser')
     // try {
     //   const response = await axios.post('/api/users/login', values)
     //   setError('')
@@ -44,7 +44,7 @@ const LoginInfo = () => {
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
     email: Yup.string().email('El correo no es válido').required('El correo es requerido'),
-    password: Yup.string().min(12, 'La contraseña debe tener mínimo 8 caracteres')
+    password: Yup.string().max(12, 'La contraseña debe tener máximo 12 caracteres')
       .matches(
         /^(?=.*[a-z])/,
         'Debe contener al menos una letra en minúscula'
