@@ -1,10 +1,8 @@
-## ENTORNO DE TRABAJO DE DESARROLLO ##
+
 server:
   port: 8080
+
 spring:
-  output:
-    ansi:
-      enabled: always
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
@@ -12,12 +10,16 @@ spring:
     hikari:
       maximum-pool-size: 1
   jpa:
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
-    show-sql: true
+        show-sql: true
     hibernate:
       ddl-auto: update
+  output:
+    ansi:
+      enabled: always
 
 springdoc:
   swagger-ui:
@@ -37,4 +39,3 @@ email:
       smtp:
         starttls:
           enable: true
-
