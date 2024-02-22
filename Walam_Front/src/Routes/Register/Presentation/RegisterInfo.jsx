@@ -15,7 +15,7 @@ export default function Register () {
   // Validaciones
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('No es una dirección de correo eletrónico válida').required('No es una dirección de correo eletrónico válida'),
-    password: Yup.string().min(12, 'La contraseña debe tener mínimo 8 caracteres')
+    password: Yup.string().min(8, 'La contraseña debe tener mínimo 8 caracteres')
       .matches(
         /^(?=.*[a-z])/,
         'Debe contener al menos una letra en minúscula'
