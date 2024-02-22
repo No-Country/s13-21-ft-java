@@ -16,3 +16,14 @@ spring:
   output:
     ansi:
       enabled: always
+
+email:
+  host: smtp.gmail.com
+  port: 587
+  username: nocountryc1529@gmail.com
+  password: yogbzwcgpgvgxrce
+  porties:
+    mail:
+      smtp:
+        starttls:
+          enable: true
