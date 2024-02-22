@@ -1,32 +1,28 @@
 package org.nocountry.walam.main.model.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
 @Table(name = "countries")
-public class Countries {
+public class Countries implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String code;
+
+    @Column(length = 25, unique = true)
     private String name;
 
     @JsonIgnore
-    @OneToMany(targetEntity = Users.class, fetch = FetchType.LAZY, mappedBy = "nationality")
-    private List<Users> users;
+    @OneToMany(targetEntity = User.class, fetch = FetchType.LAZY, mappedBy = "country")
+    private List<User> users;
 }

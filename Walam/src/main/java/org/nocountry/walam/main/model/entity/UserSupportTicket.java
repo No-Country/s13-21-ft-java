@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
-@Table(name = "user_support_tickets")
-public class UserSupportTickets {
+@Table(name = "user_support_ticket")
+public class UserSupportTicket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +37,7 @@ public class UserSupportTickets {
     private TicketState state;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @JoinColumn(name = "owner_id")
+    private User owner;
 
 }
