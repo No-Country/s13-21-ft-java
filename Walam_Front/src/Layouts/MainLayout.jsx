@@ -24,9 +24,6 @@ const MainLayout = () => {
       <main className='row-start-2'>
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   )
 }
