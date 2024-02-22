@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 import static org.nocountry.walam.main.googleauth.util.GoogleAuthenticatorUtils.getTOTPCode;
 
-public class MainApplication {
+public class GoogleMainApplication {
 
     public static void main(String[] args) throws IOException, WriterException {
         String secretKey = "{secretKey}";
