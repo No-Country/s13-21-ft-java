@@ -22,9 +22,11 @@ package org.nocountry.walam.main.service.impl;
 //}
 
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.model.dto.AccountDTO;
 import org.nocountry.walam.main.model.entity.Account;
+import org.nocountry.walam.main.model.mapper.AccountMapper;
 import org.nocountry.walam.main.model.repository.AccountRepository;
-import org.nocountry.walam.main.service.IAccountService;
+import org.nocountry.walam.main.service.AccountService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,28 +35,26 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class AccountServiceImpl implements IAccountService {
+public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
 
-    @Override
     public Account saveAccount(Account account) {
         return accountRepository.save(account);
     }
-
-    @Override
     public void deleteAccountById(int id) {
         accountRepository.deleteById(id);
     }
-
-    @Override
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
-
-    @Override
     public Account getAccountById(int id) {
         return accountRepository.findById(id).orElse(null);
     }
+    public AccountDTO mapAccountToDTO(Account account) {
+        return AccountMapper.INSTANCE.accountToAccountDTO(account);}
+    public Account mapDTOToAccount(AccountDTO accountDTO) {
+        return AccountMapper.INSTANCE.accountDTOToAccount(accountDTO);}
+
 
 }
