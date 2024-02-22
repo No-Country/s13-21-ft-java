@@ -1,13 +1,12 @@
-package org.nocountry.walam.main.googleauth.auth;
+package org.nocountry.walam.main.googleauth;
 
 
 import com.google.zxing.WriterException;
-import org.nocountry.walam.main.googleauth.util.GoogleAuthenticatorUtils;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import static org.nocountry.walam.main.googleauth.util.GoogleAuthenticatorUtils.getTOTPCode;
+import static org.nocountry.walam.main.googleauth.GoogleAuthenticatorUtils.getTOTPCode;
 
 public class GoogleMainApplication {
 
