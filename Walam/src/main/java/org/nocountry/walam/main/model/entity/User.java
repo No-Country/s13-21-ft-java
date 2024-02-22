@@ -54,7 +54,7 @@ public class User implements UserDetails {
     @Column(name = "active", columnDefinition = "TINYINT(1) default 1", nullable = false)
     private boolean active = true;
 
-    @Column(name = "rol", columnDefinition = "varchcar(5) default 'USER'")
+    @Column(name = "rol", columnDefinition = "varchar(5) default 'USER'")
     @Enumerated(EnumType.STRING)
     private Role role;
 
