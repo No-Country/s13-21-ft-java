@@ -20,13 +20,13 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull
-    @Column(name = "origin_account", nullable = false)
-    private String originAccount;
+    @ManyToOne
+    @JoinColumn(name = "origin_account_id", nullable = false) // Especifica el nombre de la columna de clave foránea
+    private Account originAccount; // Cambia el tipo de datos a Account
 
-    @NotNull
-    @Column(name = "destiny_account", nullable = false)
-    private String destinyAccount;
+    @ManyToOne
+    @JoinColumn(name = "destiny_account_id", nullable = false) // Especifica el nombre de la columna de clave foránea
+    private Account destinyAccount; // Cambia el tipo de datos a Account
 
     @NotNull
     @DecimalMin(value = "0.01", message = "El monto debe ser mayor que cero")

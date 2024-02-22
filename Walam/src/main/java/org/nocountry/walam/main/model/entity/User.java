@@ -38,11 +38,11 @@ public class User implements UserDetails {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password", length = 12, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "countries")
+    @JoinColumn(name = "country_id") // Nombre correcto de la columna de clave foránea en la tabla users
     private Countries country;
 
     @Column(name = "phone", length = 12)

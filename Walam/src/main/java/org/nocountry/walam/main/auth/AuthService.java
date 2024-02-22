@@ -33,12 +33,15 @@ public class AuthService {
     public AuthResponse register(RegisterRequest registerRequest) {
         User user = User.builder()
                 .username(registerRequest.getUsername())
+                .lastName(registerRequest.getLastName())
+                .noIdentidad(registerRequest.getNoIdentidad())
+                .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .lastName(registerRequest.getLastname())
-                .email((registerRequest.getEmail()))
-                .role(Role.USER)
+                .phone(registerRequest.getPhone())
+                .birthday(registerRequest.getBirthday())
+                .active(true) // Supongo que por defecto los usuarios estarán activos
+                .role(Role.USER) // Supongo que por defecto los nuevos usuarios tendrán el rol USER
                 .build();
-
         userRepository.save(user);
 
         return AuthResponse

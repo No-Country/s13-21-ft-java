@@ -35,8 +35,7 @@ public class AccountCard {
     private boolean isActive;
 
     @OneToOne
-    @NotBlank(message = "El propietario de la tarjeta no puede estar en blanco")
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    @JoinColumn(name = "owner_id")
     private User owner;
 
 }
