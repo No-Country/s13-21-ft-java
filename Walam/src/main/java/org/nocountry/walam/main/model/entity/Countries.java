@@ -27,6 +27,6 @@ public class Countries {
     private String name;
 
     @JsonIgnore
-    @OneToMany(targetEntity = Users.class, fetch = FetchType.LAZY, mappedBy = "nationality")
-    private List<Users> users;
+    @OneToMany(targetEntity = User.class, fetch = FetchType.LAZY, mappedBy = "nationality")
+    private List<User> users;
 }

@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 @Entity
-@Table(name = "transactions")
-public class Transactions {
+@Table(name = "transaction")
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +40,9 @@ public class Transactions {
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
     private TransactionType type;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
+    private Account account;
 
 }

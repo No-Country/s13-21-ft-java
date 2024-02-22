@@ -32,13 +32,11 @@ public class AccountCard {
     @Future(message = "La fecha de expiración debe ser en el futuro")
     private LocalDate expirationDate;
 
-    @NotBlank(message = "El propietario de la tarjeta no puede estar en blanco")
-    private String owner;
-
     private boolean isActive;
 
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Users user;
+    @NotBlank(message = "El propietario de la tarjeta no puede estar en blanco")
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private User owner;
 
 }
