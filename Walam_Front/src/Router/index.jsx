@@ -55,18 +55,18 @@ export const router = createBrowserRouter([
         element: <ForgotPassword />
       },
       {
-      path: '/',
-      element: (
-        <Suspense fallback={<Loader />}>
-          <UserLayout />
-        </Suspense>
-      ),
-      children: [
-        {
-          path: '/DashboardUser',
-          element: <DashboardUser />
-        }
-      ]
+        path: '/',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <UserLayout />
+          </Suspense>
+        ),
+        children: [
+          {
+            path: '/DashboardUser',
+            element: <DashboardUser />
+          }
+        ]
       }
 
       // {
