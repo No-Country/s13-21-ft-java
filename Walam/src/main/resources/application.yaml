@@ -1,4 +1,7 @@
-## ENTORNO DE TRABAJO DE PRODUCCION ##
+
+server:
+  port: 8080
+
 spring:
   datasource:
     url: ${DB_URL}
@@ -11,18 +14,27 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        show-sql: true
     hibernate:
       ddl-auto: update
   output:
     ansi:
       enabled: always
 
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+    swagger-ui:
+      path: /swagger-ui.html
+
 email:
   host: smtp.gmail.com
   port: 587
   username: nocountryc1529@gmail.com
   password: yogbzwcgpgvgxrce
-  porties:
+  properties:
     mail:
       smtp:
         starttls:

@@ -1,6 +1,7 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -123,4 +124,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
