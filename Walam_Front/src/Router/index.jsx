@@ -9,7 +9,10 @@ import {
   Login,
   Register,
   ForgotPassword,
-  DashboardUser    
+  DashboardUser,
+  Deposit,
+  Extract,
+  VirtualCashier    
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -77,7 +80,34 @@ export const router = createBrowserRouter([
             <DashboardUser />
           </Suspense>
         )
+      },
+      {
+        path: '/Deposit',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Deposit />
+          </Suspense>
+        )
+      },
+      {
+        path: '/Extract',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Extract />
+          </Suspense>
+        )
+      },
+      {
+        path: '/VirtualCashier',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <VirtualCashier />
+          </Suspense>
+        )
       }
+
+  
+   
       // {
       //   path: '/Reset-password',
       //   element: (
