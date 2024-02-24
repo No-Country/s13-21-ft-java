@@ -1,9 +1,7 @@
 package org.nocountry.walam.main.model.dto;
 
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
 import org.nocountry.walam.main.model.entity.User;
@@ -26,6 +24,9 @@ public class AccountDTO implements Serializable {
     @Pattern(regexp = "^[0-9]+$")
     private String cvu;
 
+    @NotBlank
+    @DecimalMin(value = "0.00")
+    @DecimalMax(value = "999999999.99")
     private Double balance;
 
     @Valid

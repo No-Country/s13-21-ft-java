@@ -1,9 +1,6 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMax;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.nocountry.walam.main.model.entity.enums.TransactionType;
@@ -22,7 +19,7 @@ public class Transaction {
     @Id
     @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
 
     @Column(precision = 11, scale = 2)
