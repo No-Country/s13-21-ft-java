@@ -13,11 +13,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@ToString
 @Builder
 public class UserDTO implements Serializable {
 
-    Integer id;
+    private Integer id;
 
     @Min(3)
     private String username;

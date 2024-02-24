@@ -8,11 +8,13 @@ import lombok.Builder;
 import lombok.Data;
 import org.nocountry.walam.main.model.entity.User;
 
+import java.io.Serializable;
+
 @Data
 @Builder
-public class AccountDTO {
+public class AccountDTO implements Serializable {
 
-    private int id;
+    private Integer id;
 
     @NotBlank
     @Size(max = 20)
@@ -23,10 +25,10 @@ public class AccountDTO {
     @Size(max = 22)
     @Pattern(regexp = "^[0-9]+$")
     private String cvu;
+
     private Double balance;
 
     @Valid
     private User user;
 
-    // Add any other fields or methods if needed
 }

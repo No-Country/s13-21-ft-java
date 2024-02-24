@@ -4,13 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -20,7 +19,7 @@ public class Account {
     @Id
     @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "number_account", nullable = false, unique = true, updatable = false, length = 20)
     private String numberAccount;
@@ -34,7 +33,9 @@ public class Account {
 
     @OneToOne(mappedBy = "account")
     private User user;
-    
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinyAccount")
+    private List<Transaction> destinyTransaction;
 
 }
