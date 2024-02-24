@@ -4,10 +4,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
 import org.nocountry.walam.main.model.entity.Account;
 import org.nocountry.walam.main.model.entity.Countries;
-import org.nocountry.walam.main.model.entity.Role;
+import org.nocountry.walam.main.model.entity.enums.Role;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -5,6 +5,7 @@ import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.nocountry.walam.main.model.entity.enums.TransactionType;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,9 +25,10 @@ public class Transaction {
     private int id;
 
 
+    @Column(precision = 11, scale = 2)
     private Double amount;
 
-    @NotNull
+    @CreationTimestamp
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime date;
 

@@ -1,7 +1,7 @@
 package org.nocountry.walam.main.auth;
 
 import lombok.RequiredArgsConstructor;
-import org.nocountry.walam.main.model.entity.Role;
+import org.nocountry.walam.main.model.entity.enums.Role;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -2,40 +2,51 @@ package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
+@Table(name = "account_card")
 public class AccountCard {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @NotBlank(message = "El número de tarjeta no puede estar en blanco")
-    @Size(min = 16, max = 16, message = "El número de tarjeta debe tener 16 dígitos")
+    @Column(name = "card_number", length = 16, nullable = false, unique = true, updatable = false)
     private String cardNumber;
 
-    @NotNull(message = "El CVV no puede ser nulo")
-    @Min(value = 100, message = "El CVV debe tener al menos 3 dígitos")
-    @Max(value = 9999, message = "El CVV debe tener máximo 4 dígitos")
+    @Column(name = "cvv", length = 3, nullable = false, updatable = false)
     private Integer cvv;
 
-    @NotNull(message = "La fecha de creación no puede ser nula")
+    @CreationTimestamp
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "creation_date", updatable = false)
     private LocalDate creationDate;
 
-    @NotNull(message = "La fecha de expiración no puede ser nula")
-    @Future(message = "La fecha de expiración debe ser en el futuro")
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "creation_date", updatable = false)
     private LocalDate expirationDate;
 
-    private boolean isActive;
+    @Column(name = "active", columnDefinition = "BOOLEAN default true", nullable = false)
+    private boolean active;
 
-    @OneToOne
-    @JoinColumn(name = "owner_id")
-    private User owner;
+    /**
+     * Método para setear automáticamente la fecha de expiración dando
+     * 3 meses y medio (42 meses) a partir de la fecha de creación
+     */
+    @PrePersist
+    public void expirationDateSetter() {
+        LocalDate limitDate = this.creationDate.plusMonths(42);
+        this.expirationDate = limitDate;
+    }
 
 }
