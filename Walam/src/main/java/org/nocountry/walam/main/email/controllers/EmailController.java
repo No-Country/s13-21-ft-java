@@ -1,6 +1,4 @@
 package org.nocountry.walam.main.email.controllers;
-
-import org.nocountry.walam.main.email.dto.CorreoRequest;
 import org.nocountry.walam.main.email.services.IEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

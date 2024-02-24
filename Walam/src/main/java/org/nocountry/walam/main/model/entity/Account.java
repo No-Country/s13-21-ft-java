@@ -25,14 +25,14 @@ public class Account {
     @Column(nullable = false, unique = true, updatable = false, length = 22)
     private String cvu;
 
-    @Column(precision = 11, scale = 2, nullable = false)
+    @Column(precision = 11, nullable = false)
     private Double balance;
 
     @OneToOne(mappedBy = "account")
     private User user;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinyAccount")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
     private List<Transaction> destinyTransaction;
 
 }
