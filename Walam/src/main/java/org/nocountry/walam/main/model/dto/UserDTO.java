@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
+import org.nocountry.walam.main.model.entity.Account;
 import org.nocountry.walam.main.model.entity.Countries;
 import org.nocountry.walam.main.model.entity.Role;
 
@@ -48,6 +49,8 @@ public class UserDTO implements Serializable {
     @NotNull
     @AssertTrue
     private boolean active;
-
     private Role role;
+
+    @Valid
+    private Account account;
 }

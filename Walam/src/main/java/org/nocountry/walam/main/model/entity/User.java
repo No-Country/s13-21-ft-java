@@ -58,8 +58,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account")
+    private Account account;
 
 
     @Override
