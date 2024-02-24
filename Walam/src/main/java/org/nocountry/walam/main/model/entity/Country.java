@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(name = "countries")
-public class Countries implements Serializable {
+public class Country implements Serializable {
     
     @Id
     @Setter(AccessLevel.NONE)

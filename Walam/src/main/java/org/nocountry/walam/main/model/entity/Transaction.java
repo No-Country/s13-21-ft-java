@@ -1,15 +1,15 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.DecimalMax;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.nocountry.walam.main.model.entity.enums.TransactionType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -17,30 +17,25 @@ import java.time.LocalDateTime;
 public class Transaction {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "origin_account_id", nullable = false) // Especifica el nombre de la columna de clave foránea
-    private Account originAccount; // Cambia el tipo de datos a Account
 
-    @ManyToOne
-    @JoinColumn(name = "destiny_account_id", nullable = false) // Especifica el nombre de la columna de clave foránea
-    private Account destinyAccount; // Cambia el tipo de datos a Account
-
-    @NotNull
-    @DecimalMin(value = "0.01", message = "El monto debe ser mayor que cero")
-    @DecimalMax(value = "9999999999.99", message = "El monto no puede ser mayor de 9999999999.99")
+    @Column(precision = 11, scale = 2)
     private Double amount;
 
-    @NotNull
+    @CreationTimestamp
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime date;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "type", nullable = false)
     private TransactionType type;
 
+    /**
+     * Atributo relacionado a la cuenta de destino
+     */
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;

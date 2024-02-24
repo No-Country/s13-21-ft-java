@@ -3,6 +3,7 @@ package org.nocountry.walam.main.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
+import org.nocountry.walam.main.model.entity.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,7 +44,7 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id") // Nombre correcto de la columna de clave foránea en la tabla users
-    private Countries country;
+    private Country country;
 
     @Column(name = "phone", length = 12)
     private String phone;
@@ -58,8 +59,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account")
+    private Account account;
 
 
     @Override

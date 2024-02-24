@@ -1,14 +1,13 @@
 package org.nocountry.walam.main.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -16,28 +15,24 @@ import java.util.List;
 public class Account {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @Column(name = "number_account", nullable = false, unique = true)
-    @Size(max = 20)
-    @NotBlank
+    @Column(name = "number_account", nullable = false, unique = true, updatable = false, length = 20)
     private String numberAccount;
 
-    @Column(nullable = false, unique = true)
-    @Size(max = 22)
-    @NotBlank
+    @Column(nullable = false, unique = true, updatable = false, length = 22)
     private String cvu;
 
-    @NotNull
-    @Column(nullable = false)
+    @Column(precision = 11, scale = 2, nullable = false)
     private Double balance;
 
-    @OneToOne
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private User owner;
+    @OneToOne(mappedBy = "account")
+    private User user;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Transaction> transactions;
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "destinyAccount")
+    private List<Transaction> destinyTransaction;
 
 }
