@@ -44,7 +44,7 @@ public class User implements UserDetails {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id") // Nombre correcto de la columna de clave foránea en la tabla users
-    private Countries country;
+    private Country country;
 
     @Column(name = "phone", length = 12)
     private String phone;

@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @ToString
 @Builder
-public class CountriesDTO implements Serializable {
+public class CountryDTO implements Serializable {
 
     Integer id;
 
