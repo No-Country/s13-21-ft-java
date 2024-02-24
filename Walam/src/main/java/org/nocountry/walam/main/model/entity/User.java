@@ -1,6 +1,7 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.nocountry.walam.main.model.entity.enums.Role;
@@ -19,7 +20,7 @@ import java.util.List;
 @Entity
 @Builder
 @SQLDelete(sql = "UPDATE users SET active = 0 WHERE id=?" )
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -36,7 +37,8 @@ public class User implements UserDetails {
     @Column(name = "no_identidad", length = 15, unique = true)
     private String noIdentidad;
 
-    @Column(name = "email", nullable = false)
+    @Email
+    @Column(name = "email", nullable = false , unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
