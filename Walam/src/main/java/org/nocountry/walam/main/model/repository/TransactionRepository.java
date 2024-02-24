@@ -1,15 +1,14 @@
 package org.nocountry.walam.main.model.repository;
 
-import org.nocountry.walam.main.model.entity.Account;
 import org.nocountry.walam.main.model.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
-    List<Transaction> findByAccount(Account account);
+    // Aquí puedes definir métodos adicionales si es necesario
 
-    // Otras consultas personalizadas si es necesario.
 }
+

@@ -40,4 +40,11 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Transaction> transactions;
 
+
+    public Double getBalance() {
+        return null;
+    }
+
+    public void setBalance(double v) {
+    }
 }

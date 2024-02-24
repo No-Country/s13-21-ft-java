@@ -1,39 +1,38 @@
 package org.nocountry.walam.main.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.nocountry.walam.main.model.entity.Transaction;
 import org.nocountry.walam.main.model.repository.TransactionRepository;
 import org.nocountry.walam.main.service.TransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-@Transactional
-@RequiredArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
 
-    private final TransactionRepository transactionRepository;
-
-    @Override
-    public Transaction saveTransaction(Transaction transaction) {
-        return transactionRepository.save(transaction);
-    }
-
-    @Override
-    public void deleteTransactionById(int id) {
-        transactionRepository.deleteById(id);
-    }
+    @Autowired
+    private TransactionRepository transactionRepository;
 
     @Override
     public List<Transaction> getAllTransactions() {
+        // obtener todas las transacciones
         return transactionRepository.findAll();
     }
 
     @Override
-    public Transaction getTransactionById(int id) {
-        return transactionRepository.findById(id).orElse(null);
+    public Transaction getById(int id) {
+        // obtiene transacciones por id
+        Optional<Transaction> optTransaction = transactionRepository.findById(id); //devuelve objeto Transaction
+        return optTransaction.orElse(null);
     }
+
+    @Override
+    public Transaction createTransaction(Transaction transaction) {
+        // crea una transaccion
+        return transactionRepository.save(transaction);
+    }
+
 
 }

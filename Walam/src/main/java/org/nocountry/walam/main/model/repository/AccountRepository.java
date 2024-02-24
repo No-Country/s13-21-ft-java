@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
-    // Consultas personalizadas si es necesario.
+    Account findByNumberAccount(String numberAccount);
 }

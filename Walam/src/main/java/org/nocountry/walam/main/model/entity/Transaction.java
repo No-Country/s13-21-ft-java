@@ -4,14 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
-import lombok.Builder;
 import lombok.Data;
 import org.nocountry.walam.main.model.entity.enums.TransactionType;
 
 import java.time.LocalDateTime;
 
 @Data
-@Builder
 @Entity
 @Table(name = "transaction")
 public class Transaction {
@@ -45,4 +43,14 @@ public class Transaction {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
+    public int getAmount() {
+        return 0;
+    }
+
+    public void setType(TransactionType transactionType) {
+    }
+
+    public String getAccountNumber() {
+        return null;
+    }
 }
