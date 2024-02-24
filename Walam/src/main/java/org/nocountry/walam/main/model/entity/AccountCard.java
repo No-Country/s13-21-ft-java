@@ -32,7 +32,7 @@ public class AccountCard {
     private LocalDate creationDate;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    @Column(name = "creation_date", updatable = false)
+    @Column(name = "expiration_date", updatable = false)
     private LocalDate expirationDate;
 
     @Column(name = "active", columnDefinition = "BOOLEAN default true", nullable = false)

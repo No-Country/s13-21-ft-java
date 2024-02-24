@@ -22,7 +22,7 @@ public class Transaction {
     private Integer id;
 
 
-    @Column(precision = 11, scale = 2)
+    @Column(precision = 11)
     private Double amount;
 
     @CreationTimestamp
