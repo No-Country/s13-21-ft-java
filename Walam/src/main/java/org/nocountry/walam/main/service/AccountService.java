@@ -17,7 +17,9 @@ public interface AccountService {
     Account mapDTOToAccount(AccountDTO accountDTO);
 
 
-
     // Otras operaciones si es necesario.
 
+    boolean existsByNumberAccount(String numberAccount);
+
+    boolean existsByCvu(String cvu);
 }

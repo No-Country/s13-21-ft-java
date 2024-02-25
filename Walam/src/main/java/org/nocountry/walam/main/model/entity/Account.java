@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -33,6 +34,11 @@ public class Account {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
-    private List<Transaction> destinyTransaction;
+    private List<Transaction> transactions = new ArrayList<>();
 
+    //ADD
+    public void addTransaction(Transaction transaction){
+        transaction.setAccount(this);
+        this.transactions.add(transaction);
+    }
 }

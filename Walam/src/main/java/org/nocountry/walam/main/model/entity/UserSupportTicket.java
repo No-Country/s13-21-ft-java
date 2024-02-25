@@ -36,4 +36,6 @@ public class UserSupportTicket {
     @Column(name = "state", nullable = false)
     private TicketState state;
 
+    @Column(nullable = false)
+    private String email;
 }
