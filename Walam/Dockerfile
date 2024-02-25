@@ -17,4 +17,3 @@ ARG JAR_FILE=/app/target/*.jar
 COPY --from=build ${JAR_FILE} WalamApplication.jar
 
 ENTRYPOINT ["java", "-jar", "/WalamApplication.jar"]
-

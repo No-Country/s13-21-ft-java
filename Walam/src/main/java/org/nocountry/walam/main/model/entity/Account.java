@@ -1,13 +1,13 @@
 package org.nocountry.walam.main.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -15,27 +15,24 @@ import lombok.Data;
 public class Account {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @Column(name = "number_account", nullable = false, unique = true)  // No puede ser nulo en la base de datos | Y Debe ser único en la tabla.
-    @Size(max = 20)  // Limita el tamaño máximo de numberAccount a 20 caracteres.
-    @NotBlank  // Garantiza que numberAccount y cvu no estén en blanco (vacíos) ni contengan solo espacios en blanco.
+    @Column(name = "number_account", nullable = false, unique = true, updatable = false, length = 20)
     private String numberAccount;
 
-    @Column(nullable = false, unique = true)
-    @Size(max = 22)
-    @NotBlank
+    @Column(nullable = false, unique = true, updatable = false, length = 22)
     private String cvu;
 
-    @NotNull  // Asegura que balance no sea nulo.
-    @Column(nullable = false)
+    @Column(precision = 11, nullable = false)
     private Double balance;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Users user;
+    @OneToOne(mappedBy = "account")
+    private User user;
 
-
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+    private List<Transaction> destinyTransaction;
 
 }

@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
-import { MainLayout } from '../Layouts'
+import { MainLayout, UserLayout } from '../Layouts'
 
 import {
   UsersDataForm,
@@ -9,7 +9,10 @@ import {
   Login,
   Register,
   ForgotPassword,
-  DashboardUser    
+  DashboardUser,
+  Deposit,
+  Extract,
+  VirtualCashier    
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -32,11 +35,7 @@ export const router = createBrowserRouter([
       // },
       {
         path: '/UsersDataForm',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <UsersDataForm />
-          </Suspense>
-        )
+        element: <UsersDataForm />
       },
       {
         path: '/Register',
@@ -45,39 +44,61 @@ export const router = createBrowserRouter([
             <Register />
           </Suspense>
         )
-      },            
+      },
+      {
+        path: '/',
+        element: <OnBoarding />
+      },
+      {
+        path: '/Login',
+        element: <Login />
+      },
+      {
+        path: '/ForgotPassword',
+        element: <ForgotPassword />
+      },
       {
         path: '/',
         element: (
           <Suspense fallback={<Loader />}>
-            <OnBoarding />
+            <UserLayout />
+          </Suspense>
+        ),
+        children: [
+          {
+            path: '/DashboardUser',
+            element: <DashboardUser />
+          }
+        ]
+      },
+      {
+        path: '/Deposit',
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Deposit />
           </Suspense>
         )
       },
       {
-        path: '/Login',
+        path: '/Extract',
         element: (
           <Suspense fallback={<Loader />}>
-            <Login />
+            <Extract />
           </Suspense>
         )
       },
       {
-        path: '/ForgotPassword',
+        path: '/VirtualCashier',
         element: (
           <Suspense fallback={<Loader />}>
-            <ForgotPassword />
-          </Suspense>
-        )
-      },
-      {
-        path: '/DashboardUser',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <DashboardUser />
+            <VirtualCashier />
           </Suspense>
         )
       }
+
+  
+   
+
       // {
       //   path: '/Reset-password',
       //   element: (

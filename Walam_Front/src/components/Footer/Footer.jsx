@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className='hidden'>
+    <div className=''>
       <h1>footer</h1>
     </div>
   )
