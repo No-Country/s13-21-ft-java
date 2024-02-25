@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function Register () {
   const navigate = useNavigate()
@@ -36,8 +37,20 @@ export default function Register () {
     password2: Yup.string().oneOf([Yup.ref('password')], 'Las contraseñas no coinciden').required('Contraseña requerida')
   })
 
-  const handleSubmit = () => {
-    navigate('/Login')
+  const handleSubmit = async (values) => { 
+    try {                             // http://localhost:8080/auth/register
+      const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/register', {
+        email: values.email,
+        password: values.password
+      })
+      console.log("Registro exitoso.")
+      console.log(values)
+      console.log(response.data)
+      navigate('/Login')
+    } catch (error) {
+      console.log("Tu no pasaras. Error en la peticion.")
+      console.error(error)
+    }
   }
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)

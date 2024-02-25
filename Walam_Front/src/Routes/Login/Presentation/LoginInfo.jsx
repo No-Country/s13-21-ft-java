@@ -5,7 +5,7 @@ import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../com
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useState } from 'react'
-// import axios from 'axios'
+import axios from 'axios'
 
 const LoginInfo = () => {
   const navigate = useNavigate()
@@ -13,34 +13,23 @@ const LoginInfo = () => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  
   const onSubmit = async (values) => {
-    console.log(values)
-    navigate('/DashboardUser')
-    // try {
-    //   const response = await axios.post('/api/users/login', values)
-    //   setError('')
-    //   if (response.data.error) {
-    //     setError('password', { message: response.data.error })
-    //   } else {
-    //     // Manejar el éxito del inicio de sesión, por ejemplo, almacenar el token en el estado global.
-    //     console.log('Login successful! Token:', response.data.token)
-    //     // Guardar en Local Storage solo si el checkbox está marcado
-    //     if (actualState) {
-    //       window.localStorage.setItem('savedUser', response.data.email)
-    //       window.localStorage.setItem('savedPassword', response.data.password)
-    //     }
-    //     logControl()
-    //     navigate('/')
-    //     window.scrollTo(0, 0)
-    //   }
-    // } catch (error) {
-    //   if (error.response.status === 400 && error.response.data.error === 'Correo o contraseña invalida') {
-    //     setError('Correo o contraseña invalida')
-    //   } else {
-    //     setError('Error al registrar usuario')
-    //   }
-    // }
+    try {                             // http://localhost:8080/auth/login
+      const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', {
+        email: values.email,
+        password: values.password
+      })
+      console.log("Login exitoso.")
+      console.log(values)
+      console.log(response.data)
+      navigate('/DashboardUser')
+    } catch (error) {
+      console.log("Tu no pasaras. Error en la peticion.")
+      console.error(error)
+    }
   }
+
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
     email: Yup.string().email('El correo no es válido').required('El correo es requerido'),
