@@ -13,7 +13,7 @@ public class AccountController {
     @Autowired
     AccountService accountService;
 
-    @PostMapping("/entityToDTO")
+    @PostMapping("/register")
     public ResponseEntity<?> entityToDTO(@RequestBody Account account) {
         AccountDTO dtoFromEntity = accountService.mapAccountToDTO(account);
         return ResponseEntity.ok("entityToDTO : " + dtoFromEntity);
