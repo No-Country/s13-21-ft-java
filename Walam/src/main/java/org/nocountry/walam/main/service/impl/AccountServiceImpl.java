@@ -56,5 +56,11 @@ public class AccountServiceImpl implements AccountService {
     public Account mapDTOToAccount(AccountDTO accountDTO) {
         return AccountMapper.INSTANCE.accountDTOToAccount(accountDTO);}
 
+    public boolean existsByNumberAccount(String numberAccount) {
+        return accountRepository.existsByNumberAccount(numberAccount);
+    }
+    public boolean existsByCvu(String cvu){
+        return accountRepository.existsByCvu(cvu);
+    }
 
 }
