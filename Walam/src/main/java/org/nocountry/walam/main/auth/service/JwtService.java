@@ -21,7 +21,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    // Clave secreta para la firma del token
+    // Clave secreta para la firma del token.
     private static final String SECRET_KEY ="3123E123123123123123123F1231234564564564564565G456456456456";
 
     /**
@@ -30,7 +30,7 @@ public class JwtService {
      * @return Token JWT generado.
      */
     public String getToken(UserDetails userdetails) {
-        // Llama al método interno getToken con reclamaciones adicionales vacías
+        // Llama al método interno getToken con reclamaciones adicionales vacías.
         return getToken(new HashMap<>(), userdetails);
     }
 
@@ -40,14 +40,13 @@ public class JwtService {
      * @param userDetails Detalles del usuario para el cual se genera el token.
      * @return Token JWT generado.
      */
-
     private String getToken(Map<String,Object> extraClaims, UserDetails userDetails) {
         return Jwts
                 .builder()
                 .setClaims(extraClaims) // Establece los Claims adicionales proporcionados.
                 .setSubject(userDetails.getUsername()) // Establece el sujeto del token como el nombre de usuario del objeto UserDetails.
                 .setIssuedAt(new Date(System.currentTimeMillis())) // Establece la fecha de emisión del token como el momento actual.
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60* 60 * 3)) // Token válido por 3 horas
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60* 60 * 3)) // Token válido por 3 horas.
                 .signWith(getKey(), SignatureAlgorithm.HS256) // Firma el token con el algoritmo de hash HS256 utilizando la clave secreta.
                 .compact(); // Devuelve el token JWT compactado como una cadena.
     }
