@@ -30,13 +30,8 @@ const Navbar = () => {
           <FaBell className='text-zinc-500' />
         </button>
         {isOpenNotes && (
-<<<<<<< HEAD
-          <div className='md:hidden absolute top-10 right-0 bg-white border p-4'>
-            <p>No hay nuevos avisos</p>
-=======
           <div className='md:hidden absolute top-10 right-0 bg-white border p-2'>
             <p className='block px-4 py-2 text-sm'>No hay nuevos avisos</p>
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
           </div>
         )}
         <button onClick={toggleMenu} className='md:hidden'>
