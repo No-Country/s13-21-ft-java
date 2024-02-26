@@ -39,18 +39,18 @@
         </dependency>
         <!--   Database Connectors   -->
         <!--   MySQL     -->
-                <dependency>
+        <!--        <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
                     <version>8.0.33</version>
-                </dependency>
+                </dependency>-->
         <!--   Database Connector     -->
         <!--   PostgreSQL     -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>me.paulschwarz</groupId>
             <artifactId>spring-dotenv</artifactId>
