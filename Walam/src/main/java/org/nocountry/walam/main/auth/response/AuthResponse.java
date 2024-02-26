@@ -1,19 +1,14 @@
-package org.nocountry.walam.main.auth;
+package org.nocountry.walam.main.auth.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
-
-    String username;
-    String password;
-
+public class AuthResponse {
+    String token;
 }

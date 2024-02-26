@@ -1,6 +1,9 @@
-package org.nocountry.walam.main.auth;
+package org.nocountry.walam.main.auth.service;
 
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.auth.response.AuthResponse;
+import org.nocountry.walam.main.auth.request.LoginRequest;
+import org.nocountry.walam.main.auth.request.RegisterRequest;
 import org.nocountry.walam.main.model.entity.Account;
 import org.nocountry.walam.main.model.entity.enums.Role;
 import org.nocountry.walam.main.model.entity.User;
@@ -12,8 +15,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 import static org.nocountry.walam.main.utils.UtilsAccount.generateAccountNumber;
 import static org.nocountry.walam.main.utils.UtilsAccount.generateCvu;
