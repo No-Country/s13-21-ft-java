@@ -5,7 +5,8 @@ import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../com
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useState } from 'react'
-// import axios from 'axios'
+import { useAuthenticateUserMutation, setUser } from '../../../api/apiSlice'
+import { useDispatch } from 'react-redux'
 
 const LoginInfo = () => {
   const navigate = useNavigate()
@@ -13,34 +14,22 @@ const LoginInfo = () => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const onSubmit = async (values) => {
-    console.log(values)
-    navigate('/DashboardUser')
-    // try {
-    //   const response = await axios.post('/api/users/login', values)
-    //   setError('')
-    //   if (response.data.error) {
-    //     setError('password', { message: response.data.error })
-    //   } else {
-    //     // Manejar el éxito del inicio de sesión, por ejemplo, almacenar el token en el estado global.
-    //     console.log('Login successful! Token:', response.data.token)
-    //     // Guardar en Local Storage solo si el checkbox está marcado
-    //     if (actualState) {
-    //       window.localStorage.setItem('savedUser', response.data.email)
-    //       window.localStorage.setItem('savedPassword', response.data.password)
-    //     }
-    //     logControl()
-    //     navigate('/')
-    //     window.scrollTo(0, 0)
-    //   }
-    // } catch (error) {
-    //   if (error.response.status === 400 && error.response.data.error === 'Correo o contraseña invalida') {
-    //     setError('Correo o contraseña invalida')
-    //   } else {
-    //     setError('Error al registrar usuario')
-    //   }
-    // }
+  const [authenticateUser] = useAuthenticateUserMutation()
+  const dispatch = useDispatch()
+
+  const handleLogin = async (values) => {
+    const { email, password } = values
+    try {
+      const response = await authenticateUser({ email, password }).unwrap()
+      dispatch(setUser(response)) // Actualiza el usuario en Redux
+      navigate('/DashboardUser')
+      console.log(response)
+    } catch (error) {
+      console.error('Error al autenticar al usuario:', error)
+      setError('Correo electrónico o contraseña incorrectos')
+    }
   }
+
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
     email: Yup.string().email('El correo no es válido').required('El correo es requerido'),
@@ -95,7 +84,7 @@ const LoginInfo = () => {
             className=''
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}
+            onSubmit={handleLogin}
           >
             {({ errors, values }) => (
               <Form className='rounded pt-6 h-[300px]'>
