@@ -12,7 +12,7 @@ import {
   DashboardUser,
   Deposit,
   Extract,
-  VirtualCashier    
+  VirtualCashier
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -95,9 +95,6 @@ export const router = createBrowserRouter([
           </Suspense>
         )
       }
-
-  
-   
 
       // {
       //   path: '/Reset-password',

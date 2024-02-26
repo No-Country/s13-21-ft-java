@@ -8,6 +8,7 @@ const DashboardUser = lazy(() => import('./DashboardUser/Component/DashboardUser
 const Deposit = lazy(() => import('./Deposit/Component/Deposit'))
 const Extract = lazy(() => import('./Extract/Component/Extract'))
 const VirtualCashier = lazy(() => import('./VirtualCashier/Component/VirtualCashier'))
+
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
