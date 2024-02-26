@@ -3,14 +3,9 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
 import { FaAngleDoubleDown, FaArrowLeft } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
-import { saveMyName, increasePoints } from '../../../store/slice'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const myNameNow = useSelector(state => state.value.myName)
-  const myPoints = useSelector(state => state.otherValue.points)
 
   // Conexion a la API (onsubmit/onreset)
 
@@ -30,23 +25,16 @@ export default function UsersDataFormInfo () {
     birth: '',
     phone: '',
     country: '',
-    residence: ''
+    residence: '',
+    docNumber: ''
   }
 
   const handleSubmit = () => {
     navigate('/DashboardUser')
   }
 
-  const handleChange = () => {
-    dispatch(saveMyName('Bob Esponja'))
-  }
-
-  const handlePoints = () => {
-    dispatch(increasePoints())
-  }
-
   const handleDelete = () => {
-    navigate('/')
+    navigate('/DashboardUser')
   }
 
   return (
@@ -54,7 +42,7 @@ export default function UsersDataFormInfo () {
       <section className='h-4/5 lg:w-2/3 max-w-lg box-border'>
         <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
         <div className='bg-white rounded-xl py-6 px-3 h-full box-border'>
-          <Link to='/'><FaArrowLeft /></Link>
+          <Link to='/DashboardUser'><FaArrowLeft /></Link>
           <div className='pb-2 px-4'>
             <h2 className='text-xl mt-6 font-semibold'>Datos</h2>
             <h1 className='text-3xl font-semibold '>Ultimos pasos para completar tu registro</h1>
@@ -68,24 +56,21 @@ export default function UsersDataFormInfo () {
               {({ errors, values }) => (
                 <Form className='rounded h-full flex flex-col justify-between px-8'>
                   <div>
-                    <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={myNameNow} />
+                    <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={values.name} />
                     <FormInput name='Apellidos' type='text' placeholder='López López' errors={errors} id='lastname' value={values.lastname} />
                     <FormInput name='Fecha de Nacimiento' type='date' placeholder='00 ENE 0000' errors={errors} id='birth' value={values.birth} />
                     <FormInput name='Teléfono' type='tel' placeholder='(0000)00000000' errors={errors} id='phone' value={values.phone} />
                     <FormInput name='País de Nacimiento' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
                     <FormInput name='País de Residencia' type='text' placeholder='Colombia' errors={errors} id='residence' value={values.residence} />
-                    <FormInput name='Numero de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='docNumber' value={myPoints} />
+                    <FormInput name='Numero de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='docNumber' value={values.docNumber} />
                   </div>
                   <div className='flex flex-col items-center pb-3'>
                     <FormButton text='Guardar Datos' color='bg-white' hover='hover:bg-primarygray' />
-
                     <button onClick={handleDelete} className='m-3 text-center text-sm font-semibold text-red-600 hover:bg-red-600 hover:text-white rounded-lg py-2 px-4 w-full mb-16'>Eliminar Cuenta</button>
                   </div>
                 </Form>
               )}
             </Formik>
-            <button onClick={handleChange} className='m-3 text-center text-sm font-semibold text-green-600 hover:bg-green-600 hover:text-white rounded-lg py-2 px-4 w-full mb-16'>Modificar Cuenta</button>
-            <button onClick={handlePoints} className='m-3 text-center text-sm font-semibold text-green-600 hover:bg-green-600 hover:text-white rounded-lg py-2 px-4 w-full mb-16'>Aumentar Puntos</button>
             <div className='bg-white w-full sticky top-full flex justify-center opacity-90 has-tooltip'>
               <span className='tooltip rounded shadow-lg p-2 bg-gray-100 -mt-12'>Desplazar hacia abajo</span>
               <FaAngleDoubleDown className='rounded-full bg-black p-1 h-8 w-8 text-white text-center' />

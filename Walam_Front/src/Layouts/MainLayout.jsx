@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom'
-import { Footer, NavBar } from '../components'
 
 import '../index.css'
 
@@ -14,17 +13,9 @@ const MainLayout = () => {
     grid-rows-[1fr,auto,1fr]
     lg:grid-rows-[1r,auto,1fr]'
     >
-      <header>
-        <div className='w-[100%]'>
-          <NavBar />
-        </div>
-      </header>
       <main className='row-start-2'>
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   )
 }

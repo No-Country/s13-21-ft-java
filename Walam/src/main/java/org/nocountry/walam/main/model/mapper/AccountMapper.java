@@ -15,7 +15,7 @@ public interface AccountMapper {
 
     @Mappings({
             @Mapping(source = "id", target = "id"),
-            @Mapping(source = "user.id", target = "userId"),
+            //@Mapping(source = "user.id", target = "userId"),
             @Mapping(source = "numberAccount", target = "numberAccount"),
             @Mapping(source = "cvu", target = "cvu"),
             @Mapping(source = "balance", target = "balance"),
@@ -24,7 +24,7 @@ public interface AccountMapper {
     AccountDTO accountToAccountDTO(Account account);
 
     @Mappings({
-            @Mapping(source = "userId", target = "user.id"), // Ignore user when mapping from DTO to entity
+            //@Mapping(source = "userId", target = "user.id"), // Ignore user when mapping from DTO to entity
             @Mapping(source = "numberAccount", target = "numberAccount"),
             @Mapping(source = "cvu", target = "cvu"),
             @Mapping(source = "balance", target = "balance"),
