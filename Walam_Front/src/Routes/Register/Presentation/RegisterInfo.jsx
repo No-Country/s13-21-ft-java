@@ -4,7 +4,11 @@ import * as Yup from 'yup'
 import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useState } from 'react'
+<<<<<<< HEAD
 import { useCreateUserMutation } from '../../../api/apiSlice'
+=======
+import axios from 'axios'
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
 export default function Register () {
   const navigate = useNavigate()
@@ -36,12 +40,29 @@ export default function Register () {
     password2: Yup.string().oneOf([Yup.ref('password')], 'Las contraseñas no coinciden').required('Contraseña requerida')
   })
 
+<<<<<<< HEAD
   const handleSubmit = async (values) => {
     const { email, password } = values
     const response = await createUser({ email, password })
     const userId = response.data.id
 
     navigate('/Login')
+=======
+  const handleSubmit = async (values) => { 
+    try {                             // http://localhost:8080/auth/register
+      const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/register', {
+        email: values.email,
+        password: values.password
+      })
+      console.log("Registro exitoso.")
+      console.log(values)
+      console.log(response.data)
+      navigate('/Login')
+    } catch (error) {
+      console.log("Tu no pasaras. Error en la peticion.")
+      console.error(error)
+    }
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
   }
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)

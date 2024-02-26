@@ -1,11 +1,18 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+=======
+import jakarta.validation.constraints.Email;
+import lombok.*;
+import org.hibernate.annotations.SQLDelete;
+import org.nocountry.walam.main.model.entity.enums.Role;
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,13 +21,17 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+<<<<<<< HEAD
 //import lombok.EqualsAndHashCode;
+=======
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
 @Builder
+<<<<<<< HEAD
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User implements UserDetails {
 
@@ -97,6 +108,53 @@ public class User implements UserDetails {
     // User Status?
     boolean active;
 
+=======
+@SQLDelete(sql = "UPDATE users SET active = 0 WHERE id=?" )
+@Table(name = "users")
+public class User implements UserDetails {
+
+    @Id
+    @Setter(AccessLevel.NONE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "name", length = 25)
+    private String username;
+
+    @Column(name = "lastname", length = 20)
+    private String lastName;
+
+    @Column(name = "no_identidad", length = 15, unique = true)
+    private String noIdentidad;
+
+    @Email
+    @Column(name = "email", nullable = false , unique = true)
+    private String email;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id") // Nombre correcto de la columna de clave foránea en la tabla users
+    private Country country;
+
+    @Column(name = "phone", length = 12)
+    private String phone;
+
+    @Column(name = "birth_date")
+    private Date birthday;
+
+    @Column(name = "active", columnDefinition = "BOOLEAN default true", nullable = false)
+    private boolean active;
+
+    @Column(name = "rol", columnDefinition = "varchar(5) default 'USER'")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account")
+    private Account account;
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
 
     @Override

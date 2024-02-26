@@ -11,7 +11,11 @@
     "back": "json-server --watch db/tasks.json --port 3000"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@reduxjs/toolkit": "^2.2.1",
+=======
+    "axios": "^1.6.7",
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
     "dom": "^0.0.3",
     "firebase": "^10.8.0",
     "formik": "^2.4.5",

@@ -30,8 +30,8 @@ const DashboardUserInfo = () => {
           <p className='w-full text-green-700 font-medium text-center'>Historial de Movimientos</p>
         </div>
         <div className='flex flex-col pt-4 gap-4'>
-          <ActionButton info='Depositar' option='option1' />
-          <ActionButton info='Transferir' option='option2' />
+          <ActionButton info='Depositar' option='option1' link='/Transfer' />
+          <ActionButton info='Transferir' option='option2' link='/Transfer' />
           <ActionButton info='Extraer' option='option3' />
         </div>
       </section>

@@ -1,6 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
-import { BsQrCode } from 'react-icons/bs'
 import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
@@ -64,14 +63,11 @@ const LoginInfo = () => {
   }
 
   return (
-    <div className=' w-full md:w-1/2 xl:max-w-[490px]'>
-      <h1 className='text-white text-2xl font-medium pb-2 hidden xl:block'>EcoPay</h1>
-      <div className='xl:rounded-xl xl:bg-white p-4 w-full'>
+    <div className='relative w-full md:w-1/2 xl:max-w-[520px]'>
+      <div className='absolute inset-0 xl:rounded-xl xl:bg-loginColor opacity-25' />
+      <div className='relative z-10 xl:rounded-xl py-8 px-20 w-full xl:text-white flex flex-col'>
         <div className='w-[87%] xl:w-full flex justify-between'>
           <Link to='/'><FaArrowLeft className='xl:hidden' /></Link>
-          <div className='xl:border-2 xl:border-black xl:p-2 xl:rounded-xl '>
-            <BsQrCode className='text-[36px] hidden xl:block ' />
-          </div>
         </div>
         <main className=''>
           <div className='flex flex-col pt-4 xl:pt-0 pb-6'>
@@ -87,7 +83,7 @@ const LoginInfo = () => {
             onSubmit={handleLogin}
           >
             {({ errors, values }) => (
-              <Form className='rounded pt-6 h-[300px]'>
+              <Form className='rounded pt-6 h-[320px]'>
                 {/* Form inputs */}
                 <FormInput name='Correo electrónico' type='email' placeholder='Ingrese correo electrónico' errors={errors} id='email' value={values.email} />
                 <PasswordInput name='Contraseña' placeholder='Ingrese contraseña' id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
@@ -96,7 +92,7 @@ const LoginInfo = () => {
                 </div>
                 {/* Submit button */}
                 <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
-                  <FormButton text='Iniciar Sesión' color='bg-white' hover='hover:bg-gray-400' />
+                  <FormButton text='Iniciar Sesión' />
                   {error && <p className='text-red-600 text-xs italic text-center'>{error}</p>}
                 </div>
               </Form>

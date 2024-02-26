@@ -8,6 +8,11 @@ const DashboardUser = lazy(() => import('./DashboardUser/Component/DashboardUser
 const Deposit = lazy(() => import('./Deposit/Component/Deposit'))
 const Extract = lazy(() => import('./Extract/Component/Extract'))
 const VirtualCashier = lazy(() => import('./VirtualCashier/Component/VirtualCashier'))
+<<<<<<< HEAD
+=======
+const Transfer = lazy(() => import('./Transfer/Component/Transfer'))
+const ConfirmTransfer = lazy(() => import('./ConfirmTransfer/Component/ConfirmTransfer'))
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -26,5 +31,11 @@ export {
   DashboardUser,
   Deposit,
   Extract,
+<<<<<<< HEAD
   VirtualCashier
+=======
+  VirtualCashier,
+  Transfer,
+  ConfirmTransfer
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 }
