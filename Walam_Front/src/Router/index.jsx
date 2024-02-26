@@ -12,7 +12,9 @@ import {
   DashboardUser,
   Deposit,
   Extract,
-  VirtualCashier    
+  VirtualCashier,
+  Transfer,
+  ConfirmTransfer
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -68,7 +70,16 @@ export const router = createBrowserRouter([
           {
             path: '/DashboardUser',
             element: <DashboardUser />
+          },
+          {
+            path: '/Transfer',
+            element: <Transfer />
+          },
+          {
+            path: '/ConfirmTransfer',
+            element: <ConfirmTransfer />
           }
+
         ]
       },
       {
@@ -95,9 +106,6 @@ export const router = createBrowserRouter([
           </Suspense>
         )
       }
-
-  
-   
 
       // {
       //   path: '/Reset-password',
