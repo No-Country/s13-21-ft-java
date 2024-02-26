@@ -23,40 +23,43 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String token = getTokenFromRequest(request);
         final String username;
 
-        if(token==null){
-            filterChain.doFilter(request, response);
-            return;
-        }
+        if (token != null) {
+            username = jwtService.getUsernameFromToken(token);
 
-        username = jwtService.getUsernameFromToken(token);
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-        if(username!=null && SecurityContextHolder.getContext().getAuthentication()==null){
+                if (jwtService.isTokenValid(token, userDetails)) { // Llamada a isTokenValid con el token y userDetails
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                            userDetails,
+                            null,
+                            userDetails.getAuthorities());
 
-            UserDetails userDetails=userDetailsService.loadUserByUsername(username);
-            if(jwtService.isTokenValid(token, userDetails)){
-                UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(
-                        userDetails,
-                        null,
-                        userDetails.getAuthorities());
-                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
             }
         }
+
         filterChain.doFilter(request, response);
     }
 
-    private String getTokenFromRequest(HttpServletRequest request){
-        final String authHeader=request.getHeader(HttpHeaders.AUTHORIZATION);
+    /**
+     * Este método extrae el token JWT del encabezado de autorización de la solicitud.
+     * Busca si el encabezado comienza con "Bearer " y luego devuelve el token.
+     * */
+    private String getTokenFromRequest(HttpServletRequest request) {
+        final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")){
+        if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")) {
             return authHeader.substring(7);
         }
         return null;
     }
+
 }
