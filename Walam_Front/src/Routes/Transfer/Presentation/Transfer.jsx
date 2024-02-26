@@ -1,4 +1,4 @@
-import TransferLayout from './TransferLayoutLayout'
+import TransferLayout from './TransferLayout'
 import TransferInfo from './TransferInfo'
 
 const Transfer = () => {

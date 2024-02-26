@@ -16,7 +16,7 @@ const signInWithGoogle = async () => {
 export default function GoogleButton () {
   return (
     <div className='flex flex-col gap-2 text-sm'>
-      <button className='flex justify-center rounded items-center bg-neutral-100 item-center border shadow py-2 font-bold' onClick={signInWithGoogle}>
+      <button className='bg-white xl:bg-black xl:border-lime-400  flex justify-center rounded-lg items-center item-center border shadow font-bold py-4 px-4' onClick={signInWithGoogle}>
         <FcGoogle className='text-[1.2rem]' />
         <span className='text-center w-9/12 font-roboto'>Continuar con Google</span>
       </button>

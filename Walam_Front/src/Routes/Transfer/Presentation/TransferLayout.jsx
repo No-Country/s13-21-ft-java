@@ -1,6 +1,6 @@
 const TransferLayout = ({ children }) => {
   return (
-    <div>
+    <div className='pt-6 w-full'>
       {children}
     </div>
   )

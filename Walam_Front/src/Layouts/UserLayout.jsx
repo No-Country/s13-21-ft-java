@@ -22,7 +22,7 @@ const UserLayout = () => {
       <main className='row-start-2'>
         <Outlet />
       </main>
-      <footer>
+      <footer className='hidden'>
         <Footer />
       </footer>
     </div>
