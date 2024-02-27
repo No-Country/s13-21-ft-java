@@ -2,11 +2,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
-import { FaArrowLeft } from 'react-icons/fa6'
+import { FaArrowLeft } from 'react-icons/fa'
+import { useDeleteUserMutation, useUpdateUserMutation, useGetLoggedInUserQuery } from '../../../api/apiSlice'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
-
+  const [deleteUser] = useDeleteUserMutation()
+  const [updateUser] = useUpdateUserMutation()
+  const { data: loggedInUser } = useGetLoggedInUserQuery()
   // Conexion a la API (onsubmit/onreset)
 
   // Validaciones
@@ -20,20 +23,40 @@ export default function UsersDataFormInfo () {
   })
 
   const initialValues = {
-    name: '',
-    lastname: '',
-    birth: '',
-    phone: '',
-    country: '',
-    docNumber: ''
+    name: loggedInUser?.name || '',
+    lastname: loggedInUser?.lastname || '',
+    birth: loggedInUser?.birth || '',
+    phone: loggedInUser?.phone || '',
+    country: loggedInUser?.country || '',
+    docNumber: loggedInUser?.docNumber || ''
   }
 
-  const handleSubmit = () => {
-    navigate('/DashboardUser')
+  // const handleSubmit = (values) => {
+  //   const { name, lastname, birth, phone, country, residence, docNumber } = values
+
+  //   console.log(name, lastname, birth, phone, country, residence, docNumber)
+
+  //   createUser({ name, lastname, birth, phone, country, residence, docNumber })
+  //   navigate('/DashboardUser')
+  // }
+
+  const handleSubmit = (values) => {
+    const updatedUserData = {
+      ...loggedInUser,
+      ...values
+    }
+
+    updateUser({ id: loggedInUser.id, userData: updatedUserData })
+      .unwrap()
+      .then(() => navigate('/DashboardUser'))
+      .catch((error) => console.error('Error al actualizar usuario:', error))
   }
 
   const handleDelete = () => {
-    navigate('/DashboardUser')
+    deleteUser(loggedInUser.id)
+      .unwrap()
+      .then(() => navigate('/DashboardUser'))
+      .catch((error) => console.error('Error al eliminar usuario:', error))
   }
 
   return (

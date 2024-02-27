@@ -16,7 +16,11 @@ spring:
         format_sql: true
         show-sql: true
     hibernate:
+<<<<<<< HEAD
+      ddl-auto: update
+=======
       ddl-auto: create
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
   output:
     ansi:
       enabled: always

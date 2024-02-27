@@ -9,7 +9,11 @@ import java.util.List;
 
 @Repository
 public interface UserSupportTicketRepository extends JpaRepository<UserSupportTicket, Integer> {
+<<<<<<< HEAD
+    List<UserSupportTicket> findByOwner(User owner);
+=======
 
+>>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
     // Otras consultas personalizadas si es necesario.
 }
