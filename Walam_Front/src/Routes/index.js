@@ -5,8 +5,6 @@ const Login = lazy(() => import('./Login/Component/Login'))
 const Register = lazy(() => import('./Register/Component/Register'))
 const ForgotPassword = lazy(() => import('./ForgotPassword/Component/ForgotPassword'))
 const DashboardUser = lazy(() => import('./DashboardUser/Component/DashboardUser'))
-const Deposit = lazy(() => import('./Deposit/Component/Deposit'))
-const Extract = lazy(() => import('./Extract/Component/Extract'))
 const VirtualCashier = lazy(() => import('./VirtualCashier/Component/VirtualCashier'))
 const Transfer = lazy(() => import('./Transfer/Component/Transfer'))
 const ConfirmTransfer = lazy(() => import('./ConfirmTransfer/Component/ConfirmTransfer'))
@@ -26,8 +24,6 @@ export {
   Register,
   ForgotPassword,
   DashboardUser,
-  Deposit,
-  Extract,
   VirtualCashier,
   Transfer,
   ConfirmTransfer

@@ -4,7 +4,8 @@ import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../com
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useState } from 'react'
-import axios from 'axios'
+import { useAuthenticateUserMutation, setUser } from '../../../api/apiSlice'
+import { useDispatch } from 'react-redux'
 
 const LoginInfo = () => {
   const navigate = useNavigate()
@@ -12,20 +13,19 @@ const LoginInfo = () => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [authenticateUser] = useAuthenticateUserMutation()
+  const dispatch = useDispatch()
 
-  const onSubmit = async (values) => {
-    try { // http://localhost:8080/auth/login
-      const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', {
-        email: values.email,
-        password: values.password
-      })
-      console.log('Login exitoso.')
-      console.log(values)
-      console.log(response.data)
+  const handleLogin = async (values) => {
+    const { email, password } = values
+    try {
+      const response = await authenticateUser({ email, password }).unwrap()
+      dispatch(setUser(response)) // Actualiza el usuario en Redux
       navigate('/DashboardUser')
+      console.log(response)
     } catch (error) {
-      console.log('Tu no pasaras. Error en la peticion.')
-      console.error(error)
+      console.error('Error al autenticar al usuario:', error)
+      setError('Correo electrónico o contraseña incorrectos')
     }
   }
 
@@ -80,7 +80,7 @@ const LoginInfo = () => {
             className=''
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}
+            onSubmit={handleLogin}
           >
             {({ errors, values }) => (
               <Form className='rounded pt-6 h-[320px]'>
