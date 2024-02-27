@@ -2,7 +2,7 @@ import React from 'react'
 
 const OnBoardingLayout = ({ children }) => {
   return (
-    <div className='bg-[#585858] text-white w-full h-screen flex flex-col justify-center py-5 px-2 items-center'>
+    <div className='text-white w-full h-full flex flex-col justify-center items-center'>
       {children}
     </div>
   )

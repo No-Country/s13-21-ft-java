@@ -9,8 +9,10 @@ import {
   Login,
   Register,
   ForgotPassword,
-  DashboardUser,  
-  VirtualCashier    
+  DashboardUser,
+  VirtualCashier,
+  Transfer,
+  ConfirmTransfer
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -66,13 +68,22 @@ export const router = createBrowserRouter([
           {
             path: '/DashboardUser',
             element: <DashboardUser />
-          },          
+          },
+          {
+            path: '/Transfer',
+            element: <Transfer />
+          },
+          {
+            path: '/ConfirmTransfer',
+            element: <ConfirmTransfer />
+          },
           {
             path: '/VirtualCashier',
             element: <VirtualCashier />
           }
         ]
       },
+      
       // {
       //   path: '/Reset-password',
       //   element: (

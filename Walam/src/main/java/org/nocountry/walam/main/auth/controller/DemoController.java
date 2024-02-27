@@ -1,4 +1,4 @@
-package org.nocountry.walam.main.auth;
+package org.nocountry.walam.main.auth.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,35 +1,44 @@
 package org.nocountry.walam.main.controller;
 
-import org.nocountry.walam.main.model.entity.User;
-import org.nocountry.walam.main.service.impl.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.model.dto.UserDTO;
+import org.nocountry.walam.main.service.impl.UserServiceImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
+@RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserServiceImpl userService;
 
-    @GetMapping(value = "/")
-    public String getPage() {
-        return "Welcome";
+    @GetMapping()
+    public ResponseEntity<List<UserDTO>> getAll() throws Exception {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @PostMapping(value = "/save")
-    public String  createUser(@RequestBody User user) {
-        userService.createUser(user);
-        return "User registered...";
+    @GetMapping("/username/{username}")
+    public ResponseEntity<UserDTO> getByUsername(@PathVariable String username) throws Exception {
+        return ResponseEntity.ok(userService.getByUsername(username));
     }
 
-    @GetMapping(value = "/user")
-    public List<User> getUsers() {
-        return userService.getUser();
-
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> getById(@PathVariable int id) throws Exception {
+        return ResponseEntity.ok(userService.getUserById(id));
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody UserDTO userRequest) {
+        try {
+            userService.updateUser(id, userRequest);
+            return ResponseEntity.ok("User updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update user: " + e.getMessage());
+        }
+    }
+
 }

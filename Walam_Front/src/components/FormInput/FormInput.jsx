@@ -7,13 +7,13 @@ export default function FormInput ({ id, name, type, placeholder, errors, value 
   return (
     <div className='mb-2 h-[90px]'>
       <label
-        className='block text-gray-700 text-sm mb-2'
+        className='block text-gray-700 xl:text-white text-sm mb-2'
         htmlFor={id}
       >
         {name}
       </label>
       <Field
-        className={`font-roboto shadow appearance-none border rounded w-full py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem]
+        className={`font-roboto shadow appearance-none border rounded w-full xl:bg-transparent xl:border-gray-800 py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem]
           ${errors ? invalid : normal}`}
         id={id}
         type={type}
