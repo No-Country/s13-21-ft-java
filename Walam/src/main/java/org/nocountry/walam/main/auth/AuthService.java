@@ -41,6 +41,7 @@ public class AuthService {
     public AuthResponse register(RegisterRequest registerRequest) {
         User user = User.builder()
                 .email(registerRequest.getEmail())
+                .username(registerRequest.getUsername())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .active(true) // Supongo que por defecto los usuarios estarán activos
                 .role(Role.USER) // Supongo que por defecto los nuevos usuarios tendrán el rol USER

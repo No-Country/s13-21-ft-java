@@ -63,4 +63,12 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.existsByCvu(cvu);
     }
 
+    @Override
+    public void depositToAccount(String numberAccount, Double amount){
+        if(amount > 0.0 && accountRepository.existsByNumberAccount(numberAccount)){
+            Account accountInDb = accountRepository.findByNumberAccount(numberAccount);
+            accountInDb.setBalance( accountInDb.getBalance() + amount);
+        }
+    }
+
 }

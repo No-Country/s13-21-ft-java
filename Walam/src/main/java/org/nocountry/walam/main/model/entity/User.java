@@ -1,5 +1,6 @@
 package org.nocountry.walam.main.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
@@ -28,8 +29,11 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name", length = 25)
+    @Column(name = "username", length = 25)
     private String username;
+
+    @Column(name = "firstname", length = 25)
+    private String firstName;
 
     @Column(name = "lastname", length = 20)
     private String lastName;
@@ -62,6 +66,7 @@ public class User implements UserDetails {
     private Role role;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinColumn(name = "account")
     private Account account;
 
