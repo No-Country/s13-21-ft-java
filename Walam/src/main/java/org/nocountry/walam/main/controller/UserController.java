@@ -1,51 +1,44 @@
 package org.nocountry.walam.main.controller;
 
-import org.nocountry.walam.main.model.entity.User;
-import org.nocountry.walam.main.service.impl.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.model.dto.UserDTO;
+import org.nocountry.walam.main.service.impl.UserServiceImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
-    @Autowired
-    UserService userService;
+    private final UserServiceImpl userService;
 
-    @GetMapping(value = "/")
-    public String getPage() {
-        return "Welcome";
+    @GetMapping()
+    public ResponseEntity<List<UserDTO>> getAll() throws Exception {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @PostMapping(value = "/save")
-    public String  createUser(@RequestBody User user) {
-        userService.createUser(user);
-        return "User registered...";
+    @GetMapping("/username/{username}")
+    public ResponseEntity<UserDTO> getByUsername(@PathVariable String username) throws Exception {
+        return ResponseEntity.ok(userService.getByUsername(username));
     }
 
-    @GetMapping(value = "/user")
-    public List<User> getUsers() {
-        return userService.getUser();
-
-    }
-
-    // Endpoint para obtener todos los usuarios
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
-    }
-
-    // Endpoint para obtener un usuario por su ID
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Integer id) {
-        Optional<User> optionalUser = userService.getUserById(id);
-        return optionalUser.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<UserDTO> getById(@PathVariable int id) throws Exception {
+        return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody UserDTO userRequest) {
+        try {
+            userService.updateUser(id, userRequest);
+            return ResponseEntity.ok("User updated successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update user: " + e.getMessage());
+        }
     }
 
 }

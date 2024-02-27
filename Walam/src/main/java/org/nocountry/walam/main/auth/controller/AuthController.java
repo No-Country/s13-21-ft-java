@@ -1,6 +1,10 @@
-package org.nocountry.walam.main.auth;
+package org.nocountry.walam.main.auth.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.auth.response.AuthResponse;
+import org.nocountry.walam.main.auth.service.AuthService;
+import org.nocountry.walam.main.auth.request.LoginRequest;
+import org.nocountry.walam.main.auth.request.RegisterRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

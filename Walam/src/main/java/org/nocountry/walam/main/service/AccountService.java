@@ -22,4 +22,5 @@ public interface AccountService {
     boolean existsByNumberAccount(String numberAccount);
 
     boolean existsByCvu(String cvu);
+    
 }

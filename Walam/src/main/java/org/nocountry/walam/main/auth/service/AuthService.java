@@ -1,6 +1,9 @@
-package org.nocountry.walam.main.auth;
+package org.nocountry.walam.main.auth.service;
 
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.auth.response.AuthResponse;
+import org.nocountry.walam.main.auth.request.LoginRequest;
+import org.nocountry.walam.main.auth.request.RegisterRequest;
 import org.nocountry.walam.main.model.entity.Account;
 import org.nocountry.walam.main.model.entity.enums.Role;
 import org.nocountry.walam.main.model.entity.User;
@@ -27,35 +30,43 @@ public class AuthService {
     private final AccountService accountService;
     private UserDetails userDetails;
 
+    /**
+     * Realiza la autenticación del usuario utilizando las credenciales proporcionadas,
+     * busca al usuario en la base de datos,
+     * genera un token JWT basado en la información del usuario autenticado
+     * y lo devuelve encapsulado en un objeto AuthResponse.
+     * */
     public AuthResponse login(LoginRequest loginRequest) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-        UserDetails userDetails = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow();
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+
+        userDetails = userRepository.findByUsername(loginRequest.getUsername()).orElseThrow();
         String token = jwtService.getToken(userDetails);
-        return AuthResponse
-                .builder()
-                .token(token)
-                .build();
+
+        return AuthResponse.builder()
+                           .token(token)
+                           .build();
     }
 
     @Transactional
     public AuthResponse register(RegisterRequest registerRequest) {
         User user = User.builder()
-                .email(registerRequest.getEmail())
+                .username(registerRequest.getUsername())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .active(true) // Supongo que por defecto los usuarios estarán activos
-                .role(Role.USER) // Supongo que por defecto los nuevos usuarios tendrán el rol USER
+                .active(true) // Por defecto los usuarios estarán activos.
+                .role(Role.USER) // Por defecto los nuevos usuarios tendrán el rol USER.
                 .build();
 
-        String numberAccount= generateAccountNumber();
+        String numberAccount = generateAccountNumber();
 
         while (accountService.existsByNumberAccount(numberAccount)){
-            numberAccount=generateAccountNumber();
+            numberAccount = generateAccountNumber();
         }
 
-        String cvu= generateCvu();
+        String cvu = generateCvu();
 
         while (accountService.existsByCvu(cvu)){
-            cvu=generateCvu();
+            cvu = generateCvu();
         }
 
         Account account = Account.builder()

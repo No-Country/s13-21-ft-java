@@ -1,7 +1,7 @@
 package org.nocountry.walam.main.config;
 
 import lombok.RequiredArgsConstructor;
-import org.nocountry.walam.main.auth.JwtAuthenticationFilter;
+import org.nocountry.walam.main.auth.filter.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -38,7 +38,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                                 // Permitir el acceso sin autenticación a las solicitudes que coincidan con "/auth/**".
-                                .requestMatchers("/**").permitAll()
+                                .requestMatchers("/auth/**").permitAll()
                                 // Exigir autenticación para todas las demás solicitudes.
                                 .anyRequest().authenticated())
                 // Configurar el formulario de inicio de sesión con valores predeterminados.
