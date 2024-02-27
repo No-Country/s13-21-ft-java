@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.nocountry.walam.main.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    @Override
     public List<UserDTO> getAllUsers() throws Exception {
         List<User> users = userRepository.findAll();
         return users.stream()
@@ -24,18 +25,21 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
+    @Override
     public UserDTO getByUsername(String username) throws Exception {
         Optional<User> userOptional = userRepository.findByUsername(username);
         User user = userOptional.orElseThrow(() -> new Exception("User not found"));
         return mapUserToDTO(user);
     }
 
+    @Override
     public UserDTO getUserById(int id) throws Exception {
         Optional<User> userOptional = userRepository.findById(id);
         User user = userOptional.orElseThrow(() -> new Exception("User not found"));
         return mapUserToDTO(user);
     }
 
+    @Override
     public void updateUser(int id, UserDTO userRequest) throws Exception {
         Optional<User> userOptional = userRepository.findById(id);
         User user = userOptional.orElseThrow(() -> new Exception("User not found"));

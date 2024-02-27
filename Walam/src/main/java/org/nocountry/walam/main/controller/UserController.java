@@ -2,7 +2,7 @@ package org.nocountry.walam.main.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.nocountry.walam.main.model.dto.UserDTO;
-import org.nocountry.walam.main.service.impl.UserService;
+import org.nocountry.walam.main.service.impl.UserServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @GetMapping()
     public ResponseEntity<List<UserDTO>> getAll() throws Exception {
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> getOne(@PathVariable int id) throws Exception {
+    public ResponseEntity<UserDTO> getById(@PathVariable int id) throws Exception {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
