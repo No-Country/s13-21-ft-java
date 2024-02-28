@@ -10,8 +10,6 @@ import {
   Register,
   ForgotPassword,
   DashboardUser,
-  Deposit,
-  Extract,
   VirtualCashier,
   Transfer,
   ConfirmTransfer,
@@ -93,34 +91,11 @@ export const router = createBrowserRouter([
           {
             path: '/CVUUser',
             element: <CVUUser />
+            path: '/VirtualCashier',
+            element: <VirtualCashier />
           }
-
         ]
       },
-      {
-        path: '/Deposit',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Deposit />
-          </Suspense>
-        )
-      },
-      {
-        path: '/Extract',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Extract />
-          </Suspense>
-        )
-      },
-      {
-        path: '/VirtualCashier',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <VirtualCashier />
-          </Suspense>
-        )
-      }
 
       // {
       //   path: '/Reset-password',

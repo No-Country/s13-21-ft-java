@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { IoIosApps, IoIosCloseCircle } from 'react-icons/io'
+import { IoIosApps, IoIosCloseCircle, IoLogoLinkedin, IoLogoTwitter, IoLogoFacebook, IoLogoInstagram, IoLogoYoutube} from "react-icons/io";
+import { FaGooglePlay, FaApple } from "react-icons/fa";
 
 const OnBoardingInfo = () => {
   const [openNav, setOpenNav] = React.useState(false)
@@ -81,7 +82,7 @@ const OnBoardingInfo = () => {
 
         <div className='pl-[25%] pt-[95px] pb-[200px]'>
           <p className='text-5xl'>La primer</p>
-          <p class='py-3 text-8xl bg-gradient-to-r from-[#B2FA5B] to-[#3BC53F] inline-block text-transparent bg-clip-text'>Green FinTech </p>
+          <p className="py-3 text-8xl bg-gradient-to-r from-[#B2FA5B] to-[#3BC53F] inline-block text-transparent bg-clip-text">Green FinTech </p>
           <p className='text-5xl'>de Latinoamérica</p>
         </div>
 
@@ -123,25 +124,68 @@ const OnBoardingInfo = () => {
 
       </main>
 
-      <footer
-        className='w-full pt-12'
-        style={{
-          backgroundImage: 'url("/img/Footer.png")',
-          backgroundPosition: '0px 0px',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className='flex flex-wrap justify-center content-between'>
-          <Link to='/DashboardUser' className='font-bold  py-2 px-10 '> DashboardUser</Link>
-          <div className='w-2' />
-          <Link to='/ForgotPassword' className='font-bold  py-2 px-10'> ForgotPassword</Link>
-          <div className='w-2' />
-          <Link to='/UsersDataForm' className='font-bold  py-2 px-10'> UsersDataForm</Link>
+      <footer className="w-full flex flex-col items-center bg-black">
+
+        <div className='flex flex-col justify-evenly items-center p-4 w-[400px] '>
+          <p>Descargate la última versión de la app</p>
+          <div className="flex flex-wrap justify-between items-center ">
+            <div className="p-2"><Link to='/' className='text-base bg-transparent py-2 px-6 rounded-lg border-2 border-white shadow flex items-center'><FaGooglePlay className="inline-block w-[25px] h-[25px] pr-2" /> Google Play</Link></div>
+            <div className="p-2"><Link to='/' className='text-base bg-[#1B1B1B9C] py-2 px-6 rounded-lg border-2 border-white shadow flex items-center'><FaApple className="inline-block w-[25px] h-[25px] pr-2" /> App Store</Link></div>
+          </div>
         </div>
-        <p>Descargate la última versión de la app</p>
-        <div className='p-[120px]' />
-        <p>Copyright © 2023-2024 Grupo Java. Todos los derechos reservados. EcoPay .   Hecho en Argentina whit love jajajaja.</p>
-      </footer>
+
+        <div className="w-full flex flex-col items-center"
+        style={{backgroundImage: `url("/img/GroupFooter.png")`,
+        backgroundPosition: 'right 0px',
+        backgroundRepeat: 'no-repeat'}}>
+        <div className="flex flex-wrap justify-around w-full bg-[#3E3E3Eb8] shadow-inner shadow-md">
+
+          <div className="flex flex-col justify-between items-center py-6">
+            <div className="flex flex-wrap justify-between">
+
+              <div className="flex flex-col px-6 justify-center items-start">
+                <p className="p-2"><Link to='/UsersDataForm' >UsersDataForm</Link></p>
+                <p className="p-2"><Link to='/Login' >Login</Link></p>
+                <p className="p-2"><Link to='/Register' >Register</Link></p>
+                <p className="p-2"><Link to='/ForgotPassword' >ForgotPassword</Link></p>
+              </div>
+              <div className="flex flex-col px-6 justify-center items-start">
+                <p className="p-2"><Link to='/DashboardUser' >DashboardUser</Link></p>
+                <p className="p-2"><Link to='/Deposit' >Deposit</Link></p>
+                <p className="p-2"><Link to='/Extract' >Extract</Link></p>
+                <p className="p-2"><Link to='/VirtualCashier' >VirtualCashier</Link></p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-between items-center w-[400px] pt-4">
+              <p>Contacto</p>
+              <div className="flex flex-wrap justify-around w-[80%] py-4">
+                <IoLogoLinkedin className="w-[30px] h-[30px]" />
+                <IoLogoTwitter className="w-[30px] h-[30px]" />
+                <IoLogoFacebook className="w-[30px] h-[30px]" />
+                <IoLogoInstagram className="w-[30px] h-[30px]" />
+                <IoLogoYoutube className="w-[30px] h-[30px]" />
+              </div>
+              <p>Location: Latam</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col my-6 pl-6 border-l justify-center items-start">
+            <p className="p-2"><Link to='/' >Paga con código QR</Link></p>
+            <p className="p-2"><Link to='/' >Recarga tu celular</Link></p>
+            <p className="p-2"><Link to='/' >Paga tus servicios</Link></p>
+            <p className="p-2"><Link to='/' >Envia y pide dinero</Link></p>
+            <p className="p-2"><Link to='/' >Accede a un crédito</Link></p>
+            <p className="p-2"><Link to='/' >Pide delivery de comida</Link></p>
+          </div>
+        </div>
+
+        <div className="p-4">
+          <p>* Copyright © 2023-2024 Grupo Java. Todos los derechos reservados. EcoPay .   Hecho en Argentina whit love jajajaja.</p>
+        </div>
+
+        </div>
+
+     </footer>
 
     </div>
   )
