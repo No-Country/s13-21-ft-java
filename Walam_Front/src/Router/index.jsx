@@ -91,11 +91,13 @@ export const router = createBrowserRouter([
           {
             path: '/CVUUser',
             element: <CVUUser />
+          },
+          {
             path: '/VirtualCashier',
             element: <VirtualCashier />
           }
         ]
-      },
+      }
 
       // {
       //   path: '/Reset-password',
