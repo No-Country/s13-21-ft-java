@@ -12,7 +12,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='/Deposit' className='block px-4 py-2 text-sm'>
+        <Link to='/VirtualCashier' className='block px-4 py-2 text-sm'>
           Depositar
         </Link>
         <hr className='xl:border-neutral-700' />
@@ -24,7 +24,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='/Extract' className='block px-4 py-2 text-sm'>Extraer</Link>
+        <Link to='/VirtualCashier' className='block px-4 py-2 text-sm'>Extraer</Link>
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>

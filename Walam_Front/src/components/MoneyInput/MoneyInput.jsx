@@ -17,7 +17,7 @@ export default function MoneyInput() {
         value={amount === '' ? '' : '$' + amount}        
         onChange={handleChange}        
         placeholder="$000"
-        className="text-end py-1 w-10 sm:w-20 max-w-48 focus:outline-none"        
+        className="text-end py-1 w-10 sm:w-20 max-w-48 focus:outline-none bg-transparent"        
       />
       <span>.00</span>       
     </div>

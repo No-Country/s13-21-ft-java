@@ -62,9 +62,9 @@ export default function Register () {
   }
 
   return (
-    <div className='relative w-4/5 md:w-2/3 lg:max-w-[520px]'>
+    <div className='relative w-4/5 sm:w-2/3 md:w-3/5 lg:max-w-[520px]'>
       <div className='absolute inset-0 rounded-xl bg-loginColor opacity-25'/>
-      <div className='relative z-10 rounded-xl py-8 px-20 w-full text-white flex flex-col'>
+      <div className='relative z-10 rounded-xl py-8 px-10 lg:px-20 w-full text-white flex flex-col'>
         <div className='w-[87%] xl:w-full flex justify-between'>
           <Link to='/'><FaArrowLeft className='xl:hidden'/></Link>
         </div>

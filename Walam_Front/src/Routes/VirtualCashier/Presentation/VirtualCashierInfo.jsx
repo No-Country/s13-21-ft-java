@@ -1,10 +1,10 @@
 import MoneyInput from '../../../components/MoneyInput/MoneyInput'
 import { useEffect, useState } from 'react'
-import { FaCheck } from "react-icons/fa"
+import { FaArrowLeft, FaCheck } from "react-icons/fa"
 import { IoIosClose } from "react-icons/io"
-import { SlOptionsVertical } from "react-icons/sl"
 import { TiPlus } from "react-icons/ti"
 import { TiMinus } from "react-icons/ti"
+import { Link } from 'react-router-dom'
 
 const TABLE_HEAD = ["Entidad", "Monto", "Estado", ""]
  
@@ -20,18 +20,8 @@ const TABLE_ROWS = [
     status: "Habilitado"
   },
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
-    name: "AstroPay",
-    status: "Habilitado"
-  },
-  {
-    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
-    name: "ApplePay",
-    status: "Habilitado"
-  },
-  {
     img: "https://docs.material-tailwind.com/img/logos/logo-netflix.svg",
-    name: "Ualá",
+    name: "ApplePay",
     status: "Deshabilitado"
   },
   {
@@ -47,11 +37,6 @@ const TABLE_ROWS = [
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
     name: "PayPall",
-    status: "Habilitado"
-  },
-  {
-    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
-    name: "NuBank",
     status: "Habilitado"
   },
 ]
@@ -77,21 +62,21 @@ const VirtualCashierInfo = () => {
     }
 
     return (
-        <div className='w-[85%] max-w-lg mt-6 flex flex-col justify-center items-center gap-6 p-2'>
-            <section className='flex gap-2 w-full justify-between items-center'>
-                <h2 className='text-3xl font-semibold'>Depósitos y Extracciones</h2>
-                <button className='rounded-full w-6 h-6 bg-gray-300 p-1'><SlOptionsVertical /></button>            
+        <div className='w-full max-w-xl mt-4 flex flex-col justify-center items-center gap-3'>
+            <section className='flex items-center gap-3 self-start'>
+                <Link to='/DashBoardUser'> <FaArrowLeft /></Link>
+                <h1 className='font-bold text-2xl'>Depósitos y Extracciones</h1>                            
             </section>
-            <section className='w-full h-4/5 overflow-y-auto'>
-                <div className="w-full flex flex-row items-center my-4">                
-                    <input label="Search" type="text" placeholder="Buscar" className="border pl-2 p-1 w-full rounded-lg" value={searchText}
+            <section className='w-full h-4/5 overflow-y-auto p-2'>
+                <div className="w-full flex flex-row items-center my-3">                
+                    <input label="Search" type="text" placeholder="Buscar" className="bg-[#434740] border pl-2 p-1 w-full rounded-lg" value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}/>                    
                 </div>
                 <table className="w-full table-auto">                        
                         <thead>
                             <tr>
                             {TABLE_HEAD.map((head) => (
-                                <th key={head}  className="bg-[#F8F8F8] px-2 py-2">{head}</th>
+                                <th key={head}  className="bg-[#434740] px-2 py-2">{head}</th>
                             ))}
                             </tr>
                         </thead>                        
@@ -108,8 +93,7 @@ const VirtualCashierInfo = () => {
                                 const isLast = index === TABLE_ROWS.length - 1;
                                 const classes = isLast
                                 ? "p-2"
-                                : "p-2 border-b border-blue-gray-50";
-                
+                                : "p-2 border-b border-blue-gray-50";                
                                 return (
                                 <tr key={name}>
                                     <td className={classes}>
