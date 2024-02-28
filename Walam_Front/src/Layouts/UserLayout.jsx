@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { FaCircleQuestion } from 'react-icons/fa6'
 import { FaBell } from 'react-icons/fa'
 import { Footer, NavBar, DashboardDesktop } from '../components'
@@ -19,23 +19,28 @@ const UserLayout = () => {
       <header>
         <div className='w-full xl:hidden'>
           <NavBar />
-        </div>
+        </div>        
       </header>
-      <main className='flex items-center justify-center xl:bg-dashboard-bg xl:bg-cover xl:bg-center xl:bg-no-repeat xl:h-screen '>
-        <div className='hidden xl:flex'>
-          <NavBar />
+      <main className='flex flex-col gap-4 items-center justify-center xl:bg-dashboard-bg xl:bg-cover xl:bg-center xl:bg-no-repeat xl:h-screen'>
+        <div className='w-full hidden xl:flex bg-transparent pl-12'>
+          <Link to='/'><img src='/img/Logox2.png' alt='Logo EcoPay' className='w-[200px] p-4'/></Link>
         </div>
-        <div className='flex p-6 flex-col xl:border xl:rounded-xl xl:text-white border-neutral-700 xl:h-[720px] xl:gap-4'>
-          <div className='hidden xl:flex xl:justify-end gap-3'>
-            <FaBell />
-            <div className='flex gap-1'>
-              <FaCircleQuestion />
-              <p className='mt-[-5px]'>Ayuda</p>
-            </div>
+        <div className='flex items-center justify-center '>
+          <div className='hidden xl:flex'>
+            <NavBar />
           </div>
-          <div className='flex xl:gap-4'>
-            <DashboardDesktop />
-            <Outlet />
+          <div className='flex p-6 flex-col xl:border xl:rounded-xl xl:text-white border-neutral-700 xl:h-[720px] xl:gap-4'>
+            <div className='hidden xl:flex xl:justify-end gap-3'>
+              <FaBell />
+              <div className='flex gap-1'>
+                <FaCircleQuestion />
+                <p className='mt-[-5px]'>Ayuda</p>
+              </div>
+            </div>
+            <div className='flex xl:gap-4'>
+              <DashboardDesktop />
+              <Outlet />
+            </div>
           </div>
         </div>
       </main>
