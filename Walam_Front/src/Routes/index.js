@@ -8,6 +8,9 @@ const DashboardUser = lazy(() => import('./DashboardUser/Component/DashboardUser
 const VirtualCashier = lazy(() => import('./VirtualCashier/Component/VirtualCashier'))
 const Transfer = lazy(() => import('./Transfer/Component/Transfer'))
 const ConfirmTransfer = lazy(() => import('./ConfirmTransfer/Component/ConfirmTransfer'))
+const MovementsHistory = lazy(() => import('./MovementsHistory/Component/MovementsHistory'))
+const HistoryDetails = lazy(() => import('./HistoryDetails/Component/HistoryDetails'))
+const CVUUser = lazy(() => import('./CVUUser/Component/CVUUser'))
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -26,5 +29,8 @@ export {
   DashboardUser,
   VirtualCashier,
   Transfer,
-  ConfirmTransfer
+  ConfirmTransfer,
+  MovementsHistory,
+  HistoryDetails,
+  CVUUser
 }

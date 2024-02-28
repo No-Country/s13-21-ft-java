@@ -19,7 +19,7 @@ const OnBoardingInfo = () => {
         <a href='#' className=''>Servicios</a>
       </li>
       <li className='p-1 font-normal'>
-        <a href='#' className=''>Targeta</a>
+        <a href='#' className=''>Tarjeta</a>
       </li>
       <li className='p-1 font-normal'>
         <a href='#' className=''>Prestamos sustentables</a>
@@ -134,15 +134,15 @@ const OnBoardingInfo = () => {
           </div>
         </div>
 
-        <div className="w-full flex flex-col items-center" 
-        style={{backgroundImage: `url("/img/GroupFooter.png")`, 
+        <div className="w-full flex flex-col items-center"
+        style={{backgroundImage: `url("/img/GroupFooter.png")`,
         backgroundPosition: 'right 0px',
         backgroundRepeat: 'no-repeat'}}>
         <div className="flex flex-wrap justify-around w-full bg-[#3E3E3Eb8] shadow-inner shadow-md">
 
           <div className="flex flex-col justify-between items-center py-6">
             <div className="flex flex-wrap justify-between">
-              
+
               <div className="flex flex-col px-6 justify-center items-start">
                 <p className="p-2"><Link to='/UsersDataForm' >UsersDataForm</Link></p>
                 <p className="p-2"><Link to='/Login' >Login</Link></p>
@@ -178,7 +178,7 @@ const OnBoardingInfo = () => {
             <p className="p-2"><Link to='/' >Pide delivery de comida</Link></p>
           </div>
         </div>
-      
+
         <div className="p-4">
           <p>* Copyright © 2023-2024 Grupo Java. Todos los derechos reservados. EcoPay .   Hecho en Argentina whit love jajajaja.</p>
         </div>
