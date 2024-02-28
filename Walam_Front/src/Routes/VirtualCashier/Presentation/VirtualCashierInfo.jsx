@@ -11,28 +11,48 @@ const TABLE_HEAD = ["Entidad", "Monto", "Estado", ""]
 const TABLE_ROWS = [
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-spotify.svg",
-    name: "Spotify",
+    name: "Mercadopago",
     status: "Habilitado"    
   },
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-amazon.svg",
-    name: "Amazon",
+    name: "PersonalPay",
     status: "Habilitado"
   },
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
-    name: "Pinterest",
+    name: "AstroPay",
     status: "Habilitado"
   },
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
-    name: "Google",
+    name: "ApplePay",
     status: "Habilitado"
   },
   {
     img: "https://docs.material-tailwind.com/img/logos/logo-netflix.svg",
-    name: "Netflix",
+    name: "Ualá",
     status: "Deshabilitado"
+  },
+  {
+    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
+    name: "GoogleWallet",
+    status: "Habilitado"
+  },
+  {
+    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
+    name: "NaranjaX",
+    status: "Habilitado"
+  },
+  {
+    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
+    name: "PayPall",
+    status: "Habilitado"
+  },
+  {
+    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
+    name: "NuBank",
+    status: "Habilitado"
   },
 ]
 
@@ -57,12 +77,12 @@ const VirtualCashierInfo = () => {
     }
 
     return (
-        <div className='w-[85%] mt-6 flex flex-col justify-center items-center gap-6'>
+        <div className='w-[85%] max-w-lg mt-6 flex flex-col justify-center items-center gap-6 p-2'>
             <section className='flex gap-2 w-full justify-between items-center'>
                 <h2 className='text-3xl font-semibold'>Depósitos y Extracciones</h2>
                 <button className='rounded-full w-6 h-6 bg-gray-300 p-1'><SlOptionsVertical /></button>            
             </section>
-            <section className='w-full md:w-4/5'>
+            <section className='w-full h-4/5 overflow-y-auto'>
                 <div className="w-full flex flex-row items-center my-4">                
                     <input label="Search" type="text" placeholder="Buscar" className="border pl-2 p-1 w-full rounded-lg" value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}/>                    
@@ -87,21 +107,21 @@ const VirtualCashierInfo = () => {
                             ) => {
                                 const isLast = index === TABLE_ROWS.length - 1;
                                 const classes = isLast
-                                ? "p-3"
-                                : "p-3 border-b border-blue-gray-50";
+                                ? "p-2"
+                                : "p-2 border-b border-blue-gray-50";
                 
                                 return (
                                 <tr key={name}>
                                     <td className={classes}>
-                                    <div className="flex items-center gap-3">
-                                        <img
-                                        src={img}
-                                        alt={name}
-                                        size="md"
-                                        className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1 h-10 w-10"
-                                        />
-                                        <p className="font-bold">{name}</p>
-                                    </div>
+                                        <div className="flex flex-col sm:flex-row items-center gap-3">
+                                            <img
+                                            src={img}
+                                            alt={name}
+                                            size="md"
+                                            className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1 h-10 w-10"
+                                            />
+                                            <p className="font-bold">{name}</p>
+                                        </div>
                                     </td>
                                     <td className={classes}>
                                     {status === "Habilitado"                                        
@@ -116,7 +136,7 @@ const VirtualCashierInfo = () => {
                                     </td>
                                     <td className={classes}>
                                         <div className={status === "Habilitado"
-                                                ?'flex flex-col gap-2 px-4'
+                                                ?'flex flex-col gap-2 w-fit'
                                                 :'hidden'                                            
                                         }>
                                             <button className='flex gap-2' onClick={handleClick}>          

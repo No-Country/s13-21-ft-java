@@ -4,13 +4,13 @@ import * as Yup from 'yup'
 import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useState } from 'react'
-import { useCreateUserMutation } from '../../../api/apiSlice'
+/* import { useCreateUserMutation } from '../../../api/apiSlice' */
 
 export default function Register () {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [showPassword2, setShowPassword2] = useState(false)
-  const [createUser] = useCreateUserMutation()
+  /* const [createUser] = useCreateUserMutation() */
 
   // Validaciones
   const validationSchema = Yup.object().shape({
@@ -36,13 +36,18 @@ export default function Register () {
     password2: Yup.string().oneOf([Yup.ref('password')], 'Las contraseñas no coinciden').required('Contraseña requerida')
   })
 
-  const handleSubmit = async (values) => {
+ /*  const handleSubmit = async (values) => {
     const { email, password } = values
     const response = await createUser({ email, password })
     const userId = response.data.id
 
     navigate('/Login')
+  } */
+  const handleSubmit = () => {  
+    alert('Registro exitoso')  
+    navigate('/Login')
   }
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
@@ -57,42 +62,41 @@ export default function Register () {
   }
 
   return (
-    <div className='flex flex-row justify-between items-center lg:bg-primarygray h-screen w-screen box-border px-10'>
-      <section className='p-6 h-4/5 lg:w-2/3 max-w-lg'>
-        <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
-        <div className='bg-white rounded-xl p-6 h-full'>
-          <Link to='/'><FaArrowLeft /></Link>
-          <h2 className='text-xl mt-6 font-semibold'>Registro</h2>
-          <h1 className='text-3xl font-semibold '>Ingresa tu correo electrónico</h1>
-          <div className='w-full flex flex-col pt-6 h-[85%]'>
+    <div className='relative w-4/5 md:w-2/3 lg:max-w-[520px]'>
+      <div className='absolute inset-0 rounded-xl bg-loginColor opacity-25'/>
+      <div className='relative z-10 rounded-xl py-8 px-20 w-full text-white flex flex-col'>
+        <div className='w-[87%] xl:w-full flex justify-between'>
+          <Link to='/'><FaArrowLeft className='xl:hidden'/></Link>
+        </div>
+        <main>
+          <div className='flex flex-col pt-4 xl:pt-0 pb-6'>
+            <h3 className='font-medium'>Registro</h3>
+            <h1 className='text-4xl'>Ingresa tu Correo Electrónico</h1>
+          </div>
             <Formik
               initialValues={initialValues}
               onSubmit={handleSubmit}
               validationSchema={validationSchema}
             >
               {({ errors, values }) => (
-                <Form className='rounded h-full flex flex-col justify-between'>
+                <Form className='rounded pt-6 h-[320px]'>
                   <div>
                     <FormInput name='Correo Electrónico' type='email' placeholder='ejemplo@gmail.com' errors={errors} id='email' value={values.email} />
                     <PasswordInput name='Contraseña' placeholder='********' errors={errors} id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
                     <PasswordInput name='Repetir Contraseña' placeholder='********' errors={errors} id='password2' value={values.password2} showPassword={showPassword2} togglePasswordVisibility={togglePasswordVisibility2} />
                   </div>
-                  <div className='flex flex-col items-center px-3'>
-                    <FormButton text='Registrarse' color='bg-white' hover='hover:bg-primarygray' />
+                  <div className='flex flex-col justify-center pt-[150px] xl:pt-[90px]'>
+                    <FormButton text='Registrarse' hover='hover:bg-primarygray' />                    
                   </div>
                 </Form>
               )}
             </Formik>
-            <div className='p-3 text-center text-sm font-semibold flex flex-col'>
-              <GoogleButton />
-              <Link to='/Login' className='m-3'>Iniciar Sesión</Link>
-            </div>
+            <div className='flex flex-col justify-center pt-[250px] xl:pt-44'>
+            <GoogleButton />
+            <Link to='/Login' className='text-center pt-3'>Iniciar Sesión</Link>
           </div>
-        </div>
-      </section>
-      <section className='p-24 hidden lg:block text-white'>
-        <p>Espacio para video, animacion, textos, botones</p>
-      </section>
+        </main>
+      </div>
     </div>
   )
 }

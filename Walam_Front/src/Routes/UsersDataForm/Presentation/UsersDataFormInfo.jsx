@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
+import { GoPencil } from "react-icons/go"
 import { useDeleteUserMutation, useUpdateUserMutation, useGetLoggedInUserQuery } from '../../../api/apiSlice'
 
 export default function UsersDataFormInfo () {
@@ -61,9 +62,9 @@ export default function UsersDataFormInfo () {
 
   return (
     <div className='flex flex-row justify-between items-center lg:bg-primarygray h-screen w-screen box-border px-10'>
-      <section className='h-4/5 lg:w-2/3 max-w-lg box-border'>
-        <h1 className='text-white font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
-        <div className='bg-white rounded-xl py-6 px-3 h-full box-border'>
+      <section className='h-4/5 lg:w-2/3 max-w-lg box-border text-white'>
+        <h1 className='font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
+        <div className='bg-[#32382E] rounded-xl py-6 px-3 h-full box-border'>
           <Link to='/DashboardUser'><FaArrowLeft /></Link>
           <div className='pb-2 px-4'>
             <h2 className='text-xl mt-6 font-semibold'>Perfil</h2>
@@ -78,15 +79,33 @@ export default function UsersDataFormInfo () {
               {({ errors, values }) => (
                 <Form className='rounded h-full flex flex-col justify-between px-8'>
                   <div>
-                    <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={values.name} />
-                    <FormInput name='Apellidos' type='text' placeholder='López López' errors={errors} id='lastname' value={values.lastname} />
-                    <FormInput name='Número de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='docNumber' value={values.docNumber} />
-                    <FormInput name='Teléfono' type='tel' placeholder='(0000)00000000' errors={errors} id='phone' value={values.phone} />
-                    <FormInput name='Fecha de Nacimiento' type='date' placeholder='00 ENE 0000' errors={errors} id='birth' value={values.birth} />
-                    <FormInput name='País' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={values.name} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='Apellidos' type='text' placeholder='López López' errors={errors} id='lastname' value={values.lastname} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='Número de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='docNumber' value={values.docNumber} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='Teléfono' type='tel' placeholder='(0000)00000000' errors={errors} id='phone' value={values.phone} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='Fecha de Nacimiento' type='date' placeholder='00 ENE 0000' errors={errors} id='birth' value={values.birth} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                      <FormInput name='País' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
+                      <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
+                    </div>                    
                   </div>
                   <div className='flex flex-col items-center pb-3'>
-                    <FormButton text='Guardar Datos' color='bg-white' hover='hover:bg-primarygray' />
+                    <FormButton text='Guardar Datos' hover='hover:bg-primarygray' />
                     <button onClick={handleDelete} className='m-3 text-center text-sm font-semibold text-red-600 hover:bg-red-600 hover:text-white rounded-lg py-2 px-4 w-full mb-16'>Eliminar Cuenta</button>
                   </div>
                 </Form>
