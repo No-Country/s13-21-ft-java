@@ -19,7 +19,7 @@ const OnBoardingInfo = () => {
         <a href='#' className=''>Servicios</a>
       </li>
       <li className='p-1 font-normal'>
-        <a href='#' className=''>Targeta</a>
+        <a href='#' className=''>Tarjeta</a>
       </li>
       <li className='p-1 font-normal'>
         <a href='#' className=''>Prestamos sustentables</a>
