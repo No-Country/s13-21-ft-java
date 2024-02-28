@@ -2,15 +2,15 @@ import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 import userImg from '../../../assets/Avatar Style 6.jpg'
 
-export default function ConfirmTransferInfo () {
+export default function HistoryDetailsInfo () {
   return (
     <div className='flex flex-col px-8'>
       <div className='flex items-center gap-3'>
-        <Link to='/Transfer' className='mt-[-30px]'> <FaArrowLeft /></Link>
+        <Link to='/MovementsHistory' className='mt-[-30px]'> <FaArrowLeft /></Link>
         <h1 className='font-bold text-2xl'>
-          Confirmación
+          Detalles del
           <br />
-          de Transferencia
+          movimiento
         </h1>
       </div>
       <h2 className='pt-6 font-medium text-xs self-center'>Código transferencia: EPU000D00M00A0000T0000</h2>
