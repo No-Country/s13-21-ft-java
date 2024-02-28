@@ -14,7 +14,10 @@ import {
   Extract,
   VirtualCashier,
   Transfer,
-  ConfirmTransfer
+  ConfirmTransfer,
+  MovementsHistory,
+  HistoryDetails,
+  CVUUser
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -78,6 +81,18 @@ export const router = createBrowserRouter([
           {
             path: '/ConfirmTransfer',
             element: <ConfirmTransfer />
+          },
+          {
+            path: '/MovementsHistory',
+            element: <MovementsHistory />
+          },
+          {
+            path: '/HistoryDetails',
+            element: <HistoryDetails />
+          },
+          {
+            path: '/CVUUser',
+            element: <CVUUser />
           }
 
         ]
