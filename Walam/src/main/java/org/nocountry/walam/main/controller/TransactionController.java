@@ -19,7 +19,7 @@ public class TransactionController {
     /**
      * Obtiene un usuario por su ID.
      *
-     * @param transactionRequest the entity that has the account number and amount.
+     * @param transactionRequest the {@link TransactionRequest} that has the account number and amount.
      * @return ResponseEntity with the message of success or wrong.
      */
     @PostMapping("/transfer")
