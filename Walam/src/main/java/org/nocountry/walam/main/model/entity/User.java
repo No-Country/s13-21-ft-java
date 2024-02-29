@@ -43,10 +43,10 @@ public class User implements UserDetails {
     private String noIdentidad;
 
     @Email
-    @Column(name = "email", unique = true)
+    @Column(name = "email", length = 75, nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", length = 16, nullable = false)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
