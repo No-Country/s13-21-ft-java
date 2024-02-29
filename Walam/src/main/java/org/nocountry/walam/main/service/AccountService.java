@@ -25,5 +25,4 @@ public interface AccountService {
 
     void depositToAccount(String numberAccount, Double amount);
 
-
 }

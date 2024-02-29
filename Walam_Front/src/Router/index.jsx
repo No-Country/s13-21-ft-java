@@ -10,9 +10,12 @@ import {
   Register,
   ForgotPassword,
   DashboardUser,
-  Deposit,
-  Extract,
-  VirtualCashier    
+  VirtualCashier,
+  Transfer,
+  ConfirmTransfer,
+  MovementsHistory,
+  HistoryDetails,
+  CVUUser
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -68,36 +71,33 @@ export const router = createBrowserRouter([
           {
             path: '/DashboardUser',
             element: <DashboardUser />
+          },
+          {
+            path: '/Transfer',
+            element: <Transfer />
+          },
+          {
+            path: '/ConfirmTransfer',
+            element: <ConfirmTransfer />
+          },
+          {
+            path: '/MovementsHistory',
+            element: <MovementsHistory />
+          },
+          {
+            path: '/HistoryDetails',
+            element: <HistoryDetails />
+          },
+          {
+            path: '/CVUUser',
+            element: <CVUUser />
+          },
+          {
+            path: '/VirtualCashier',
+            element: <VirtualCashier />
           }
         ]
-      },
-      {
-        path: '/Deposit',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Deposit />
-          </Suspense>
-        )
-      },
-      {
-        path: '/Extract',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Extract />
-          </Suspense>
-        )
-      },
-      {
-        path: '/VirtualCashier',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <VirtualCashier />
-          </Suspense>
-        )
       }
-
-  
-   
 
       // {
       //   path: '/Reset-password',

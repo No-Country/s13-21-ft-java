@@ -50,5 +50,5 @@ public class UserDTO implements Serializable {
     private Role role;
 
     @Valid
-    private Account account;
+    private AccountDTO account;
 }

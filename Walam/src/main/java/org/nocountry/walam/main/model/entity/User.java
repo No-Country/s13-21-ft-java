@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Type;
 import org.nocountry.walam.main.model.entity.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -42,7 +43,7 @@ public class User implements UserDetails {
     private String noIdentidad;
 
     @Email
-    @Column(name = "email", nullable = false , unique = true)
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password", nullable = false)
@@ -65,11 +66,10 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = "account")
     private Account account;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -30,6 +30,6 @@ public class AccountDTO implements Serializable {
     private Double balance;
 
     @Valid
-    private User user;
+    private UserDTO user;
 
 }

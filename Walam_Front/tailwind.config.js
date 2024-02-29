@@ -7,10 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primarygray: '#9B9A9A'
+        primarygray: '#9B9A9A',
+        loginColor: '#4B573E',
+        DashboardDesktop: '#383d39'
       },
       backgroundImage: {
-        'gradient-center': 'radial-gradient(circle, var(--tw-gradient-stops))'
+        'gradient-center': 'radial-gradient(circle, var(--tw-gradient-stops))',
+        'login-pattern': "url('/src/assets/Bento_login.jpg')",
+        'dashboard-bg': "url('/src/assets/dashboard_bg.jpg')"
       },
       backgroundSize: {
         '200%': '200%'

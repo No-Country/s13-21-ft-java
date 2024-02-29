@@ -10,14 +10,14 @@ export default function PasswordInput ({ id, name, showPassword, placeholder, er
     <div className='mb-4 h-[90px]'>
       <div className='mb-4'>
         <label
-          className='block text-gray-700 text-sm mb-2'
+          className='block text-white text-sm mb-2'
           htmlFor={id}
         >
           {name}
         </label>
         <div className='relative'>
           <Field
-            className={` font-roboto shadow appearance-none border rounded w-full py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem] ${errors ? invalid : normal}`}
+            className={` font-roboto shadow appearance-none border rounded w-full py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem] bg-[#434740] border-gray-800 ${errors ? invalid : normal}`}
             id={id}
             type={showPassword ? 'text' : 'password'}
             placeholder={placeholder}
