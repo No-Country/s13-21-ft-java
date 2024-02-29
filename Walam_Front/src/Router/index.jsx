@@ -15,7 +15,8 @@ import {
   ConfirmTransfer,
   MovementsHistory,
   HistoryDetails,
-  CVUUser
+  CVUUser,
+  Help
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
           {
             path: '/UsersDataForm',
             element: <UsersDataForm />
+          },
+          {
+            path: '/Help',
+            element: <Help />
           },
         ]
       }

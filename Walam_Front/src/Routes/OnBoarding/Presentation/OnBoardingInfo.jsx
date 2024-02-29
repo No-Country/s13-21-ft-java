@@ -143,6 +143,7 @@ const OnBoardingInfo = () => {
                 <p className="p-2"><Link to='/MovementsHistory' >MovementsHistory</Link></p>
                 <p className="p-2"><Link to='/HistoryDetails' >HistoryDetails</Link></p>
                 <p className="p-2"><Link to='/CVUUser' >CVUUser</Link></p>
+                <p className="p-2"><Link to='/Help' >Help</Link></p>
               </div>
             </div>
             <div className="flex flex-col justify-between items-center w-[400px] pt-4">
