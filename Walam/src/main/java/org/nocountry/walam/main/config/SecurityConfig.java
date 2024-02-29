@@ -38,7 +38,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authRequest ->
                         authRequest
                                 // Permitir el acceso sin autenticación a las solicitudes que coincidan con "/auth/**".
+                                .requestMatchers("/v3/**","/swagger-ui/**").permitAll()
                                 .requestMatchers("/auth/**").permitAll()
+                                .requestMatchers("/api/**").permitAll()
                                 // Exigir autenticación para todas las demás solicitudes.
                                 .anyRequest().authenticated())
                 // Configurar el formulario de inicio de sesión con valores predeterminados.
