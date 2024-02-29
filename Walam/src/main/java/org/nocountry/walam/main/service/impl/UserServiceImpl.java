@@ -2,6 +2,7 @@ package org.nocountry.walam.main.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.nocountry.walam.main.model.dto.AccountDTO;
+import org.nocountry.walam.main.model.dto.TransactionDTO;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.repository.UserRepository;
@@ -72,7 +73,20 @@ public class UserServiceImpl implements UserService {
                 .birthday(user.getBirthday())
                 .active(user.isActive())
                 .role(user.getRole())
-                .account(AccountDTO.builder().id(user.getAccount().getId()).build())
+                .account(AccountDTO.builder()
+                        .id(user.getAccount().getId())
+                        .cvu(user.getAccount().getCvu())
+                        .balance(user.getAccount().getBalance())
+                        .numberAccount(user.getAccount().getNumberAccount())
+                        .transactions(user.getAccount().getTransactions().stream().map(transaction -> {
+                            return TransactionDTO.builder()
+                                    .id(transaction.getId())
+                                    .amount(transaction.getAmount())
+                                    .date(transaction.getDate()).
+                                    type(transaction.getType())
+                                    .build();
+                        }).collect(Collectors.toList()))
+                        .build())
                 .build();
     }
 

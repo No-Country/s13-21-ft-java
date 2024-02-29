@@ -23,7 +23,7 @@ public class TransactionController {
      * @return ResponseEntity with the message of success or wrong.
      */
     @PostMapping("/transfer")
-    public ResponseEntity transferToAccount(@Valid @RequestBody TransactionRequest transactionRequest){
+    public ResponseEntity<?> transferToAccount(@Valid @RequestBody TransactionRequest transactionRequest){
         return transactionService.transferToAccount(transactionRequest);
     }
 
@@ -34,7 +34,7 @@ public class TransactionController {
      * @return ResponseEntity with the message of success or wrong.
      */
     @PostMapping("/withdraw")
-    public ResponseEntity withdraw(@Valid @RequestBody WithdrawOrDepositRequest withdraw ){
+    public ResponseEntity<?> withdraw(@Valid @RequestBody WithdrawOrDepositRequest withdraw ){
         return transactionService.withdraw(withdraw);
     }
 
@@ -45,7 +45,7 @@ public class TransactionController {
      * @return ResponseEntity with the message of success or wrong.
      */
     @PostMapping("/deposit")
-    public ResponseEntity deposit(@Valid @RequestBody WithdrawOrDepositRequest deposit){
+    public ResponseEntity<?> deposit(@Valid @RequestBody WithdrawOrDepositRequest deposit){
         return transactionService.deposit(deposit);
     }
 }

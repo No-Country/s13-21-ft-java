@@ -72,12 +72,11 @@ public class AuthService {
         Account account = Account.builder()
                         .numberAccount(numberAccount)
                         .balance(0.00)
-                        .user(user)
                         .cvu(cvu)
                         .build();
 
         user.setAccount(account);
-
+        account.setUser(user);
         accountService.saveAccount(account);
         userRepository.save(user);
 
