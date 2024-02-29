@@ -4,23 +4,19 @@ server:
 
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: { DB_URL }
+    username: { DB_USERNAME }
+    password: { DB_PASSWORD }
     hikari:
       maximum-pool-size: 1
   jpa:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
-        show-sql: true
+        show-sql: false
     hibernate:
-<<<<<<< HEAD
-      ddl-auto: update
-=======
       ddl-auto: create
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
   output:
     ansi:
       enabled: always

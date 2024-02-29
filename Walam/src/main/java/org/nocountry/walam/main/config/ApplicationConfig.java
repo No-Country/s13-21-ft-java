@@ -39,7 +39,6 @@ public class ApplicationConfig {
 
         // DaoAuthenticationProvider, se encarga de autenticar a los usuarios consultando una base de datos.
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-<<<<<<< HEAD
 
         /**
          *  setUserDetailsService(), espera un objeto que implemente la interfaz UserDetailsService.
@@ -51,13 +50,6 @@ public class ApplicationConfig {
         /**
          * Establece el codificador de contraseñas para el proveedor de autenticación (DaoAuthenticationProvider).
          * */
-=======
-<<<<<<< HEAD
-        authenticationProvider.setUserDetailsService(userDetailService());
-=======
-        authenticationProvider.setUserDetailsService(userDetailsService());
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
->>>>>>> 5e6838bad0d3b8e36c272d48afc965a09872f090
         authenticationProvider.setPasswordEncoder(passwordEncoder());
 
         return authenticationProvider;
@@ -77,21 +69,9 @@ public class ApplicationConfig {
      *  Carga los detalles del usuario desde la base de datos utilizando el UserRepository.
      * */
     @Bean
-<<<<<<< HEAD
     public UserDetailsService userDetailService() {
         return username -> userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-=======
-<<<<<<< HEAD
-    public UserDetailsService userDetailService() {
-        return username -> userRepository.findByUsername(username)
-                .orElseThrow(()-> new UsernameNotFoundException("User not found"));
-=======
-    public UserDetailsService userDetailsService() {
-        return email -> userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
->>>>>>> 5e6838bad0d3b8e36c272d48afc965a09872f090
     }
 
 }

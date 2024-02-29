@@ -56,14 +56,11 @@ public class AccountServiceImpl implements AccountService {
     public Account mapDTOToAccount(AccountDTO accountDTO) {
         return AccountMapper.INSTANCE.accountDTOToAccount(accountDTO);}
 
-<<<<<<< HEAD
-=======
     public boolean existsByNumberAccount(String numberAccount) {
         return accountRepository.existsByNumberAccount(numberAccount);
     }
     public boolean existsByCvu(String cvu){
         return accountRepository.existsByCvu(cvu);
     }
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
 }
