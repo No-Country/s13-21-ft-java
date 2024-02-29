@@ -13,8 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class RegisterRequest {
 
-
     String username;
     String password;
-
+    String email;
 }
