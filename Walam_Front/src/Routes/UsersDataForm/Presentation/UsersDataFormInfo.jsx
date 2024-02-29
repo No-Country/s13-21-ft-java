@@ -60,24 +60,20 @@ export default function UsersDataFormInfo () {
       .catch((error) => console.error('Error al eliminar usuario:', error))
   }
 
-  return (
-    <div className='flex flex-row justify-between items-center lg:bg-primarygray h-screen w-screen box-border px-10'>
-      <section className='h-4/5 lg:w-2/3 max-w-lg box-border text-white'>
-        <h1 className='font-semibold text-3xl p-2 hidden lg:block'>EcoPay</h1>
-        <div className='bg-[#32382E] rounded-xl py-6 px-3 h-full box-border'>
-          <Link to='/DashboardUser'><FaArrowLeft /></Link>
-          <div className='pb-2 px-4'>
-            <h2 className='text-xl mt-6 font-semibold'>Perfil</h2>
-            <h1 className='text-3xl font-semibold '>Modificación de Datos de Usuario</h1>
+  return (    
+      <section className='text-white rounded-xl min-w-[350px] w-4/5 xl:max-h-[550px] py-2'> 
+          <div className='flex items-center gap-3 self-start p-2'>
+            <Link to='/DashboardUser'><FaArrowLeft /></Link>
+            <h2 className='text-xl font-semibold'>Perfil</h2>            
           </div>
-          <div className='w-full flex flex-col py-8 h-4/5 overflow-y-auto'>
+          <div className='w-full flex flex-col h-full overflow-y-auto'>
             <Formik
               initialValues={initialValues}
               onSubmit={handleSubmit}
               validationSchema={validationSchema}
             >
               {({ errors, values }) => (
-                <Form className='rounded h-full flex flex-col justify-between px-8'>
+                <Form className='rounded flex flex-col justify-between px-6'>
                   <div>
                     <div className='flex items-center gap-2'>
                       <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={values.name} />
@@ -112,12 +108,7 @@ export default function UsersDataFormInfo () {
               )}
             </Formik>            
           </div>
-
-        </div>
-      </section>
-      <section className='p-24 hidden lg:block text-white'>
-        <p>Espacio para video, animacion, textos, botones</p>
-      </section>
-    </div>
+        
+      </section> 
   )
 }

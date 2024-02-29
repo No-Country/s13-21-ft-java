@@ -36,10 +36,7 @@ export const router = createBrowserRouter([
       //     </Suspense>
       //   )
       // },
-      {
-        path: '/UsersDataForm',
-        element: <UsersDataForm />
-      },
+     
       {
         path: '/Register',
         element: (
@@ -95,7 +92,11 @@ export const router = createBrowserRouter([
           {
             path: '/VirtualCashier',
             element: <VirtualCashier />
-          }
+          },
+          {
+            path: '/UsersDataForm',
+            element: <UsersDataForm />
+          },
         ]
       }
 
