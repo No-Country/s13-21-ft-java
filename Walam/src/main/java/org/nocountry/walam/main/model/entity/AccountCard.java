@@ -35,14 +35,6 @@ public class AccountCard {
     @Column(name = "expiration_date", updatable = false)
     private LocalDate expirationDate;
 
-<<<<<<< HEAD
-    private boolean isActive;
-
-    @OneToOne
-    @NotBlank(message = "El propietario de la tarjeta no puede estar en blanco")
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
-    private User owner;
-=======
     @Column(name = "active", columnDefinition = "BOOLEAN default true", nullable = false)
     private boolean active;
 
@@ -55,6 +47,5 @@ public class AccountCard {
         LocalDate limitDate = this.creationDate.plusMonths(42);
         this.expirationDate = limitDate;
     }
->>>>>>> 6bd9ce11d4c43be7734f8632da4808d9901c2ccb
 
 }
