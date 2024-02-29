@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "username", length = 25)
+    @Column(name = "username", length = 25 , unique = true)
     private String username;
 
     @Column(name = "firstname", length = 25)
@@ -43,10 +43,10 @@ public class User implements UserDetails {
     private String noIdentidad;
 
     @Email
-    @Column(name = "email", length = 75, nullable = false, unique = true)
+    @Column(name = "email", length = 75)
     private String email;
 
-    @Column(name = "password", length = 16, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @ManyToOne(fetch = FetchType.LAZY)
