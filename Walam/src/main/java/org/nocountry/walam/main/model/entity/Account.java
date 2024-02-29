@@ -37,7 +37,7 @@ public class Account {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
     private List<Transaction> transactions = new ArrayList<>();
 
-    //ADD
+    // ADD
     public void addTransaction(Transaction transaction){
         transaction.setAccount(this);
         this.transactions.add(transaction);

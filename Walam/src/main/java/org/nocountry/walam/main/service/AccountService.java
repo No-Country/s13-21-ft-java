@@ -24,4 +24,6 @@ public interface AccountService {
     boolean existsByCvu(String cvu);
 
     void depositToAccount(String numberAccount, Double amount);
+
+
 }
