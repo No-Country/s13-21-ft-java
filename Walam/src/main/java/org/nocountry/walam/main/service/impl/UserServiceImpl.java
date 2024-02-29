@@ -1,6 +1,7 @@
 package org.nocountry.walam.main.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.model.dto.AccountDTO;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.repository.UserRepository;
@@ -71,6 +72,7 @@ public class UserServiceImpl implements UserService {
                 .birthday(user.getBirthday())
                 .active(user.isActive())
                 .role(user.getRole())
+                .account(AccountDTO.builder().id(user.getAccount().getId()).build())
                 .build();
     }
 

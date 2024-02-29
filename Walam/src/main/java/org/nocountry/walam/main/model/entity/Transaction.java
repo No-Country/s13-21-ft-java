@@ -37,7 +37,13 @@ public class Transaction {
      * Atributo relacionado a la cuenta de destino
      */
     @ManyToOne
-    @JoinColumn(name = "account_id", nullable = false)
+    @JoinColumn(name = "account", nullable = false)
     private Account account;
+
+    @Column(name="destiny_account")
+    private String destinyAccount;
+
+    @Column(name="origin_account")
+    private String originAccount;
 
 }

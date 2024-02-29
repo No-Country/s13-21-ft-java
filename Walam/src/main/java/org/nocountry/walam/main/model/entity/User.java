@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Type;
 import org.nocountry.walam.main.model.entity.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,8 +30,11 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "name", length = 25)
+    @Column(name = "username", length = 25)
     private String username;
+
+    @Column(name = "firstname", length = 25)
+    private String firstName;
 
     @Column(name = "lastname", length = 20)
     private String lastName;
@@ -62,9 +66,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account")
+    @OneToOne(cascade = CascadeType.ALL, fetch =  FetchType.LAZY)
     @JsonIgnore
+    @JoinColumn(name = "account")
     private Account account;
 
     @Override
