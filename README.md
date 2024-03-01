@@ -6,21 +6,21 @@
 
 <br>
 
-## <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/> Bienveidos a Ecopay
+## <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/> Bienvenidos a Ecopay
 
 **Ecopay** es una cartera virtual diseñada para fomentar las transacciones monetarias virtuales 
 de forma ecológica, amigable y simple.
 
 Nuestro objetivo es proporcionar una plataforma segura de transacciones monetarias para el usuario común
-a lo largo de 5 paises.
+a lo largo de 5 países.
 
 <br>
 
 ## Funcionamiento
 
-Al registrarte en **Ecopay**  se te brindará un número de cuenta y una tarjeta de débito prepagada
-que podrás utilizar para recibir o enviar dinero a de forma rápida y segura, brindandote la seguridad
-de tener una huella de carbono sustebtable en cada operación.
+Al registrarte en **Ecopay**,  se te brindará un número de cuenta y una tarjeta de débito prepagada
+que podrás utilizar para recibir o enviar dinero de forma rápida y segura, brindándote la seguridad
+de tener una huella de carbono sustentable en cada operación.
 
 <br>
 
