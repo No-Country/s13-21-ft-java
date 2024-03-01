@@ -7,6 +7,7 @@ import lombok.Data;
 import org.nocountry.walam.main.model.entity.User;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -30,6 +31,5 @@ public class AccountDTO implements Serializable {
     private Double balance;
 
     @Valid
-    private UserDTO user;
-
+    private List<TransactionDTO> transactions;
 }

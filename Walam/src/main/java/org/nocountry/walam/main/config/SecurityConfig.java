@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -41,6 +42,7 @@ public class SecurityConfig {
                                 .requestMatchers("/v3/**","/swagger-ui/**").permitAll()
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/api/**").permitAll()
+                                .requestMatchers("/h2-console/**").permitAll()
                                 // Exigir autenticación para todas las demás solicitudes.
                                 .anyRequest().authenticated())
                 // Configurar el formulario de inicio de sesión con valores predeterminados.
@@ -50,6 +52,7 @@ public class SecurityConfig {
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 // Construir la cadena de filtros de seguridad.
+                .headers(AbstractHttpConfigurer::disable)
                 .build();
     }
 }

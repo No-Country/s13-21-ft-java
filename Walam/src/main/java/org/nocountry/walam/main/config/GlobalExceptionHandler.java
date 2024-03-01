@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public ResponseEntity <?> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, List<String>> body = new HashMap<>();
 
         List<String> errors = ex.getBindingResult()

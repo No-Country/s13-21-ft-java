@@ -56,24 +56,28 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     @Override
     public ResponseEntity<String> transferToAccount(TransactionRequest transactionRequest) {
         Account accountLogged = getAccountOfCurrentUser();
         if (accountLogged != null && accountLogged.getBalance() >= transactionRequest.getAmount()) {
             Account destiny = accountRepository.findByNumberAccount(transactionRequest.getDestinyAccount());
             if (destiny != null) {
-                // Realizar la transferencia
-                performTransfer(accountLogged, destiny, transactionRequest.getAmount());
+
                 // Registrar la transacción
                 saveTransaction(accountLogged, destiny, transactionRequest.getAmount());
+                // Realizar la transferencia
+                performTransfer(accountLogged, destiny, transactionRequest.getAmount());
+
                 return ResponseEntity.ok("Transferencia exitosa");
             }
         }
         return ResponseEntity.badRequest().body("Bad Request");
     }
 
+    @Transactional
     @Override
-    public ResponseEntity withdraw(WithdrawOrDepositRequest withdraw) {
+    public ResponseEntity<?> withdraw(WithdrawOrDepositRequest withdraw) {
         Account account = getAccountOfCurrentUser();
         if(account.getBalance() >= withdraw.getAmount()){
             account.setBalance( account.getBalance() - withdraw.getAmount() );
@@ -84,16 +88,19 @@ public class TransactionServiceImpl implements TransactionService {
                     .destinyAccount(account.getNumberAccount())
                     .amount(withdraw.getAmount())
                     .type(TransactionType.WITHDRAW)
+                    .account(account)
                     .build();
             transactionRepository.save(transaction);
+            accountRepository.save(account);
             return ResponseEntity.ok("Withdraw Success");
         } else{
             return ResponseEntity.badRequest().body("Not enough balance");
         }
     }
 
+    @Transactional
     @Override
-    public ResponseEntity deposit(WithdrawOrDepositRequest deposit) {
+    public ResponseEntity <?> deposit(WithdrawOrDepositRequest deposit) {
         Account account = getAccountOfCurrentUser();
         account.setBalance( account.getBalance() + deposit.getAmount() );
         Transaction transaction = Transaction.builder()
@@ -102,12 +109,15 @@ public class TransactionServiceImpl implements TransactionService {
                 .originAccount(account.getNumberAccount())
                 .destinyAccount(account.getNumberAccount())
                 .amount(deposit.getAmount())
+                .account(account)
                 .type(TransactionType.DEPOSIT)
                 .build();
         transactionRepository.save(transaction);
+        accountRepository.save(account);
         return ResponseEntity.ok("Deposit Success");
     }
 
+    @Transactional
     private void performTransfer(Account origin, Account destiny, double amount) {
         origin.setBalance(origin.getBalance() - amount);
         destiny.setBalance(destiny.getBalance() + amount);
@@ -115,17 +125,28 @@ public class TransactionServiceImpl implements TransactionService {
         accountRepository.save(destiny);
     }
 
+    @Transactional
     private void saveTransaction(Account origin, Account destiny, double amount) {
-        Transaction transaction = Transaction.builder()
+        Transaction transactionOrigin = Transaction.builder()
                 .date(LocalDateTime.now())
-                .type(TransactionType.TRANSFER)
+                .type(TransactionType.DEPOSIT)
                 .originAccount(origin.getNumberAccount())
                 .destinyAccount(destiny.getNumberAccount())
-                .account(origin)
                 .amount(amount).build();
-        transactionRepository.save(transaction);
+        origin.addTransaction(transactionOrigin);
+        transactionRepository.save(transactionOrigin);
+
+        Transaction transactionDestiny = Transaction.builder()
+                .date(LocalDateTime.now())
+                .type(TransactionType.WITHDRAW)
+                .originAccount(origin.getNumberAccount())
+                .destinyAccount(destiny.getNumberAccount())
+                .amount(amount).build();
+        destiny.addTransaction(transactionDestiny);
+        transactionRepository.save(transactionDestiny);
     }
 
+    @Transactional
     public Account getAccountOfCurrentUser(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(authentication != null ){

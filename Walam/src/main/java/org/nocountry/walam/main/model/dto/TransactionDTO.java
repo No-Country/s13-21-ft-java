@@ -21,7 +21,7 @@ public class TransactionDTO implements Serializable {
     @NotBlank
     @DecimalMin(value = "0.00")
     @DecimalMax(value = "999999999.99")
-    private Double ammount;
+    private Double amount;
 
     @NotBlank
     private LocalDateTime date;
@@ -32,8 +32,7 @@ public class TransactionDTO implements Serializable {
     /**
      * Validación y representación de relación a la cuenta de destino
      */
-    @NotBlank
-    @Valid
-    private Account destinyAccount;
-
+//    @NotBlank
+//    @Valid
+//    private Account destinyAccount;
 }
