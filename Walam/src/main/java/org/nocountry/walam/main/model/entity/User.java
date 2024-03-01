@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Type;
+import org.nocountry.walam.main.model.entity.enums.Country;
 import org.nocountry.walam.main.model.entity.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -49,9 +49,9 @@ public class User implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "country_id") // Nombre correcto de la columna de clave foránea en la tabla users
-    private Country country;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "country")
+    private Country country = Country.SIN_ASIGNAR;
 
     @Column(name = "phone", length = 12)
     private String phone;
