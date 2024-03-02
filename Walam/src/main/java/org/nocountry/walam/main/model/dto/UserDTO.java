@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
+import org.nocountry.walam.main.model.entity.enums.Country;
 import org.nocountry.walam.main.model.entity.enums.Role;
 
 import java.io.Serializable;
@@ -32,8 +33,6 @@ public class UserDTO implements Serializable {
     @NotBlank
     private String password;
 
-    @Valid
-    private Country country;
 
     @Min(10)
     @Pattern(regexp = "^[0-9]+$")
@@ -46,6 +45,8 @@ public class UserDTO implements Serializable {
     @AssertTrue
     private boolean active;
     private Role role;
+
+    private Country country;
 
     @Valid
     private AccountDTO account;
