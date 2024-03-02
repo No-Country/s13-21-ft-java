@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
         User user = userOptional.orElseThrow(() -> new Exception("User not found"));
 
         user.setUsername(userRequest.getUsername());
+        user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
         user.setNoIdentidad(userRequest.getNoIdentidad());
         user.setEmail(userRequest.getEmail());
@@ -64,6 +65,7 @@ public class UserServiceImpl implements UserService {
         return UserDTO.builder()
                 .id(user.getId())
                 .username(user.getUsername())
+                .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .noIdentidad(user.getNoIdentidad())
                 .email(user.getEmail())
