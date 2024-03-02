@@ -11,29 +11,29 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/v1")
 public class UserController {
 
     private final UserServiceImpl userService;
 
-    @GetMapping()
+    @GetMapping("users")
     public ResponseEntity<List<UserDTO>> getAll() throws Exception {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @GetMapping("/username/{username}")
+    @GetMapping("users/{username}")
     public ResponseEntity<UserDTO> getByUsername(@PathVariable String username) throws Exception {
         return ResponseEntity.ok(userService.getByUsername(username));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("user/{id}")
     public ResponseEntity<UserDTO> getById(@PathVariable int id) throws Exception {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
 
-    @PutMapping("/{id}")
+    @PutMapping("user/{id}")
     public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody UserDTO userRequest) {
         try {
             userService.updateUser(id, userRequest);
