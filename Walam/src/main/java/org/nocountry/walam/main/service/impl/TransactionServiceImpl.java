@@ -60,7 +60,11 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public ResponseEntity<String> transferToAccount(TransactionRequest transactionRequest) {
         Account accountLogged = getAccountOfCurrentUser();
+
         if (accountLogged != null && accountLogged.getBalance() >= transactionRequest.getAmount()) {
+            if(transactionRequest.getDestinyAccount().equals(accountLogged.getNumberAccount())){
+                return ResponseEntity.badRequest().body("La cuenta de destino es la misma que la de origen");
+            }
             Account destiny = accountRepository.findByNumberAccount(transactionRequest.getDestinyAccount());
             if (destiny != null) {
 
