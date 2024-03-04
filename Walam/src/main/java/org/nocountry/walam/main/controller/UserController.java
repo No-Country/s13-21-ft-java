@@ -53,7 +53,6 @@ public class UserController {
     }
 
     @Transactional
-
     @PatchMapping("user/update-birthday")
     public ResponseEntity<?> updateBirdthday(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)  Date date, Authentication authentication) {
         System.out.println(authentication.getName());
