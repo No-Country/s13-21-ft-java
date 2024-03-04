@@ -1,6 +1,7 @@
 package org.nocountry.walam.main.service;
 
 import org.nocountry.walam.main.model.dto.UserDTO;
+import org.nocountry.walam.main.model.entity.User;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ public interface UserService {
 
     public List<UserDTO> getAllUsers() throws Exception;
 
-    public UserDTO getByUsername(String username) throws Exception;
+    public User getByUsername(String username) throws Exception;
 
     public UserDTO getUserById(int id) throws Exception;
 
