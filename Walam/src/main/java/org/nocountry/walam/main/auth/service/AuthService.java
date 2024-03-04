@@ -53,6 +53,7 @@ public class AuthService {
         User user = User.builder()
                 .username(registerRequest.getUsername())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
+                .email(registerRequest.getEmail())
                 .active(true) // Por defecto los usuarios estarán activos.
                 .role(Role.USER) // Por defecto los nuevos usuarios tendrán el rol USER.
                 .build();

@@ -25,7 +25,7 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
-    @GetMapping("users")
+    @GetMapping("users-all")
     public ResponseEntity<List<UserDTO>> getAll() throws Exception {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         return ResponseEntity.ok(userService.getAllUsers());
