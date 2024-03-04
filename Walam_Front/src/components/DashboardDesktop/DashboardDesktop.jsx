@@ -29,9 +29,9 @@ const DashboarDesktop = () => {
             <p className='w-full text-2xl font-medium'>$ 0.000.000,00</p>
           </div>
           <div className='flex flex-col xl:flex-row xl:justify-evenly pt-4 xl:pt-2 gap-4'>
-            <ActionButton info='Depositar' option='option1' link='//Deposit' />
+            <ActionButton info='Depositar' option='option1' link='/VirtualCashier' />
             <ActionButton info='Transferir' option='option2' link='/Transfer' />
-            <ActionButton info='Extraer' option='option3' link='/Extract' />
+            <ActionButton info='Extraer' option='option3' link='/VirtualCashier' />
           </div>
         </section>
       </div>

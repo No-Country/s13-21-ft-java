@@ -32,9 +32,9 @@ const DashboardUserInfo = () => {
             <Link to='/MovementsHistory'><p className='w-full text-green-700 font-medium text-center'>Historial de Movimientos</p></Link>
           </div>
           <div className='flex flex-col pt-4 gap-4'>
-            <ActionButton info='Depositar' option='option1' link='/Transfer' />
+            <ActionButton info='Depositar' option='option1' link='/VirtualCashier' />
             <ActionButton info='Transferir' option='option2' link='/Transfer' />
-            <ActionButton info='Extraer' option='option3' />
+            <ActionButton info='Extraer' option='option3' link='/VirtualCashier' />
           </div>
         </section>
         <section className='w-full flex gap-3 items-center  bg-gradient-center from-green-500 to-green-950 rounded-lg py-4 px-2 mt-6 '>
