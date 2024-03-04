@@ -42,7 +42,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public void deleteTransactionById(int id) {
+    public void deleteTransactionById(Integer id) {
         transactionRepository.deleteById(id);
     }
 
@@ -52,9 +52,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public Transaction getTransactionById(int id) {
-        return transactionRepository.findById(id).orElse(null);
-    }
+    public Transaction getTransactionById(Integer id) {return transactionRepository.findById(id).orElse(null);}
 
     @Transactional
     @Override

@@ -12,9 +12,9 @@ import java.util.List;
 public interface TransactionService {
 
     Transaction saveTransaction(Transaction transaction);
-    void deleteTransactionById(int id);
+    void deleteTransactionById(Integer id);
     List<Transaction> getAllTransactions();
-    Transaction getTransactionById(int id);
+    Transaction getTransactionById(Integer id);
 
     // Otras operaciones si es necesario.
     ResponseEntity<String> transferToAccount(TransactionRequest transactionRequest);

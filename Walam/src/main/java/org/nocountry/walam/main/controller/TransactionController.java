@@ -53,15 +53,16 @@ public class TransactionController {
         return transactionService.deposit(deposit);
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/transactions")
     public ResponseEntity<List<Transaction>> getAllTransactions() {
         List<Transaction> transactions = transactionService.getAllTransactions();
         return new ResponseEntity<>(transactions, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Transaction> getById(int id) {
+    @GetMapping(value = "/transaction/{id}")
+    public ResponseEntity<Transaction> getById(@PathVariable Integer id) {
         Transaction transaction = transactionService.getTransactionById(id);
         return new ResponseEntity<>(transaction, HttpStatus.OK);
     }
+
 }
