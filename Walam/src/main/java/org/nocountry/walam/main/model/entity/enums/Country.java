@@ -10,11 +10,11 @@ public enum Country {
     ARGENTINA,
     @JsonProperty("Colombia")
     COLOMBIA,
-    @JsonProperty("México")
-    MÉXICO,
-    @JsonProperty("Panamá")
-    PANAMÁ,
-    @JsonProperty("Costa Rica")
+    @JsonProperty("Mexico")
+    MEXICO,
+    @JsonProperty("Panama")
+    PANAMA,
+    @JsonProperty("Costa_Rica")
     COSTA_RICA;
     
 
