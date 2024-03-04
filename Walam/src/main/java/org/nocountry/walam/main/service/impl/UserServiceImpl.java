@@ -3,6 +3,7 @@ package org.nocountry.walam.main.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.nocountry.walam.main.model.dto.AccountDTO;
 import org.nocountry.walam.main.model.dto.TransactionDTO;
+import org.nocountry.walam.main.model.dto.UpdateUserDTO;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.entity.enums.Country;
@@ -48,20 +49,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(int id, UserDTO userRequest) throws Exception {
-        Optional<User> userOptional = userRepository.findById(id);
+    public void updateUser(String username, UpdateUserDTO userRequest) throws Exception {
+        Optional<User> userOptional = userRepository.findByUsername(username);
         User user = userOptional.orElseThrow(() -> new Exception("User not found"));
 
-        user.setUsername(userRequest.getUsername());
+        user.setFirstName(userRequest.getFirstName());
         user.setLastName(userRequest.getLastName());
         user.setNoIdentidad(userRequest.getNoIdentidad());
-        user.setEmail(userRequest.getEmail());
-        user.setPassword(userRequest.getPassword());
         user.setCountry(userRequest.getCountry());
         user.setPhone(userRequest.getPhone());
         user.setBirthday(userRequest.getBirthday());
-        user.setActive(userRequest.isActive());
-        user.setRole(userRequest.getRole());
 
         userRepository.save(user);
     }

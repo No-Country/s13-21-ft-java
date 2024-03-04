@@ -2,6 +2,7 @@ package org.nocountry.walam.main.controller;
 
 import jakarta.persistence.Table;
 import lombok.RequiredArgsConstructor;
+import org.nocountry.walam.main.model.dto.UpdateUserDTO;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.entity.enums.Country;
@@ -30,9 +31,9 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
-    @GetMapping("users/{username}")
-    public ResponseEntity<UserDTO> getByUsername(@PathVariable String username) throws Exception {
-        return ResponseEntity.ok(userService.mapUserToDTO(userService.getByUsername(username)));
+    @GetMapping("users")
+    public ResponseEntity<UserDTO> getByUsername(Authentication authentication) throws Exception {
+        return ResponseEntity.ok(userService.mapUserToDTO(userService.getByUsername(authentication.getName())));
     }
 
     @GetMapping("user/{id}")
@@ -41,10 +42,10 @@ public class UserController {
     }
 
 
-    @PutMapping("user/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable int id, @RequestBody UserDTO userRequest) {
+    @PutMapping("user-update")
+    public ResponseEntity<String> updateUser(@RequestBody UpdateUserDTO userRequest, Authentication authentication) {
         try {
-            userService.updateUser(id, userRequest);
+            userService.updateUser(authentication.getName(), userRequest);
             return ResponseEntity.ok("User updated successfully");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update user: " + e.getMessage());

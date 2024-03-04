@@ -1,5 +1,6 @@
 package org.nocountry.walam.main.service;
 
+import org.nocountry.walam.main.model.dto.UpdateUserDTO;
 import org.nocountry.walam.main.model.dto.UserDTO;
 import org.nocountry.walam.main.model.entity.User;
 
@@ -13,6 +14,6 @@ public interface UserService {
 
     public UserDTO getUserById(int id) throws Exception;
 
-    public void updateUser(int id, UserDTO userRequest) throws Exception;
+    public void updateUser(String username, UpdateUserDTO userRequest) throws Exception;
 
 }
