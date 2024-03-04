@@ -32,7 +32,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='#' className='block px-4 py-2 text-sm'>Tarjeta virtual</Link>
+        <Link to='/VirtualCard' className='block px-4 py-2 text-sm'>Tarjeta virtual</Link>
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
@@ -48,7 +48,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='#' className='block px-4 py-2 text-sm'>Preguntas frecuentes</Link>
+        <Link to='/Help' className='block px-4 py-2 text-sm'>Preguntas frecuentes</Link>
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>

@@ -16,7 +16,9 @@ import {
   MovementsHistory,
   HistoryDetails,
   CVUUser,
-  ForeignExchange
+  ForeignExchange,
+  Help,
+  VirtualCard
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -101,7 +103,14 @@ export const router = createBrowserRouter([
           {
             path: '/ForeignExchange',
             element: <ForeignExchange />
-          }
+          },
+          {  path: '/Help',
+            element: <Help />
+          },
+          {
+            path: '/VirtualCard',
+            element: <VirtualCard />
+          },
         ]
       }
 
