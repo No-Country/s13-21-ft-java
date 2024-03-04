@@ -63,11 +63,11 @@ const LoginInfo = () => {
   }
 
   return (
-    <div className='relative w-full md:w-1/2 xl:max-w-[520px]'>
-      <div className='absolute inset-0 xl:rounded-xl xl:bg-loginColor opacity-25' />
-      <div className='relative z-10 xl:rounded-xl py-8 px-20 w-full xl:text-white flex flex-col'>
+    <div className='pt-8 xl:pt-0 relative w-full md:w-1/2 xl:max-w-[520px]'>
+      <div className='absolute inset-0 xl:rounded-xl bg-DashboardDesktop  xl:opacity-25' />
+      <div className='relative z-10 xl:rounded-xl py-8 px-20 w-full text-white flex flex-col'>
         <div className='w-[87%] xl:w-full flex justify-between'>
-          <Link to='/'><FaArrowLeft className='xl:hidden' /></Link>
+          <Link to='/'><FaArrowLeft /></Link>
         </div>
         <main className=''>
           <div className='flex flex-col pt-4 xl:pt-0 pb-6'>
@@ -91,14 +91,14 @@ const LoginInfo = () => {
                   <Link className=' text-sm font-medium text-black-900 dark:text-black-300' to='/reset-password '>¿Olvidaste tu contraseña?</Link>
                 </div>
                 {/* Submit button */}
-                <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
+                <div className='flex flex-col justify-center pt-[210px] xl:pt-[180px]'>
                   <FormButton text='Iniciar Sesión' />
                   {error && <p className='text-red-600 text-xs italic text-center'>{error}</p>}
                 </div>
               </Form>
             )}
           </Formik>
-          <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
+          <div className='flex flex-col justify-center pt-[210px] xl:pt-[180px]'>
             <GoogleButton />
             <Link to='/Register' className='text-center pt-3'> Registrarse</Link>
           </div>

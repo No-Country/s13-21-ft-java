@@ -6,8 +6,8 @@ import { ActionButton, RoundButton } from '../index'
 
 const DashboarDesktop = () => {
   return (
-    <div className='hidden w-[85%] xl:flex flex-col justify-center items-center'>
-      <div className='border rounded-xl px-5 py-8 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full'>
+    <div className='hidden w-[85%] h-[90%] xl:flex flex-col  items-center'>
+      <div className='border rounded-xl px-5 py-11 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full'>
         <section className='flex gap-2 self-start'>
           <figure>
             <img src={profilePhoto} alt='foto de perfil' className='xl:rounded-3xl' />
@@ -50,7 +50,9 @@ const DashboarDesktop = () => {
         <Link to='/CVUUser'>
           <RoundButton info='CVU' option='option3' />
         </Link>
-        <RoundButton info='Divisas' option='option4' />
+        <Link to='/ForeignExchange'>
+          <RoundButton info='Divisas' option='option4' />
+        </Link>
         <RoundButton info='Ver más' option='option5' />
       </section>
     </div>

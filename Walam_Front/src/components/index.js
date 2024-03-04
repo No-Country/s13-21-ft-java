@@ -8,5 +8,7 @@ import ActionButton from './ActionButton/ActionButton'
 import RoundButton from './RoundButton/RoundButton'
 import HistoryItem from './HistoryItem/HistoryItem'
 import DashboardDesktop from './DashboardDesktop/DashboardDesktop'
+import DisplayDate from './DisplayDate/DisplayDate'
+import ForeignInfo from './ForeingInfo/ForeignInfo'
 
-export { Footer, NavBar, FormButton, FormInput, GoogleButton, PasswordInput, ActionButton, RoundButton, HistoryItem, DashboardDesktop }
+export { Footer, NavBar, FormButton, FormInput, GoogleButton, PasswordInput, ActionButton, RoundButton, HistoryItem, DashboardDesktop, DisplayDate, ForeignInfo }

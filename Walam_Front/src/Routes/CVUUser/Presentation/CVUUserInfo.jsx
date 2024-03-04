@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
-import userImg from '../../../assets/Avatar Style 6.jpg'
 
 export default function CVUUserInfo () {
   return (
     <div className='flex flex-col px-8'>
       <div className='flex items-center gap-3'>
-        <Link to='/DashboardUser' className='mt-[-30px] xl:hidden'> <FaArrowLeft /></Link>
+        <Link to='/DashboardUser' className='mt-[-30px]'> <FaArrowLeft /></Link>
         <h1 className='font-bold text-2xl'>
           CVU y Alias
-          <br className='xl:hidden'/>
+          <br />
           de Usuario
         </h1>
       </div>
       <div className='flex flex-col px-8 '>
-        <div className='shadow-inner rounded-2xl mt-6 p-6 bg-zinc-100 flex flex-col items-center border-2 xl:border xl:rounded-xl xl:bg-zinc-800 xl:shadow-md xl:outline-1 xl:border-neutral-700 '>
+        <div className='shadow-inner rounded-2xl mt-6 p-6 flex flex-col items-center border-2 xl:border xl:rounded-xl bg-zinc-800 xl:shadow-md xl:outline-1 xl:border-neutral-700 '>
           <h2 className='font-bold pb-3 text-xl'>CVU</h2>
           <hr className='border-1 w-[300px]' />
           <p className='py-3'>123456789101</p>

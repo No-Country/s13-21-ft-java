@@ -12,7 +12,7 @@ const DashboardUserInfo = () => {
       <div className='w-[85%] mt-6 flex flex-col justify-center items-center xl:hidden'>
         <section className='flex gap-2 self-start'>
           <figure>
-            <img src={profilePhoto} alt='foto de perfil' />
+            <img src={profilePhoto} alt='foto de perfil' className='rounded-3xl' />
           </figure>
           <div className='flex justify-center items-end'>
             <p>
@@ -49,7 +49,9 @@ const DashboardUserInfo = () => {
           <Link to='/CVUUser'>
             <RoundButton info='CVU' option='option3' />
           </Link>
-          <RoundButton info='Divisas' option='option4' />
+          <Link to='/ForeignExchange'>
+            <RoundButton info='Divisas' option='option4' />
+          </Link>
           <RoundButton info='Ver más' option='option5' />
         </section>
         <section className='w-full mt-8 '>
@@ -60,7 +62,9 @@ const DashboardUserInfo = () => {
           </button>
         </section>
       </div>
-      <MovementsHistory />
+      <div className='hidden xl:w-full xl:flex'>
+        <MovementsHistory />
+      </div>
     </>
   )
 }
