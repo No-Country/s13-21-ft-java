@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaArrowLeft } from 'react-icons/fa'
-import userImg from '../../../assets/Avatar Style 6.jpg'
+import { FaArrowLeft, FaUserCircle } from 'react-icons/fa'
 
 export default function HistoryDetailsInfo () {
   return (
@@ -20,7 +19,7 @@ export default function HistoryDetailsInfo () {
           <hr className='border-1 w-[300px]' />
           <p className='pt-3'>Destinatario</p>
           <div className='flex items-center gap-3 p-3'>
-            <img src={userImg} alt='user image' className='rounded-3xl' />
+            <FaUserCircle className='text-4xl' />
             <p className='font-medium'>Carla Coe</p>
           </div>
           <hr className='border-1 w-[300px]' />
