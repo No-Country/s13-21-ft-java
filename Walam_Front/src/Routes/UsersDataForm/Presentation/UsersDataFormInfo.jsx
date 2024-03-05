@@ -1,68 +1,64 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import { FormButton, FormInput } from '../../../components'
+import { CountrySelect, FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { GoPencil } from "react-icons/go"
-import { useDeleteUserMutation, useUpdateUserMutation, useGetLoggedInUserQuery } from '../../../api/apiSlice'
+import axios from 'axios'
 
 export default function UsersDataFormInfo () {
-  const navigate = useNavigate()
-  const [deleteUser] = useDeleteUserMutation()
-  const [updateUser] = useUpdateUserMutation()
-  const { data: loggedInUser } = useGetLoggedInUserQuery()
+  const navigate = useNavigate()  
+  
   // Conexion a la API (onsubmit/onreset)
 
   // Validaciones
   const validationSchema = Yup.object().shape({
-    name: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Nombre requerido'),
+    firstName: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Nombre requerido'),
     lastname: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Apellido requerido'),
-    birth: Yup.date().required('Fecha requerida'),
+    birthday: Yup.date().required('Fecha requerida'),
     phone: Yup.number().min(6, 'Mínimo 6 caractares').required('Teléfono requerido'),
-    country: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('País requerido'),
-    docNumber: Yup.number().min(6, 'Mínimo 6 caractares').required('Número de documento requerido')
+    country: Yup.string().required('País requerido'),
+    noIdentidad: Yup.number().min(6, 'Mínimo 6 caractares').required('Número de documento requerido')
   })
 
   const initialValues = {
-    name: loggedInUser?.name || '',
-    lastname: loggedInUser?.lastname || '',
-    birth: loggedInUser?.birth || '',
-    phone: loggedInUser?.phone || '',
-    country: loggedInUser?.country || '',
-    docNumber: loggedInUser?.docNumber || ''
-  }
+    firstName: '',
+    lastName: '',
+    noIdentidad: '',
+    birthday: '',
+    phone: '',
+    country: ''
+  } 
 
-  // const handleSubmit = (values) => {
-  //   const { name, lastname, birth, phone, country, residence, docNumber } = values
-
-  //   console.log(name, lastname, birth, phone, country, residence, docNumber)
-
-  //   createUser({ name, lastname, birth, phone, country, residence, docNumber })
-  //   navigate('/DashboardUser')
-  // }
-
-  const handleSubmit = (values) => {
-    const updatedUserData = {
-      ...loggedInUser,
-      ...values
+  const handleSubmit = async (values) => {
+    const { firstName, lastName, noIdentidad, phone, birthday, country } = values
+    const userData = {
+      firstName,
+      lastName,
+      noIdentidad,
+      birthday,
+      phone,
+      country
     }
 
-    updateUser({ id: loggedInUser.id, userData: updatedUserData })
-      .unwrap()
-      .then(() => navigate('/DashboardUser'))
-      .catch((error) => console.error('Error al actualizar usuario:', error))
+    try {
+      const username = localStorage.getItem('username')
+      const token = localStorage.getItem('token')
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      await axios.put(`https://s13-21-ft-java.onrender.com/api/user/${username}`, userData)
+      navigate('/DashboardUser')
+    } catch (error) {
+      console.error('Error al guardar usuario:', error)
+    }
   }
 
-  const handleDelete = () => {
-    deleteUser(loggedInUser.id)
-      .unwrap()
-      .then(() => navigate('/DashboardUser'))
-      .catch((error) => console.error('Error al eliminar usuario:', error))
+  const handleDelete = async () => {
+    navigate('/DashboardUser')
   }
 
   return (    
       <section className='text-white rounded-xl min-w-[350px] w-4/5 xl:max-h-[550px] py-2'> 
-          <div className='flex items-center gap-3 self-start p-2'>
+          <div className='flex items-center gap-3 self-start py-2'>
             <Link to='/DashboardUser'><FaArrowLeft /></Link>
             <h2 className='text-xl font-semibold'>Perfil</h2>            
           </div>
@@ -76,7 +72,7 @@ export default function UsersDataFormInfo () {
                 <Form className='rounded flex flex-col justify-between px-6'>
                   <div>
                     <div className='flex items-center gap-2'>
-                      <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='name' value={values.name} />
+                      <FormInput name='Nombres' type='text' placeholder='Juan Martin' errors={errors} id='firstName' value={values.firstName} />
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>
                     <div className='flex items-center gap-2'>
@@ -84,7 +80,7 @@ export default function UsersDataFormInfo () {
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <FormInput name='Número de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='docNumber' value={values.docNumber} />
+                      <FormInput name='Número de Documento de Identidad' type='tel' placeholder='0000000000' errors={errors} id='noIdentidad' value={values.noIdentidad} />
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>
                     <div className='flex items-center gap-2'>
@@ -92,11 +88,11 @@ export default function UsersDataFormInfo () {
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>
                     <div className='flex items-center gap-2'>
-                      <FormInput name='Fecha de Nacimiento' type='date' placeholder='00 ENE 0000' errors={errors} id='birth' value={values.birth} />
+                      <FormInput name='Fecha de Nacimiento' type='date' placeholder='00 ENE 0000' errors={errors} id='birthday' value={values.birthday} />
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>
-                    <div className='flex items-center gap-2'>
-                      <FormInput name='País' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
+                    <div className='flex items-center gap-2'>                     
+                      <CountrySelect name='Pais' errors={errors} id='country' />
                       <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl'/>
                     </div>                    
                   </div>

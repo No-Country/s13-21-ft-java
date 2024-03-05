@@ -19,7 +19,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='pt-4 xl:pt-0 w-screen xl:w-full flex justify-between px-8 '>
+    <nav className='pt-4 xl:pt-0 w-screen xl:w-full flex justify-between px-8'>
       <div className='flex items-center gap-2 xl:hidden'>
         <FaCircleQuestion />
         <p>Ayuda</p>

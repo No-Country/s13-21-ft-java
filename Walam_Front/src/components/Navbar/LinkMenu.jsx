@@ -36,7 +36,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='#' className='block px-4 py-2 text-sm'>Divisas</Link>
+        <Link to='/Currencies' className='block px-4 py-2 text-sm'>Divisas</Link>
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>

@@ -17,7 +17,7 @@ const UserLayout = () => {
     lg:grid-rows-[1r,auto,1fr]'
     >
       <header>
-        <div className='w-full xl:hidden'>
+        <div className='w-full xl:hidden box-border'>
           <NavBar />
         </div>        
       </header>

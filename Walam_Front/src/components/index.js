@@ -8,5 +8,6 @@ import ActionButton from './ActionButton/ActionButton'
 import RoundButton from './RoundButton/RoundButton'
 import HistoryItem from './HistoryItem/HistoryItem'
 import DashboardDesktop from './DashboardDesktop/DashboardDesktop'
+import CountrySelect from './CountrySelect/CountrySelect'
 
-export { Footer, NavBar, FormButton, FormInput, GoogleButton, PasswordInput, ActionButton, RoundButton, HistoryItem, DashboardDesktop }
+export { Footer, NavBar, FormButton, FormInput, GoogleButton, PasswordInput, ActionButton, RoundButton, HistoryItem, DashboardDesktop, CountrySelect }
