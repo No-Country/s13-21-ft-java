@@ -30,7 +30,7 @@ const LoginInfo = () => {
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
     firstName: Yup.string().required('User Name requerido'),
-    password: Yup.string().required('La contraseña es requerida')      
+    password: Yup.string().min(8, 'La contraseña debe tener mínimo 8 caracteres').required('La contraseña es requerida')      
   })
 
   const togglePasswordVisibility = () => {
