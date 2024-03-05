@@ -67,6 +67,7 @@ public class UserServiceImpl implements UserService {
         return UserDTO.builder()
                 .id(user.getId())
                 .username(user.getUsername())
+                .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .noIdentidad(user.getNoIdentidad())
                 .email(user.getEmail())

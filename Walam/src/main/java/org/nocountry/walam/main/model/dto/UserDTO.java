@@ -20,6 +20,9 @@ public class UserDTO implements Serializable {
     private String username;
 
     @Min(3)
+    private String firstName;
+
+    @Min(3)
     private String lastName;
 
     @Min(10)
