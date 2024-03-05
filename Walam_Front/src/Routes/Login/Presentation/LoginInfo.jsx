@@ -8,12 +8,11 @@ import axios from 'axios'
 
 const LoginInfo = () => {
   const navigate = useNavigate()
-  const [error, setError] = useState('')  
-  const [showPassword, setShowPassword] = useState(false)
-
+  const [error, setError] = useState('')
+  const [showPassword, setShowPassword] = useState(false) 
 
   const handleLogin = async (values) => {
-    const { username, password } = values
+    const { email, password } = values
     try {
       const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
       // Guarda el token de autenticación en localStorage o Redux según tu preferencia
@@ -65,15 +64,14 @@ const LoginInfo = () => {
           >
             {({ errors, values }) => (
               <Form className='rounded pt-6 h-[320px]'>
-                {/* Form inputs */}
-                <FormInput name='User Name' type='text' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
+                {/* Form inputs */}              
+                <FormInput name='username' type='name' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
                 <PasswordInput name='Contraseña' placeholder='Ingrese contraseña' id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
                 <div className='flex flex-col lg:flex-row justify-between items-center'>
                   <Link className=' text-sm font-medium text-black-900 dark:text-black-300' to='/reset-password '>¿Olvidaste tu contraseña?</Link>
                 </div>
                 {/* Submit button */}
-                <div className='flex flex-col justify-center pt-[270px] xl:pt-[190px]'>
-                  <FormButton text='Iniciar Sesión' />
+                <div className='flex flex-col justify-center pt-[270px] xl:pt-[190px]'>                   <FormButton text='Iniciar Sesión'/>
                   {error && <p className='text-red-600 text-xs italic text-center'>{error}</p>}
                 </div>
               </Form>

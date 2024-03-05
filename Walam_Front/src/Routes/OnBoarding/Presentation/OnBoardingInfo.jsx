@@ -71,7 +71,7 @@ const OnBoardingInfo = () => {
           <p className='text-5xl'>de Latinoamérica</p>
         </div>
 
-        <div className='py-16 pl-[60px] text-center bg-[#3E3E3Eb8] w-full border-b-2 border-black shadow-inner shadow-md'>
+        <div className='py-16 pl-[60px] text-center bg-[#3E3E3Eb8] w-full border-b-2 border-black shadow-md'>
           <p className="text-left text-4xl">Servicios Latam</p>
           <div className="w-full flex flex-wrap justify-center items-center">
             <div className="w-[350px] pr-[20px] pt-10 text-left">
@@ -88,7 +88,7 @@ const OnBoardingInfo = () => {
           </div>
         </div>
 
-        <div className='py-[80px] px-[20px] w-full text-right border-b-2 border-black shadow-inner shadow-md flex flex-wrap justify-center'>
+        <div className='py-[80px] px-[20px] w-full text-right border-b-2 border-black shadow-md flex flex-wrap justify-center'>
           <div className="w-[380px] flex flex-col justify-around items-end py-2 pr-8">
             <p className="text-4xl">Solicita tu tarjeta Prepaga Virtual sin Costo y sin Burocracias</p>
             <img src="/img/Top Estate Agent.png" alt="Usuarios EcoPay" className="w-[280px] pt-2" />
@@ -96,7 +96,7 @@ const OnBoardingInfo = () => {
           <img src="/img/Card.png" alt="Targeta EcoPay" className="w-[380px] py-2" />
         </div>
 
-        <div className='py-[40px] px-[20px] w-full border-b-2 border-black shadow-inner shadow-md flex flex-wrap justify-center'>
+        <div className='py-[40px] px-[20px] w-full border-b-2 border-black shadow-md flex flex-wrap justify-center'>
           <div className="w-[320px] pr-[20px] py-2 flex flex-col justify-around items-end text-right">
             <img src="/img/Blog.png" alt="Usuarios EcoPay" className="w-[100px] pb-3" />
             <img src="/img/Blog2.png" alt="Usuarios EcoPay" className="w-[260px]" />
@@ -143,6 +143,7 @@ const OnBoardingInfo = () => {
                 <p className="p-2"><Link to='/MovementsHistory' >MovementsHistory</Link></p>
                 <p className="p-2"><Link to='/HistoryDetails' >HistoryDetails</Link></p>
                 <p className="p-2"><Link to='/CVUUser' >CVUUser</Link></p>
+                <p className="p-2"><Link to='/Help' >Help</Link></p>
               </div>
             </div>
             <div className="flex flex-col justify-between items-center w-[400px] pt-4">

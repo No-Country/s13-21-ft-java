@@ -19,19 +19,18 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='pt-4 xl:pt-0 w-screen xl:w-full flex justify-between px-8'>
+    <nav className='  pt-4 pb-2 xl:pt-0 w-screen xl:w-full flex justify-between px-8 bg-loginColor xl:bg-transparent text-white shadow-lg xl:shadow-none'>
       <div className='flex items-center gap-2 xl:hidden'>
         <FaCircleQuestion />
         <p>Ayuda</p>
       </div>
       <div className='flex items-center gap-4'>
-        <FaMoon className='text-zinc-500 xl:hidden' />
         <button onClick={toggleNotices} className='xl:hidden'>
-          <FaBell className='text-zinc-500' />
+          <FaBell className='' />
         </button>
         {isOpenNotes && (
           <div className=' absolute top-10 right-0 bg-white border p-2'>
-            <p className='block px-4 py-2 text-sm'>No hay nuevos avisos</p>
+            <p className='block px-4 py-2 text-sm text-black'>No hay nuevos avisos</p>
           </div>
         )}
         <button onClick={toggleMenu} className='xl:hidden'>

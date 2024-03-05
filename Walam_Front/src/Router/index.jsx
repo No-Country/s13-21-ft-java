@@ -15,7 +15,10 @@ import {
   ConfirmTransfer,
   MovementsHistory,
   HistoryDetails,
-  CVUUser
+  CVUUser,
+  ForeignExchange,
+  Help,
+  VirtualCard
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -36,7 +39,7 @@ export const router = createBrowserRouter([
       //     </Suspense>
       //   )
       // },
-     
+
       {
         path: '/Register',
         element: (
@@ -82,7 +85,7 @@ export const router = createBrowserRouter([
             element: <MovementsHistory />
           },
           {
-            path: '/HistoryDetails',
+            path: '/HistoryDetails/:id',
             element: <HistoryDetails />
           },
           {
@@ -97,6 +100,18 @@ export const router = createBrowserRouter([
             path: '/UsersDataForm',
             element: <UsersDataForm />
           },
+          {
+            path: '/ForeignExchange',
+            element: <ForeignExchange />
+          },
+          {
+            path: '/Help',
+            element: <Help />
+          },
+          {
+            path: '/VirtualCard',
+            element: <VirtualCard />
+          }
         ]
       }
 

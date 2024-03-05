@@ -5,20 +5,48 @@ import cardImg from '../../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../../../components'
 import { MovementsHistory } from '../../index.js'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import useBalance from '../../../components/CustomHooks/CustonHooks'
 
 const DashboardUserInfo = () => {
+  const [userName, setUserName] = useState()
+  // const [balance, setBalance] = useState()
+  const { balance } = useBalance()
+  const [displayedBalance, setDisplayedBalance] = useState(balance)
+
+  useEffect(() => {
+    setDisplayedBalance(balance)
+  }, [])
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setUserName(response.data.username)
+        // setBalance(response.data.account.balance)
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
+    }
+
+    fetchUser()
+  }, [])
   return (
     <>
       <div className='w-[85%] mt-6 flex flex-col justify-center items-center xl:hidden'>
         <section className='flex gap-2 self-start'>
           <figure>
-            <img src={profilePhoto} alt='foto de perfil' />
+            <img src={profilePhoto} alt='foto de perfil' className='rounded-3xl' />
           </figure>
           <div className='flex justify-center items-end'>
             <p>
               Hola,
               <br />
-              <Link to='/UsersDataForm'>Pedrita</Link>
+              <Link to='/UsersDataForm'>{userName}</Link>
             </p>
             <Link to='/UsersDataForm'>
               <IoIosArrowRoundForward className='text-[40px]' />
@@ -28,13 +56,13 @@ const DashboardUserInfo = () => {
         <section className='flex gap-6'>
           <div className='flex flex-col justify-evenly items-center'>
             <p className='w-full font-medium'>Disponible</p>
-            <p className='w-full text-2xl font-medium'>$ 0.000.000,00</p>
+            <p className='w-full text-2xl font-medium'>{displayedBalance}</p>
             <Link to='/MovementsHistory'><p className='w-full text-green-700 font-medium text-center'>Historial de Movimientos</p></Link>
           </div>
           <div className='flex flex-col pt-4 gap-4'>
-            <ActionButton info='Depositar' option='option1' link='/Transfer' />
+            <ActionButton info='Depositar' option='option1' link='/VirtualCashier' />
             <ActionButton info='Transferir' option='option2' link='/Transfer' />
-            <ActionButton info='Extraer' option='option3' />
+            <ActionButton info='Extraer' option='option3' link='/VirtualCashier' />
           </div>
         </section>
         <section className='w-full flex gap-3 items-center  bg-gradient-center from-green-500 to-green-950 rounded-lg py-4 px-2 mt-6 '>
@@ -49,7 +77,9 @@ const DashboardUserInfo = () => {
           <Link to='/CVUUser'>
             <RoundButton info='CVU' option='option3' />
           </Link>
-          <RoundButton info='Divisas' option='option4' />
+          <Link to='/ForeignExchange'>
+            <RoundButton info='Divisas' option='option4' />
+          </Link>
           <RoundButton info='Ver más' option='option5' />
         </section>
         <section className='w-full mt-8 '>
@@ -60,7 +90,9 @@ const DashboardUserInfo = () => {
           </button>
         </section>
       </div>
-      <MovementsHistory />
+      <div className='hidden xl:w-full xl:flex'>
+        <MovementsHistory />
+      </div>
     </>
   )
 }
