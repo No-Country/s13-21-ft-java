@@ -10,8 +10,7 @@ export default function CVUUserInfo () {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const username = localStorage.getItem('username')
-        const token = localStorage.getItem('token')
+        const token = window.localStorage.getItem('token')
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
         setUser(response.data.account.cvu)

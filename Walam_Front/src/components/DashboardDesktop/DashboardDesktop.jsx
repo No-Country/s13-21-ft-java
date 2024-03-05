@@ -3,8 +3,29 @@ import profilePhoto from '../../assets/Avatar Style 6.jpg'
 import cardImg from '../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../index'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
 const DashboarDesktop = () => {
+  const [userName, setUserName] = useState()
+  const [balance, setBalance] = useState()
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setUserName(response.data.username)
+        setBalance(response.data.account.balance)
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
+    }
+
+    fetchUser()
+  }, [])
   return (
     <div className='hidden w-[85%] h-[90%] xl:flex flex-col  items-center'>
       <div className='border rounded-xl px-5 py-11 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full'>
@@ -16,7 +37,7 @@ const DashboarDesktop = () => {
             <p>
               Hola,
               <br />
-              <Link to='/UsersDataForm'>Pedrita</Link>
+              <Link to='/UsersDataForm'>{userName}</Link>
             </p>
             <Link to='/UsersDataForm'>
               <IoIosArrowRoundForward className='text-[40px]' />
@@ -26,7 +47,7 @@ const DashboarDesktop = () => {
         <section className='flex xl:flex-col gap-6'>
           <div className='flex flex-col justify-evenly items-center'>
             <p className='w-full font-medium'>Disponible</p>
-            <p className='w-full text-2xl font-medium'>$ 0.000.000,00</p>
+            <p className='w-full text-2xl font-medium'><span>$</span>{balance}<span>,00</span></p>
           </div>
           <div className='flex flex-col xl:flex-row xl:justify-evenly pt-4 xl:pt-2 gap-4'>
             <ActionButton info='Depositar' option='option1' link='/VirtualCashier' />

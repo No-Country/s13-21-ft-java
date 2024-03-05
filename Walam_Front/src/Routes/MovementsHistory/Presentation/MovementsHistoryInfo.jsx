@@ -19,16 +19,6 @@ const MovementsHistoryInfo = () => {
         </p>
         <div className='w-full'>
           <HistoryItem name='Pago' total='-$ 1500.00' />
-          <HistoryItem name='Transferencia' total='-$ 500.00' />
-          <HistoryItem name='Depósito' type total='$ 2500.00' />
-        </div>
-        <p className='font-bold w-full shadow-inner rounded-lg flex flex-col pl-4 border-2 mt-4  xl:border xl:rounded-xl bg-zinc-800 xl:shadow-md xl:outline-1 xl:border-neutral-700 '>
-          Ayer
-        </p>
-        <div className='w-full'>
-          <HistoryItem name='Pago' total='-$ 1500.00' />
-          <HistoryItem name='Transferencia ' total='-$ 500.00' />
-          <HistoryItem name='Depósito' type total='$ 2500.00' />
         </div>
       </section>
     </div>

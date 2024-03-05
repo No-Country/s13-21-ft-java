@@ -5,6 +5,7 @@ import { IoIosClose } from 'react-icons/io'
 import { TiPlus, TiMinus } from 'react-icons/ti'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import useBalance from '../../../components/CustomHooks/CustonHooks'
 
 const TABLE_HEAD = ['Entidad', 'Monto', 'Estado', '']
 
@@ -45,6 +46,7 @@ const VirtualCashierInfo = () => {
   const [searchText, setSearchText] = useState('')
   const [filteredRows, setFilteredRows] = useState(TABLE_ROWS)
   const [amount, setAmount] = useState('')
+  const { updateBalance } = useBalance()
 
   const filterRows = (text) => {
     const filtered = TABLE_ROWS.filter(row =>
@@ -60,20 +62,22 @@ const VirtualCashierInfo = () => {
   // Logica para deposito y extraccion de dinero
   const handleDeposit = async () => {
     try {
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       console.log(parseInt(amount))
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       await axios.post('https://s13-21-ft-java.onrender.com/api/v1/deposit', { amount: parseInt(amount) })
+      updateBalance(parseInt(amount))
     } catch (error) {
       console.error('Error al guardar usuario:', error)
     }
   }
   const handleWithdraw = async () => {
     try {
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       console.log(parseInt(amount))
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       await axios.post('https://s13-21-ft-java.onrender.com/api/v1/withdraw', { amount: parseInt(amount) })
+      updateBalance(-parseInt(amount))
     } catch (error) {
       console.error('Error al guardar usuario:', error)
     }
@@ -82,7 +86,7 @@ const VirtualCashierInfo = () => {
   return (
     <div className='w-full max-w-xl mt-4 flex flex-col justify-center items-center gap-3'>
       <section className='flex items-center gap-3 self-start'>
-        <Link to='/DashBoardUser'> <FaArrowLeft /></Link>
+        <Link to='/DashBoardUser'><FaArrowLeft /></Link>
         <h1 className='font-bold text-2xl'>Depósitos y Extracciones</h1>
       </section>
       <section className='w-full h-4/5 overflow-y-auto p-2'>
