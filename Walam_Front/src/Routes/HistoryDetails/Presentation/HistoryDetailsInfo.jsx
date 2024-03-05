@@ -1,7 +1,27 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { FaArrowLeft, FaUserCircle } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-export default function HistoryDetailsInfo () {
+export default function HistoryDetailsInfo ({ transactions }) {
+  const { id } = useParams()
+  const [transaction, setTransaction] = useState()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Realizar la petición para obtener la información de la transacción
+        const response = await axios.get(`https://s13-21-ft-java.onrender.com/api/v1/user/${id}`)
+        setTransaction(response)
+        console.log(response)
+      } catch (error) {
+        console.error('Error al obtener la información:', error)
+      }
+    }
+
+    fetchData()
+  }, [id])
+
   return (
     <div className='flex flex-col px-8'>
       <div className='flex items-center gap-3'>
@@ -21,12 +41,13 @@ export default function HistoryDetailsInfo () {
           <div className='flex items-center gap-3 p-3'>
             <FaUserCircle className='text-4xl' />
             <p className='font-medium'>Carla Coe</p>
+            <p className='font-medium'>{transaction.data}</p>
           </div>
           <hr className='border-1 w-[300px]' />
           <div />
-          <p className='font-bold text-3xl py-4'>$0.000.000.00</p>
+          <p className='font-bold text-3xl py-4'>{transaction.amount}</p>
           <hr className=' pt-3 border-1 w-[300px]' />
-          <p>el 00-00-0000 a las 00:00 Hs.</p>
+          <p>el {new Date(transaction.date).toLocaleDateString()} a las {new Date(transaction.date).toLocaleTimeString()} Hs.</p>
         </div>
       </div>
       <p className='font-medium text-sm text-center mt-4'>Descarga de comprobante</p>

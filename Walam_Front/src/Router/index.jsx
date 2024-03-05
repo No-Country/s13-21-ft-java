@@ -85,7 +85,7 @@ export const router = createBrowserRouter([
             element: <MovementsHistory />
           },
           {
-            path: '/HistoryDetails',
+            path: '/HistoryDetails/:id',
             element: <HistoryDetails />
           },
           {
@@ -104,13 +104,14 @@ export const router = createBrowserRouter([
             path: '/ForeignExchange',
             element: <ForeignExchange />
           },
-          {  path: '/Help',
+          {
+            path: '/Help',
             element: <Help />
           },
           {
             path: '/VirtualCard',
             element: <VirtualCard />
-          },
+          }
         ]
       }
 

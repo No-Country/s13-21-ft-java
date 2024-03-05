@@ -1,11 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import { FormButton, FormInput } from '../../../components'
+import { CountrySelect, FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
@@ -18,13 +18,35 @@ export default function UsersDataFormInfo () {
     country: ''
   })
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setFormValues({
+          firstName: response.data.firstName || '',
+          lastName: response.data.lastName || '',
+          noIdentidad: response.data.noIdentidad || '',
+          birthday: response.data.birthday || '',
+          phone: response.data.phone || '',
+          country: response.data.country || ''
+        })        
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
+    }
+    fetchUser()
+  }, [])
+
   // Validaciones
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Nombre requerido'),
     lastName: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Apellido requerido'),
     birthday: Yup.date().required('Fecha requerida'),
     phone: Yup.number().min(6, 'Mínimo 6 caractares').required('Teléfono requerido'),
-    country: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('País requerido'),
+    country: Yup.string().required('País requerido'),
     noIdentidad: Yup.number().min(6, 'Mínimo 6 caractares').required('Número de documento requerido')
   })
 
@@ -41,7 +63,7 @@ export default function UsersDataFormInfo () {
 
     try {
       setFormValues(values)
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       await axios.put('https://s13-21-ft-java.onrender.com/api/v1/user-update', userData)
       navigate('/DashboardUser')
@@ -91,7 +113,7 @@ export default function UsersDataFormInfo () {
                   <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl' />
                 </div>
                 <div className='flex items-center gap-2'>
-                  <FormInput name='País' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
+                  <CountrySelect name='Pais' errors={errors} id='country' />
                   <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl' />
                 </div>
               </div>

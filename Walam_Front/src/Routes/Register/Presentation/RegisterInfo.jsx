@@ -10,7 +10,7 @@ export default function Register () {
   const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [showPassword2, setShowPassword2] = useState(false)
-
+  
   // Validaciones
   const validationSchema = Yup.object().shape({
     username: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('User Name requerido'),
@@ -36,6 +36,7 @@ export default function Register () {
     password2: Yup.string().oneOf([Yup.ref('password')], 'Las contraseñas no coinciden').required('Contraseña requerida')
   })
 
+ 
   const handleSubmit = async (values) => {
     const { username, password, email } = values
     try {
@@ -45,7 +46,7 @@ export default function Register () {
     } catch (error) {
       console.error('Error al registrar usuario:', error)
     }
-  }
+  }  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
@@ -73,25 +74,25 @@ export default function Register () {
             <h3 className='font-medium'>Registro</h3>
             <h1 className='text-4xl'>Ingresa tu Correo Electrónico</h1>
           </div>
-          <Formik
-            initialValues={initialValues}
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-          >
-            {({ errors, values }) => (
-              <Form className='rounded pt-6 h-[320px]'>
-                <div>
-                  <FormInput name='User Name' type='text' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
-                  <FormInput name='Correo Electrónico' type='email' placeholder='ejemplo@gmail.com' errors={errors} id='email' value={values.email} />
-                  <PasswordInput name='Contraseña' placeholder='********' errors={errors} id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
-                  <PasswordInput name='Repetir Contraseña' placeholder='********' errors={errors} id='password2' value={values.password2} showPassword={showPassword2} togglePasswordVisibility={togglePasswordVisibility2} />
-                </div>
-                <div className='flex flex-col justify-center pt-16 xl:pt-0.5'>
-                  <FormButton text='Registrarse' hover='hover:bg-primarygray' />
-                </div>
-              </Form>
-            )}
-          </Formik>
+            <Formik
+              initialValues={initialValues}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ errors, values }) => (
+                <Form className='rounded pt-6 h-[320px]'>
+                  <div>
+                    <FormInput name='User Name' type='text' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
+                    <FormInput name='Correo Electrónico' type='email' placeholder='ejemplo@gmail.com' errors={errors} id='email' value={values.email} />
+                    <PasswordInput name='Contraseña' placeholder='********' errors={errors} id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
+                    <PasswordInput name='Repetir Contraseña' placeholder='********' errors={errors} id='password2' value={values.password2} showPassword={showPassword2} togglePasswordVisibility={togglePasswordVisibility2} />
+                  </div>
+                  <div className='flex flex-col justify-center pt-16 xl:pt-0.5'>
+                    <FormButton text='Registrarse' hover='hover:bg-primarygray' />                    
+                  </div>
+                </Form>
+              )}
+            </Formik>
           <div className='flex flex-col justify-center pt-[250px] xl:pt-44'>
             <Link to='/Login' className='text-center pt-3 hover:text-lime-400'>Iniciar Sesión</Link>
           </div>

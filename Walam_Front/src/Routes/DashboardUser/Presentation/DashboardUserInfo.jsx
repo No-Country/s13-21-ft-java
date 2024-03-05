@@ -5,8 +5,36 @@ import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../../../components'
 import { MovementsHistory } from '../../index.js'
 import { FaUserCircle } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import useBalance from '../../../components/CustomHooks/CustonHooks'
 
 const DashboardUserInfo = () => {
+  const [userName, setUserName] = useState()
+  // const [balance, setBalance] = useState()
+  const { balance } = useBalance()
+  const [displayedBalance, setDisplayedBalance] = useState(balance)
+
+  useEffect(() => {
+    setDisplayedBalance(balance)
+  }, [])
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setUserName(response.data.username)
+        // setBalance(response.data.account.balance)
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
+    }
+
+    fetchUser()
+  }, [])
   return (
     <>
       <div className='w-[85%] xl:w-0 xl:mt-6 flex flex-col justify-center items-center xl:hidden'>
@@ -16,7 +44,7 @@ const DashboardUserInfo = () => {
             <p>
               Hola,
               <br />
-              <Link to='/UsersDataForm'>Pedrita</Link>
+              <Link to='/UsersDataForm'>{userName}</Link>
             </p>
             <Link to='/UsersDataForm'>
               <IoIosArrowRoundForward className='text-[40px]' />
@@ -26,7 +54,7 @@ const DashboardUserInfo = () => {
         <section className='flex gap-6'>
           <div className='flex flex-col justify-evenly items-center'>
             <p className='w-full font-medium'>Disponible</p>
-            <p className='w-full text-2xl font-medium'>$ 0.000.000,00</p>
+            <p className='w-full text-2xl font-medium'>{displayedBalance}</p>
             <Link to='/MovementsHistory'><p className='w-full text-green-700 font-medium text-center'>Historial de Movimientos</p></Link>
           </div>
           <div className='flex flex-col pt-4 gap-4'>
