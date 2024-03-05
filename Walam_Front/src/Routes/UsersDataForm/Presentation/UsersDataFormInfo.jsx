@@ -5,7 +5,7 @@ import { CountrySelect, FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
@@ -17,6 +17,28 @@ export default function UsersDataFormInfo () {
     phone: '',
     country: ''
   })
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setFormValues({
+          firstName: response.data.firstName || '',
+          lastName: response.data.lastName || '',
+          noIdentidad: response.data.noIdentidad || '',
+          birthday: response.data.birthday || '',
+          phone: response.data.phone || '',
+          country: response.data.country || ''
+        })        
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
+    }
+    fetchUser()
+  }, [])
 
   // Validaciones
   const validationSchema = Yup.object().shape({
@@ -41,7 +63,7 @@ export default function UsersDataFormInfo () {
 
     try {
       setFormValues(values)
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       await axios.put('https://s13-21-ft-java.onrender.com/api/v1/user-update', userData)
       navigate('/DashboardUser')

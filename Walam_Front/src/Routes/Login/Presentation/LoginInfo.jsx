@@ -17,8 +17,8 @@ const LoginInfo = () => {
       const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
       console.log(values)
       // Guarda el token de autenticación en localStorage o Redux según tu preferencia
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('username', username)
+      window.localStorage.setItem('token', response.data.token)
+      window.localStorage.setItem('username', username)
       navigate('/DashboardUser')
       console.log(response)
     } catch (error) {

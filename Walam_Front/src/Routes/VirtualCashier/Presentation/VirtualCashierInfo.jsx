@@ -53,8 +53,8 @@ const VirtualCashierInfo = () => {
   const [filteredRows, setFilteredRows] = useState(TABLE_ROWS)
   const [amount, setAmount] = useState('')
   const { updateBalance } = useBalance()
-  const location = useLocation();
-  const action = new URLSearchParams(location.search).get('action');
+  const location = useLocation()
+  const action = new URLSearchParams(location.search).get('action')
 
   const filterRows = (text) => {
     const filtered = TABLE_ROWS.filter(row =>
@@ -158,13 +158,13 @@ const VirtualCashierInfo = () => {
                         : 'hidden'}
                       >
                         {action === 'deposit' && (
-                        <button className='flex gap-2' onClick={handleDeposit}>
-                          <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
-                        </button>)}
+                          <button className='flex gap-2' onClick={handleDeposit}>
+                            <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
+                          </button>)}
                         {action === 'withdraw' && (
-                        <button className='flex gap-2' onClick={handleWithdraw}>
-                          <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
-                        </button>)}
+                          <button className='flex gap-2' onClick={handleWithdraw}>
+                            <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
+                          </button>)}
                       </div>
                     </td>
                   </tr>
