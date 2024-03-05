@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
-import { FormButton, FormInput } from '../../../components'
+import { CountrySelect, FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 import axios from 'axios'
@@ -41,7 +41,7 @@ export default function UsersDataFormInfo () {
 
     try {
       setFormValues(values)
-      const token = localStorage.getItem('token')
+      const token = window.localStorage.getItem('token')
       axios.defaults.headers.common.Authorization = `Bearer ${token}`
       await axios.put('https://s13-21-ft-java.onrender.com/api/v1/user-update', userData)
       navigate('/DashboardUser')
@@ -91,7 +91,7 @@ export default function UsersDataFormInfo () {
                   <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl' />
                 </div>
                 <div className='flex items-center gap-2'>
-                  <FormInput name='País' type='text' placeholder='Colombia' errors={errors} id='country' value={values.country} />
+                  <CountrySelect name='Pais' errors={errors} id='country' />
                   <GoPencil className='bg-gradient-to-b from-[#3BC53F] to-[#B2FA5B] h-8 w-8 p-1 rounded-xl' />
                 </div>
               </div>

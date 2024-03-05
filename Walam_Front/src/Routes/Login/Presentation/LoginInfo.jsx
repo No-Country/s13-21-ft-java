@@ -16,8 +16,8 @@ const LoginInfo = () => {
     try {
       const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
       // Guarda el token de autenticación en localStorage o Redux según tu preferencia
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('username', username)
+      window.localStorage.setItem('token', response.data.token)
+      window.localStorage.setItem('username', username)
       navigate('/DashboardUser')
       console.log(response)
     } catch (error) {
@@ -96,7 +96,6 @@ const LoginInfo = () => {
             )}
           </Formik>
           <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
-            <GoogleButton />
             <Link to='/Register' className='text-center pt-3'> Registrarse</Link>
           </div>
         </main>
