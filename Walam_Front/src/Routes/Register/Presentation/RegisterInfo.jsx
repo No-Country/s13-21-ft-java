@@ -4,6 +4,7 @@ import * as Yup from 'yup'
 import { FormButton, FormInput, PasswordInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function Register () {
   const navigate = useNavigate()

@@ -12,9 +12,10 @@ const LoginInfo = () => {
   const [showPassword, setShowPassword] = useState(false) 
 
   const handleLogin = async (values) => {
-    const { email, password } = values
+    const { username, password } = values
     try {
       const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
+      console.log(values)
       // Guarda el token de autenticación en localStorage o Redux según tu preferencia
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('username', username)

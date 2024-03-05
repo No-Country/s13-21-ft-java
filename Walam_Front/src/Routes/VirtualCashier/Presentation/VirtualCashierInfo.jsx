@@ -4,39 +4,45 @@ import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { IoIosClose } from 'react-icons/io'
 import { TiPlus, TiMinus } from 'react-icons/ti'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useBalance from '../../../components/CustomHooks/CustonHooks'
+import mercadopago from '../../../assets/mercadopago.png'
+import personalpay from '../../../assets/personalpay.png'
+import applepay from '../../../assets/applepay.png'
+import googlewallet from '../../../assets/googlewallet.png'
+import naranjax from '../../../assets/naranjax.png'
+import paypall from '../../../assets/paypall.png'
 
 const TABLE_HEAD = ['Entidad', 'Monto', 'Estado', '']
 
 const TABLE_ROWS = [
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-spotify.svg',
+    img: mercadopago,
     name: 'Mercadopago',
     status: 'Habilitado'
   },
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-amazon.svg',
+    img: personalpay,
     name: 'PersonalPay',
     status: 'Habilitado'
   },
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-netflix.svg',
+    img: applepay,
     name: 'ApplePay',
-    status: 'Deshabilitado'
+    status: 'Habilitado'
   },
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-google.svg',
+    img: googlewallet,
     name: 'GoogleWallet',
     status: 'Habilitado'
   },
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-google.svg',
+    img: naranjax,
     name: 'NaranjaX',
     status: 'Habilitado'
   },
   {
-    img: 'https://docs.material-tailwind.com/img/logos/logo-google.svg',
+    img: paypall,
     name: 'PayPall',
     status: 'Habilitado'
   }
@@ -47,6 +53,8 @@ const VirtualCashierInfo = () => {
   const [filteredRows, setFilteredRows] = useState(TABLE_ROWS)
   const [amount, setAmount] = useState('')
   const { updateBalance } = useBalance()
+  const location = useLocation();
+  const action = new URLSearchParams(location.search).get('action');
 
   const filterRows = (text) => {
     const filtered = TABLE_ROWS.filter(row =>
@@ -146,15 +154,17 @@ const VirtualCashierInfo = () => {
                     </td>
                     <td className={classes}>
                       <div className={status === 'Habilitado'
-                        ? 'flex flex-col gap-2 w-fit'
+                        ? 'flex flex-col gap-2 w-[100px]'
                         : 'hidden'}
                       >
+                        {action === 'deposit' && (
                         <button className='flex gap-2' onClick={handleDeposit}>
                           <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
-                        </button>
+                        </button>)}
+                        {action === 'withdraw' && (
                         <button className='flex gap-2' onClick={handleWithdraw}>
                           <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
-                        </button>
+                        </button>)}
                       </div>
                     </td>
                   </tr>

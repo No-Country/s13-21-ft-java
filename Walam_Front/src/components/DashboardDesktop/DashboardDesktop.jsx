@@ -50,9 +50,9 @@ const DashboarDesktop = () => {
             <p className='w-full text-2xl font-medium'><span>$</span>{balance}<span>,00</span></p>
           </div>
           <div className='flex flex-col xl:flex-row xl:justify-evenly pt-4 xl:pt-2 gap-4'>
-            <ActionButton info='Depositar' option='option1' link='/VirtualCashier' />
+            <ActionButton info='Depositar' option='option1' link='/VirtualCashier?action=deposit' />
             <ActionButton info='Transferir' option='option2' link='/Transfer' />
-            <ActionButton info='Extraer' option='option3' link='/VirtualCashier' />
+            <ActionButton info='Extraer' option='option3' link='/VirtualCashier?action=withdraw' />
           </div>
         </section>
       </div>
