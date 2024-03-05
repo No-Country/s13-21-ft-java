@@ -15,7 +15,7 @@ export default {
         'gradient-center': 'radial-gradient(circle, var(--tw-gradient-stops))',
         'login-pattern': "url('/src/assets/Bento_login.jpg')",
         'dashboard-bg': "url('/src/assets/dashboard_bg.jpg')",
-        'OnBoarding-bgImage': 'url("/img/Group1x_75.png"), url("/img/Group0x_75.png")',
+        'OnBoarding-bgImage': 'url("/img/Group1.png"), url("/img/Group0.png")',
         'OnBoardingFooter-bgImage': 'url("/img/GroupFooter.png")'
       },
       backgroundSize: {
