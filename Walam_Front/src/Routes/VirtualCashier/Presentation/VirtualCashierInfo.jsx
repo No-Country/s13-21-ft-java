@@ -162,7 +162,7 @@ const VirtualCashierInfo = () => {
                     </td>
                     <td className={classes}>
                       <div className={status === 'Habilitado'
-                        ? 'flex flex-col gap-2 w-fit'
+                        ? 'flex flex-col gap-2 w-[100px]'
                         : 'hidden'}
                       >
 

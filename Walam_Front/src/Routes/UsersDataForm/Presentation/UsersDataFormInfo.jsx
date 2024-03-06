@@ -5,10 +5,11 @@ import { CountrySelect, FormButton, FormInput } from '../../../components'
 import { FaArrowLeft } from 'react-icons/fa'
 import { GoPencil } from 'react-icons/go'
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -18,13 +19,45 @@ export default function UsersDataFormInfo () {
     country: ''
   })
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        const userData = response.data
+        if (userData) {
+          setFormValues({
+            firstName: userData.firstName || '',
+            lastName: userData.lastName || '',
+            noIdentidad: userData.noIdentidad || '',
+            birthday: userData.birthday || '',
+            phone: userData.phone || '',
+            country: userData.country || ''
+          })
+        }
+        setLoading(false)
+        console.log(userData)
+        console.log(formValues)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+        setLoading(false)
+      }
+    }
+    fetchUser()
+  }, [])
+
+  if (loading) {
+    return <div className='text-xl pt-4'>Cargando información...</div>
+  }
+
   // Validaciones
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Nombre requerido'),
     lastName: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('Apellido requerido'),
     birthday: Yup.date().required('Fecha requerida'),
     phone: Yup.number().min(6, 'Mínimo 6 caractares').required('Teléfono requerido'),
-    country: Yup.string().min(3, 'Mínimo 3 caractares').max(20, 'Máximo 20 caracteres').required('País requerido'),
+    country: Yup.string().required('País requerido'),
     noIdentidad: Yup.number().min(6, 'Mínimo 6 caractares').required('Número de documento requerido')
   })
 
@@ -56,7 +89,7 @@ export default function UsersDataFormInfo () {
   }
 
   return (
-    <section className='text-white rounded-xl xl:max-h-[600px] overflow-auto py-2'>
+    <section className='text-white rounded-xl xl:max-h-[550px] overflow-auto py-2'>
       <div className='flex items-center gap-3 self-start p-2'>
         <Link to='/DashboardUser'><FaArrowLeft /></Link>
         <h2 className='text-xl font-semibold'>Perfil</h2>

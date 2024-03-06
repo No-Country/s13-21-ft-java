@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import { MainLayout, UserLayout } from '../Layouts'
+import { BalanceProvider } from '../Context/BalanceContext'
 
 import {
   UsersDataForm,
@@ -29,16 +30,7 @@ export const router = createBrowserRouter([
         <MainLayout />
       </Suspense>
     ),
-    // errorElement: <NotFound />,
     children: [
-      // {
-      //   index: true,
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Users />
-      //     </Suspense>
-      //   )
-      // },
 
       {
         path: '/Register',
@@ -64,7 +56,9 @@ export const router = createBrowserRouter([
         path: '/',
         element: (
           <Suspense fallback={<Loader />}>
-            <UserLayout />
+            <BalanceProvider>
+              <UserLayout />
+            </BalanceProvider>
           </Suspense>
         ),
         children: [
@@ -114,15 +108,6 @@ export const router = createBrowserRouter([
           }
         ]
       }
-
-      // {
-      //   path: '/Reset-password',
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <ResetPassword />
-      //     </Suspense>
-      //   )
-      // }
 
     ]
   }
