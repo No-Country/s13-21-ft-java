@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 import { useCollapse } from 'react-collapsed';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import { Modal } from '../../../components';
 
 const VirtualCardInfo = () => {
 
@@ -10,6 +11,9 @@ const VirtualCardInfo = () => {
 	const [state, setState] = useState(true);
 	const [data={num,cod}, setData] = useState({num:'***********' + numero.substring(numero.length - 4), cod:'***'});
 	const [card, setCard] = useState(true);
+	const [modalOpen, setModalOpen ] = useState(false);
+	const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => setModalOpen(false);
 
 	function handleClick() {
     setState(!state);
@@ -63,6 +67,8 @@ const VirtualCardInfo = () => {
 					<button onClick={handleClickBlock} className='border-b border-black h-[46px] w-full p-3'>
 						<p>{card? 'Bloquear Tarjeta': 'Desbloquear Tarjeta' }</p>
 					</button>
+					<button onClick={handleModalOpen}>Modal</button>
+					<Modal titulo={'Tarjeta Virtual'} texto={'Se ha bloqueado la Tarjeta Virtual'} isOpen={modalOpen} closeModal={handleModalClose} />
 				</section>
 			</div>
 		</div>
