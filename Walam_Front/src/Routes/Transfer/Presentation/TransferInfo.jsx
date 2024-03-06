@@ -70,7 +70,6 @@ export default function TransferInfo () {
                 value='Transferir'
               />
               <Modal titulo='Transferencia Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
-
             </div>
           </Form>
         )}

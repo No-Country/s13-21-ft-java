@@ -1,28 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
-import { Modal } from '../../../components'
+import axios from 'axios'
 
 const VirtualCardInfo = () => {
-  const numero = '123456789012345'; const fecha = '03/24'; const codigo = '123'
-  const [state, setState] = useState(true)
-  const [data = { num, cod }, setData] = useState({ num: '***********' + numero.substring(numero.length - 4), cod: '***' })
-  const [card, setCard] = useState(true)
-  const [modalOpen, setModalOpen] = useState(false)
-  const handleModalOpen = () => setModalOpen(true)
-  const handleModalClose = () => setModalOpen(false)
+  const [userCard, setUserCard] = useState()
+  const [loading, setLoading] = useState(true)
 
-  function handleClick () {
-    setState(!state)
-    if (state) {
-      setData({ num: numero, cod: codigo })
-    } else {
-      setData({ num: '***********' + numero.substring(numero.length - 4), cod: '***' })
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = window.localStorage.getItem('token')
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+        setUserCard(response.data.card)
+        setLoading(false)
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error al guardar usuario:', error)
+      }
     }
-  }
 
-  function handleClickBlock () {
-    setCard(!card)
+    fetchUser()
+  }, [])
+
+  if (loading) {
+    return <div className='p-5 text-xl pt-4'>Cargando información...</div>
   }
 
   return (
@@ -35,37 +38,29 @@ const VirtualCardInfo = () => {
       </div>
 
       <div>
-        <section id='card' className='w-full py-2 flex flex-col items-center'>
+        <section id='card' className='w-full py-2 flex flex-col items-center text-neutral-900 font-semibold'>
           <div className='bg-OnBoarding-bgImage bg-OnBoarding-bgPosition bg-no-repeat w-[380px] pb-3' style={{ backgroundImage: 'url("/img/Card.png")', backgroundSize: '100%' }}>
             <div className='px-5 pt-[85px] pb-2'>
               <div className=''>
                 <p className='text-sm'>Numero de tarjeta</p>
-                <p className='text-lg'>{data.num}</p>
+                <p className='text-lg'>{userCard.cardNumber}</p>
               </div>
               <div className='flex justify-between py-2'>
                 <div>
-                  <p className='text-sm'>Fecha de expedición</p>
-                  <p className='text-lg'>{fecha}</p>
+                  <p className='text-sm'>Fecha de expiración</p>
+                  <p className='text-lg'>{userCard.expirationDate}</p>
                 </div>
                 <div>
                   <p className='text-sm'>Código de seguridad CVV</p>
-                  <p className='text-lg'>{data.cod}</p>
+                  <p className='text-lg'>{userCard.cvv}</p>
                 </div>
               </div>
-              <p>PEDRITA USUARIO</p>
+              <div>
+                <p className='text-xl mb-3'>{userCard.cardHolder}</p>
+              </div>
             </div>
           </div>
-          <button onClick={handleClick} className='border border-black h-[46px] w-[380px] px-3 rounded-xl bg-neutral-900'>
-            {state ? 'Ver datos' : 'Ocultar datos'}
-          </button>
-        </section>
-        <section className='w-full py-4 flex flex-col'>
-          <p className='text-xl'>Opciones</p>
-          <button onClick={handleClickBlock} className='border-b border-black h-[46px] w-full p-3'>
-            <p>{card ? 'Bloquear Tarjeta' : 'Desbloquear Tarjeta'}</p>
-          </button>
-          <button onClick={handleModalOpen}>Modal</button>
-          <Modal titulo='Tarjeta Virtual' texto='Se ha bloqueado la Tarjeta Virtual' isOpen={modalOpen} closeModal={handleModalClose} />
+          <button className='border border-black h-[46px] w-[350px] px-3 rounded-xl bg-neutral-900 text-white font-normal'> Ver Datos</button>
         </section>
       </div>
     </div>

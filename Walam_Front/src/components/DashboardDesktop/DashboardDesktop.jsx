@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import cardImg from '../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
-import { ActionButton, RoundButton } from '../index'
+import { ActionButton, RoundButton, Modal } from '../index'
 import { FaUserCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
@@ -9,22 +9,44 @@ import { useState, useEffect } from 'react'
 const DashboarDesktop = () => {
   const [userName, setUserName] = useState()
   const [balance, setBalance] = useState()
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModalOpen = () => setModalOpen(true)
+  const handleModalClose = () => setModalOpen(false)
+
+  const fetchUserData = async () => {
+    try {
+      const token = window.localStorage.getItem('token')
+      if (!token) {
+        throw new Error('Token no encontrado en el almacenamiento local')
+      }
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+      setUserName(response.data.username)
+      setBalance(response.data.account.balance)
+      console.log(response.data)
+    } catch (error) {
+      console.error('Error al obtener datos del usuario:', error.message)
+      // Manejar el error, por ejemplo, redirigir a la página de inicio de sesión
+    }
+  }
+
+  const handleCard = async () => {
+    try {
+      const token = window.localStorage.getItem('token')
+      if (!token) {
+        throw new Error('Token no encontrado en el almacenamiento local')
+      }
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      const data = await axios.post('https://s13-21-ft-java.onrender.com/api/v1/card/create')
+      console.log(data)
+    } catch (error) {
+      console.error('Error al solicitar la tarjeta:', error.message)
+      // Manejar el error, por ejemplo, mostrar un mensaje al usuario
+    }
+  }
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const token = window.localStorage.getItem('token')
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
-        setUserName(response.data.username)
-        setBalance(response.data.account.balance)
-        console.log(response.data)
-      } catch (error) {
-        console.error('Error al guardar usuario:', error)
-      }
-    }
-
-    fetchUser()
+    fetchUserData()
   }, [])
   return (
     <div className='hidden w-[500px] h-[90%] xl:flex flex-col  items-center'>
@@ -54,12 +76,14 @@ const DashboarDesktop = () => {
         </section>
       </div>
       <section className='w-full flex gap-3 items-center py-4 px-2 mt-6 border rounded-xl p-5 bg-DashboardDesktop shadow-md outline-1 border-neutral-700'>
-        <img src={cardImg} alt='Imagen tarjeta virtual EcopPay' className='rounded-3xl w-[240px] h-[120px] order-1' />
+        <img src={cardImg} onClick={() => { handleModalOpen(); handleCard() }} alt='Imagen tarjeta virtual EcopPay' className='rounded-3xl w-[240px] h-[120px] order-1' />
+        <Modal titulo='Tarjeta Solicitada con éxito!' texto='Esperamos que la disfrutes!' isOpen={modalOpen} closeModal={handleModalClose} />
         <div className='flex flex-col items-end py-3'>
           <p className='text-white font-sm text-lg pl-4 text-right '>
-            Solicita tu tarjeta Prepaga Virtual sin Costo y sin Burocracias
+            Solicita tu tarjeta Prepaga ECOPAY Haciendo Click Acá!
           </p>
           <img src='/img/Top Estate Agent.png' alt='Usuarios EcoPay' className='w-[160px]' />
+
         </div>
       </section>
       <section className=' w-full mt-8 flex justify-evenly border rounded-xl px-5 py-6 bg-DashboardDesktop shadow-md outline-1 border-neutral-700'>

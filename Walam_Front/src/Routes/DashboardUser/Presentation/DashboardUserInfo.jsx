@@ -64,7 +64,7 @@ const DashboardUserInfo = () => {
         <section className='w-full flex gap-3 items-center  bg-gradient-center from-green-500 to-green-950 rounded-lg py-4 px-2 mt-6 '>
           <img src={cardImg} alt='Imagen tarjeta virtual EcopPay' className='rounded-3xl' />
           <p className='text-white font-medium text-lg '>
-            Solicita tu tarjeta Prepaga Virtual sin Costo
+            Solicitá tu tarjeta Prepaga Virtual sin Costo
           </p>
         </section>
         <section className=' w-full mt-8 flex justify-evenly  '>
