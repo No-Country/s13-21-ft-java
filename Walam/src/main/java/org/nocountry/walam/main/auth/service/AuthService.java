@@ -99,20 +99,20 @@ public class AuthService {
     }
 
     private static final List<String> palabras = Arrays.asList(
-            "amarillo", "banana", "cielo", "delfín", "elefante",
-            "fuego", "guitarra", "helicóptero", "isla", "jirafa",
-            "kiwi", "león", "montaña", "nieve", "océano",
+            "amarillo", "banana", "cielo", "delfin", "elefante",
+            "fuego", "guitarra", "helicoptero", "isla", "jirafa",
+            "kiwi", "leon", "montana", "nieve", "oceano",
             "paraguas", "queso", "rana", "sol", "tigre",
-            "uva", "viento", "xilófono", "yogur", "zapato",
+            "uva", "viento", "xilofono", "yogur", "zapato",
             "abrazo", "burbuja", "cascada", "diamante", "ensalada",
-            "flor", "globo", "hamburguesa", "iguana", "jardín",
-            "koala", "luz", "melodía", "nube", "orquídea",
-            "piano", "química", "río", "silla", "tren",
-            "unicornio", "velero", "waffle", "xenón", "yoga",
-            "zoológico", "ágil", "bello", "cálido", "divertido",
-            "energía", "fresco", "grande", "hábil", "inteligente",
-            "joven", "luminoso", "mágico", "noble", "optimista",
-            "poderoso", "rápido", "sereno", "tierno", "único",
+            "flor", "globo", "hamburguesa", "iguana", "jardin",
+            "koala", "luz", "melodia", "nube", "orquidea",
+            "piano", "quimica", "rio", "silla", "tren",
+            "unicornio", "velero", "waffle", "xenon", "yoga",
+            "zoologico", "agil", "bello", "calido", "divertido",
+            "energia", "fresco", "grande", "habil", "inteligente",
+            "joven", "luminoso", "magico", "noble", "optimista",
+            "poderoso", "rapido", "sereno", "tierno", "unico",
             "valiente", "wisdom", "xenial", "yesterday", "zen"
     );
 
