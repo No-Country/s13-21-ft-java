@@ -9,13 +9,12 @@ import axios from 'axios'
 const LoginInfo = () => {
   const navigate = useNavigate()
   const [error, setError] = useState('')
-  const [showPassword, setShowPassword] = useState(false) 
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleLogin = async (values) => {
     const { username, password } = values
     try {
       const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
-      console.log(values)
       // Guarda el token de autenticación en localStorage o Redux según tu preferencia
       window.localStorage.setItem('token', response.data.token)
       window.localStorage.setItem('username', username)
@@ -29,8 +28,25 @@ const LoginInfo = () => {
 
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
-    firstName: Yup.string().required('User Name requerido'),
-    password: Yup.string().min(8, 'La contraseña debe tener mínimo 8 caracteres').required('La contraseña es requerida')      
+    username: Yup.string().required('El correo es requerido'),
+    password: Yup.string().max(12, 'La contraseña debe tener máximo 12 caracteres')
+      .matches(
+        /^(?=.*[a-z])/,
+        'Debe contener al menos una letra en minúscula'
+      )
+      .matches(
+        /^(?=.*[A-Z])/,
+        'Debe contener al menos una letra en mayúscula'
+      )
+      .matches(
+        /^(?=.*[0-9])/,
+        'Debe contener al menos un número'
+      )
+      .matches(
+        /^(?=.*[!@#/$%/^&/*])/,
+        'Debe contener al menos un caracter especial'
+      )
+      .required('La contraseña es requerida')
   })
 
   const togglePasswordVisibility = () => {
@@ -44,10 +60,10 @@ const LoginInfo = () => {
   }
 
   return (
-    <div className='relative w-full md:w-1/2 xl:max-w-[520px]'>
-      <div className='absolute inset-0 xl:rounded-xl xl:bg-loginColor opacity-25' />
-      <div className='relative z-10 xl:rounded-xl py-8 px-20 w-full xl:text-white flex flex-col'>
-        <div className='w-[87%] xl:w-full flex justify-between py-1'>
+    <div className='relative w-4/5 sm:w-2/3 md:w-3/5 lg:max-w-[520px]'>
+      <div className='absolute inset-0 rounded-xl bg-loginColor opacity-25' />
+      <div className='relative z-10 rounded-xl py-8 px-10 lg:px-20 w-full text-white flex flex-col'>
+        <div className='w-[87%] xl:w-full flex justify-between'>
           <Link to='/'><FaArrowLeft/></Link>
         </div>
         <main className=''>
@@ -65,20 +81,21 @@ const LoginInfo = () => {
           >
             {({ errors, values }) => (
               <Form className='rounded pt-6 h-[320px]'>
-                {/* Form inputs */}              
+                {/* Form inputs */}
                 <FormInput name='username' type='name' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
                 <PasswordInput name='Contraseña' placeholder='Ingrese contraseña' id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
                 <div className='flex flex-col lg:flex-row justify-between items-center'>
                   <Link className=' text-sm font-medium text-black-900 dark:text-black-300' to='/reset-password '>¿Olvidaste tu contraseña?</Link>
                 </div>
                 {/* Submit button */}
-                <div className='flex flex-col justify-center pt-[270px] xl:pt-[190px]'>                   <FormButton text='Iniciar Sesión'/>
+                <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
+                  <FormButton text='Iniciar Sesión' />
                   {error && <p className='text-red-600 text-xs italic text-center'>{error}</p>}
                 </div>
               </Form>
             )}
           </Formik>
-          <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>            
+          <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
             <Link to='/Register' className='text-center pt-3 hover:text-lime-400'> Registrarse</Link>
           </div>
         </main>

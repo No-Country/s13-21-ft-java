@@ -1,6 +1,6 @@
 import { Field, ErrorMessage } from 'formik'
 
-export default function FormInput ({ id, name, errors }) {
+export default function CountrySelect ({ id, name, errors }) {
   const invalid = 'invalid:border-red-600 invalid:text-red-600 invalid:border-red-600 focus:invalid:ring-red-500'
   const normal = 'focus:outline-none  text-white'
 

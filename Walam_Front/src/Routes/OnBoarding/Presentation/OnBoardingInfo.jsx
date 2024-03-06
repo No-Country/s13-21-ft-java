@@ -121,18 +121,11 @@ const OnBoardingInfo = () => {
 
           <div className="flex flex-col justify-center items-center pb-6">
             <div className="flex flex-wrap justify-center">
-
-              <div className="flex flex-col px-6 pt-6 justify-center items-start hidden">
-                <p className="p-2"><Link to='/UsersDataForm' >UsersDataForm</Link></p>
-                <p className="p-2"><Link to='/Login' >Login</Link></p>
-                <p className="p-2"><Link to='/Register' >Register</Link></p>
-                <p className="p-2"><Link to='/ForgotPassword' >ForgotPassword</Link></p>
-              </div>
-
+             
             </div>
             <div className="flex flex-col justify-between items-center w-[400px] pt-4">
               <p className='text-xl'>Contacto</p>
-              <div className="w-full flex flex-wrap justify-around w-[80%] py-4">
+              <div className="w-full flex flex-wrap justify-around py-4">
                 <IoLogoLinkedin className="w-[50px] h-[50px]" />
                 <IoLogoTwitter className="w-[50px] h-[50px]" />
                 <IoLogoFacebook className="w-[50px] h-[50px]" />
@@ -141,16 +134,7 @@ const OnBoardingInfo = () => {
               </div>
               <p className='text-xl'>Location: Latam</p>
             </div>
-          </div>
-
-          <div className="flex flex-col my-6 pl-6 border-l justify-center items-start hidden">
-            <p className="p-2"><Link to='/' >Paga con código QR</Link></p>
-            <p className="p-2"><Link to='/' >Recarga tu celular</Link></p>
-            <p className="p-2"><Link to='/' >Paga tus servicios</Link></p>
-            <p className="p-2"><Link to='/' >Envia y pide dinero</Link></p>
-            <p className="p-2"><Link to='/' >Accede a un crédito</Link></p>
-            <p className="p-2"><Link to='/' >Pide delivery de comida</Link></p>
-          </div>
+          </div>          
         </div>
 
         <div className="p-4">
