@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 
 export default function UsersDataFormInfo () {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
   const [formValues, setFormValues] = useState({
     firstName: '',
     lastName: '',
@@ -17,6 +18,7 @@ export default function UsersDataFormInfo () {
     phone: '',
     country: ''
   })
+  
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,21 +26,31 @@ export default function UsersDataFormInfo () {
         const token = window.localStorage.getItem('token')
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
-        setFormValues({
-          firstName: response.data.firstName || '',
-          lastName: response.data.lastName || '',
-          noIdentidad: response.data.noIdentidad || '',
-          birthday: response.data.birthday || '',
-          phone: response.data.phone || '',
-          country: response.data.country || ''
-        })        
-        console.log(response.data)
+        const userData = response.data
+        if (userData) {
+          setFormValues({
+            firstName: userData.firstName || "",
+            lastName: userData.lastName || "",
+            noIdentidad: userData.noIdentidad || "",
+            birthday: userData.birthday || "",
+            phone: userData.phone || "",
+            country: userData.country || "",
+          });
+        }
+        setLoading(false)
+        console.log(userData)
+        console.log(formValues)        
       } catch (error) {
         console.error('Error al guardar usuario:', error)
+        setLoading(false)
       }
     }
     fetchUser()
   }, [])
+
+  if (loading) {
+    return <div className='text-xl pt-4'>Cargando información...</div>;
+  }
 
   // Validaciones
   const validationSchema = Yup.object().shape({
@@ -78,7 +90,7 @@ export default function UsersDataFormInfo () {
   }
 
   return (
-    <section className='text-white rounded-xl min-w-[350px] w-4/5 xl:max-h-[550px] py-2'>
+    <section className='text-white rounded-xl xl:max-h-[550px] overflow-auto py-2'>
       <div className='flex items-center gap-3 self-start p-2'>
         <Link to='/DashboardUser'><FaArrowLeft /></Link>
         <h2 className='text-xl font-semibold'>Perfil</h2>

@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import { MainLayout, UserLayout } from '../Layouts'
+import { BalanceProvider } from '../Context/BalanceContext'
 
 import {
   UsersDataForm,
@@ -64,7 +65,9 @@ export const router = createBrowserRouter([
         path: '/',
         element: (
           <Suspense fallback={<Loader />}>
-            <UserLayout />
+            <BalanceProvider>
+              <UserLayout />
+            </BalanceProvider>            
           </Suspense>
         ),
         children: [

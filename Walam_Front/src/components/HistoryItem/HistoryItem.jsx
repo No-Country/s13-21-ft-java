@@ -4,7 +4,7 @@ import { BsArrowDownSquareFill, BsArrowUpSquareFill } from 'react-icons/bs'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-export default function HistoryItem () {
+export default function HistoryItem ({searchTerm}) {
   const [transactions, setTransactions] = useState()
 
   useEffect(() => {
@@ -21,9 +21,20 @@ export default function HistoryItem () {
 
     fetchUser()
   }, [])
+
+  if (!transactions) {
+    return <div className='text-lg p-2'>Cargando información...</div>
+  }
+
+  const filteredTransactions = transactions.filter(transaction =>
+    (transaction.type.toLowerCase().includes(searchTerm) ||
+    (transaction.type === 'DEPOSIT' && 'Depósito Realizado'.toLowerCase().includes(searchTerm)) ||
+    (transaction.type === 'WITHDRAW' && 'Retiro Realizado'.toLowerCase().includes(searchTerm)))
+  )
+
   return (
     <div className='flex flex-col w-full py-2'>
-      {transactions && transactions.map((transaction) => (
+      {filteredTransactions.map((transaction) => (
         <div key={transaction.id} className='flex justify-between items-center w-[360px] xl:w-[100%]'>
           <div className='flex items-center gap-2 w-[60%]'>
             <Link to={`/HistoryDetails/${transaction.id}`}><IoEllipsisVerticalCircleOutline className='text-lg' /></Link>
