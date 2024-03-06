@@ -19,7 +19,8 @@ import {
   CVUUser,
   ForeignExchange,
   Help,
-  VirtualCard
+  VirtualCard,
+  Donate
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -105,6 +106,10 @@ export const router = createBrowserRouter([
           {
             path: '/VirtualCard',
             element: <VirtualCard />
+          },
+          {
+            path: '/Donate',
+            element: <Donate />
           }
         ]
       }

@@ -44,7 +44,7 @@ export default function LinkMenu () {
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>
-        <Link to='#' className='block px-4 py-2 text-sm'>Recargas</Link>
+        <Link to='/Donate' className='block px-4 py-2 text-sm'>Donación</Link>
         <hr className='xl:border-neutral-700' />
       </li>
       <li className='mb-1'>

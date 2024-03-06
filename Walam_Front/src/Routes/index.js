@@ -14,6 +14,7 @@ const CVUUser = lazy(() => import('./CVUUser/Component/CVUUser'))
 const ForeignExchange = lazy(() => import('./ForeignExchange/Component/ForeignExchange'))
 const Help = lazy(() => import('./Help/Component/Help'))
 const VirtualCard = lazy(() => import('./VirtualCard/Component/VirtualCard'))
+const Donate = lazy(() => import('./Donate/Component/Donate'))
 // Unprotected Routes
 // const Animals = lazy(() => import('./Animals/Component/Animals'))
 // const WhoWeAre = lazy(() => import('./WhoWeAre/Component/WhoWeAre'))
@@ -38,5 +39,6 @@ export {
   CVUUser,
   ForeignExchange,
   Help,
-  VirtualCard
+  VirtualCard,
+  Donate
 }

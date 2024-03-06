@@ -76,7 +76,9 @@ const DashboarDesktop = () => {
         </div>
       </section>
       <section className=' w-full mt-8 flex justify-evenly border rounded-xl px-5 py-6 bg-DashboardDesktop shadow-md outline-1 border-neutral-700'>
-        <RoundButton info='Recargas' option='option1' />
+        <Link to='/Donate'>
+          <RoundButton info='Donación' option='option1' />
+        </Link>
         <RoundButton info='QR' option='option2' />
         <Link to='/CVUUser'>
           <RoundButton info='CVU' option='option3' />
@@ -128,7 +130,9 @@ const DashboarDesktop = () => {
         </div>
       </section>
       <section className=' w-full mt-8 flex justify-evenly border rounded-xl px-5 py-6 bg-DashboardDesktop shadow-md outline-1 border-neutral-700'>
-        <RoundButton info='Recargas' option='option1' />
+        <Link to='/Donate'>
+          <RoundButton info='Donación' option='option1' />
+        </Link>
         <RoundButton info='QR' option='option2' />
         <Link to='/CVUUser'>
           <RoundButton info='CVU' option='option3' />

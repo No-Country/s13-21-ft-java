@@ -83,7 +83,9 @@ const DashboardUserInfo = () => {
           </div>
         </section>
         <section className=' w-full mt-8 flex justify-evenly  '>
-          <RoundButton info='Recargas' option='option1' />
+          <Link to='/Donate'>
+            <RoundButton info='Donación' option='option1' />
+          </Link>
           <RoundButton info='QR' option='option2' />
           <Link to='/CVUUser'>
             <RoundButton info='CVU' option='option3' />
