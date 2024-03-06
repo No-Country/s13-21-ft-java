@@ -1,6 +1,6 @@
 import { IoIosCloseCircle } from 'react-icons/io'
 import { useBalance } from '../../Context/BalanceContext'
-
+import modal from '../../assets/Modal.png'
 const Modal = ({ isOpen, closeModal, titulo, texto }) => {
   const { updateBalance } = useBalance()
 
@@ -22,7 +22,7 @@ const Modal = ({ isOpen, closeModal, titulo, texto }) => {
           <p className='text-[#249C3B] font-bold text-xl mb-2'>{titulo}</p>
           <p>{texto}</p>
         </div>
-        <img src='/img/Modal.png' alt='Logo EcoPay' className='absolute text-[#249C3B] bottom-[40px] right-[40px] w-[200px]' />
+        <img src={modal} alt='Logo EcoPay' className='absolute text-[#249C3B] bottom-[40px] right-[40px] w-[200px]' />
       </div>
     </>
   )

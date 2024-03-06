@@ -87,7 +87,7 @@ const OnBoardingInfo = () => {
 
         <div id='tarjeta' className='py-[150px] px-[20px] w-full lg:h-[850px] text-right border-b-2 border-black shadow-md flex flex-col items-center lg:flex-row lg:justify-center'>
           <div className='w-[380px] lg:w-[480px] flex flex-col justify-around items-end py-2 pr-6'>
-            <p className='text-4xl lg:text-6xl'>Solicita tu tarjeta Prepaga Virtual sin Costo y sin Burocracias</p>
+            <p className='text-4xl lg:text-6xl'>Solicita tu tarjeta Virtual sin Costo y sin Burocracias</p>
             <img src='/img/Top Estate Agent.png' alt='Usuarios EcoPay' className='w-[280px] pt-2' />
           </div>
           <img src='/img/Card.png' alt='Targeta EcoPay' className='w-[380px] lg:w-[480px] py-2 pl-2' />

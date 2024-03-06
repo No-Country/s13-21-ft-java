@@ -69,7 +69,7 @@ const DashboarDesktop = () => {
         <Modal titulo='Tarjeta Solicitada con éxito!' texto='Esperamos que la disfrutes!' isOpen={modalOpen} closeModal={handleModalClose} />
         <div className='flex flex-col items-end py-3'>
           <p className='text-white font-sm text-lg pl-4 text-right '>
-            Solicita tu tarjeta Prepaga ECOPAY Haciendo Click Acá!
+            Solicita tu tarjeta Virtual ECOPAY Haciendo Click Acá!
           </p>
           <img src='/img/Top Estate Agent.png' alt='Usuarios EcoPay' className='w-[160px]' />
 
@@ -121,7 +121,7 @@ const DashboarDesktop = () => {
         <Modal titulo='Tarjeta Solicitada con éxito!' texto='Esperamos que la disfrutes!' isOpen={modalOpen} closeModal={handleModalClose} />
         <div className='flex flex-col items-end py-3'>
           <p className='text-white font-sm text-lg pl-4 text-right '>
-            Solicita tu tarjeta Prepaga ECOPAY Haciendo Click Acá!
+            Solicita tu tarjeta Virtual ECOPAY Haciendo Click Acá!
           </p>
           <img src='/img/Top Estate Agent.png' alt='Usuarios EcoPay' className='w-[160px]' />
 

@@ -6,6 +6,11 @@ import axios from 'axios'
 const VirtualCardInfo = () => {
   const [userCard, setUserCard] = useState()
   const [loading, setLoading] = useState(true)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible)
+  }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -41,26 +46,49 @@ const VirtualCardInfo = () => {
         <section id='card' className='w-full py-2 flex flex-col items-center text-neutral-900 font-semibold'>
           <div className='bg-OnBoarding-bgImage bg-OnBoarding-bgPosition bg-no-repeat w-[380px] pb-3' style={{ backgroundImage: 'url("/img/Card.png")', backgroundSize: '100%' }}>
             <div className='px-5 pt-[85px] pb-2'>
-              <div className=''>
-                <p className='text-sm'>Numero de tarjeta</p>
-                <p className='text-lg'>{userCard.cardNumber}</p>
-              </div>
-              <div className='flex justify-between py-2'>
-                <div>
-                  <p className='text-sm'>Fecha de expiración</p>
-                  <p className='text-lg'>{userCard.expirationDate}</p>
-                </div>
-                <div>
-                  <p className='text-sm'>Código de seguridad CVV</p>
-                  <p className='text-lg'>{userCard.cvv}</p>
-                </div>
-              </div>
-              <div>
-                <p className='text-xl mb-3'>{userCard.cardHolder}</p>
-              </div>
+              {isVisible
+                ? <div>
+                  <div className=''>
+                    <p className='text-sm'>Numero de tarjeta</p>
+                    <p className='text-lg'>{userCard.cardNumber}</p>
+                  </div>
+                  <div className='flex justify-between py-2'>
+                    <div>
+                      <p className='text-sm'>Fecha de expiración</p>
+                      <p className='text-lg'>{userCard.expirationDate}</p>
+                    </div>
+                    <div>
+                      <p className='text-sm'>Código de seguridad CVV</p>
+                      <p className='text-lg'>{userCard.cvv}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className='text-xl mb-3'>{userCard.cardHolder}</p>
+                  </div>
+                  </div>
+                : <div>
+                  <div className=''>
+                    <p className='text-sm'>Numero de tarjeta</p>
+                    <p className='text-lg'>**************</p>
+                  </div>
+                  <div className='flex justify-between py-2'>
+                    <div>
+                      <p className='text-sm'>Fecha de expiración</p>
+                      <p className='text-lg'>****-**-**</p>
+                    </div>
+                    <div>
+                      <p className='text-sm'>Código de seguridad CVV</p>
+                      <p className='text-lg'>***</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className='text-xl mb-3'>****** ******</p>
+                  </div>
+                  </div>}
+
             </div>
           </div>
-          <button className='border border-black h-[46px] w-[350px] px-3 rounded-xl bg-neutral-900 text-white font-normal'> Ver Datos</button>
+          <button onClick={toggleVisibility} className='border border-black h-[46px] w-[350px] px-3 rounded-xl bg-neutral-900 text-white font-normal'> Ver Datos</button>
         </section>
       </div>
     </div>

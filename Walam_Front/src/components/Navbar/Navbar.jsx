@@ -4,6 +4,7 @@ import { FaCircleQuestion } from 'react-icons/fa6'
 import { FaBell } from 'react-icons/fa'
 import { MdMenu } from 'react-icons/md'
 import whiteIcon from '../../assets/icon_white.png'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,11 +21,11 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='  pt-4 pb-2 xl:pt-0 xl:pb-0 w-screen xl:w-full flex justify-between px-4 xl:pl-4 bg-loginColor xl:bg-transparent text-white shadow-lg xl:shadow-none'>
-      <div className='flex items-center gap-2 xl:hidden'>
+    <nav className='pt-4 pb-2 xl:pt-0 xl:pb-0 w-screen xl:w-full flex justify-between px-4 xl:pl-4 bg-loginColor xl:bg-transparent text-white shadow-lg xl:shadow-none'>
+      <Link to='/Help' className='flex items-center gap-2 xl:hidden'>
         <FaCircleQuestion />
         <p>Ayuda</p>
-      </div>
+      </Link>
       <div className='flex gap-1 items-center xl:hidden'>
         <img src={whiteIcon} alt='logo blanco' className='w-[20px] h-[20px]' />
         <p>EcoPay</p>
@@ -42,7 +43,7 @@ const Navbar = () => {
           <MdMenu className='text-[24px]' />
         </button>
         {isOpen && (
-          <div className='absolute top-10 right-0 bg-white border'>
+          <div className='absolute top-10 right-0 bg-white border' onClick={toggleMenu}>
             {/* menu mobile */}
             <LinkMenu />
           </div>

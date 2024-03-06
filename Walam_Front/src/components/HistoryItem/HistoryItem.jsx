@@ -43,8 +43,8 @@ export default function HistoryItem ({ searchTerm }) {
 
           </div>
           <div>{transaction.type === 'DEPOSIT' ? <BsArrowUpSquareFill className='text-green-500' /> : <BsArrowDownSquareFill className='text-red-500' />}</div>
-          <div className='flex items-center justify-evenly w-[24%] gap-12'>
-            <p className={`${transaction.type === 'DEPOSIT' ? 'text-green-500' : 'text-red-500'}`}>{transaction.amount}</p>
+          <div className='flex item-center justify-end pr-3 w-[24%] gap-12'>
+            <p className={`${transaction.type === 'DEPOSIT' ? 'text-green-500' : 'text-red-500'}`}>$ {transaction.amount},00</p>
           </div>
         </div>
       ))}
