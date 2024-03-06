@@ -2,9 +2,9 @@ import MoneyInput from '../../../components/MoneyInput/MoneyInput'
 import { useEffect, useState } from 'react'
 import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { IoIosClose } from 'react-icons/io'
-import { TiPlus, TiMinus } from 'react-icons/ti'
+import { TiMinus } from 'react-icons/ti'
 import axios from 'axios'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useBalance from '../../../components/CustomHooks/CustonHooks'
 import wwf from '../../../assets/wwf-logo.png'
 import ipen from '../../../assets/IPEN-logo.jpeg'
@@ -43,8 +43,6 @@ const DonateInfo = () => {
   const [amount, setAmount] = useState('')
   const { updateBalance } = useBalance()
   const navigate = useNavigate()
-  const location = useLocation()
-  const action = new URLSearchParams(location.search).get('action')
   const [modalOpen, setModalOpen] = useState(false)
   const handleModalOpen = () => setModalOpen(true)
   const handleModalClose = () => {
@@ -63,18 +61,7 @@ const DonateInfo = () => {
     filterRows(searchText)
   }, [searchText])
 
-  // Logica para deposito y extraccion de dinero
-  const handleDeposit = async () => {
-    try {
-      const token = window.localStorage.getItem('token')
-      console.log(parseInt(amount))
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`
-      await axios.post('https://s13-21-ft-java.onrender.com/api/v1/deposit', { amount: parseInt(amount) })
-      updateBalance(parseInt(amount))
-    } catch (error) {
-      console.error('Error al guardar usuario:', error)
-    }
-  }
+  // Logica para extraccion de dinero
   const handleWithdraw = async () => {
     try {
       const token = window.localStorage.getItem('token')
@@ -154,22 +141,12 @@ const DonateInfo = () => {
                         : 'hidden'}
                       >
 
-                        {action === 'deposit' && (
-                          <>
-                            <button className='flex gap-2' onClick={() => { handleDeposit(); handleModalOpen() }}>
-                              <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
-                            </button>
-                            <Modal titulo='Depósito Realizado' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
-                          </>
-                        )}
-                        {action === 'withdraw' && (
-                          <>
-                            <button className='flex gap-2' onClick={() => { handleWithdraw(); handleModalOpen() }}>
-                              <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
-                            </button>
-                            <Modal titulo='Extracción Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
-                          </>
-                        )}
+                        <>
+                          <button className='flex gap-2' onClick={() => { handleWithdraw(); handleModalOpen() }}>
+                            <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Donar
+                          </button>
+                          <Modal titulo='Extracción Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                        </>
                       </div>
                     </td>
                   </tr>
