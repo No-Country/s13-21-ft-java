@@ -90,7 +90,7 @@ export default function UsersDataFormInfo () {
   }
 
   return (
-    <section className='text-white rounded-xl min-w-[350px] w-4/5 xl:max-h-[550px] py-2'>
+    <section className='text-white rounded-xl xl:max-h-[550px] overflow-auto py-2'>
       <div className='flex items-center gap-3 self-start p-2'>
         <Link to='/DashboardUser'><FaArrowLeft /></Link>
         <h2 className='text-xl font-semibold'>Perfil</h2>
