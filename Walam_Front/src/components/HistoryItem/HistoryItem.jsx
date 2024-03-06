@@ -28,8 +28,7 @@ export default function HistoryItem () {
           <div className='flex items-center gap-2 w-[60%]'>
             <Link to={`/HistoryDetails/${transaction.id}`}><IoEllipsisVerticalCircleOutline className='text-lg' /></Link>
             {transaction.type === 'DEPOSIT' && 'Deposito Realizado'}
-            {transaction.type === 'WITHDRAW' && 'Retiro Realizado'}
-            {transaction.type === 'TRANSFER' && 'Transferencia Realizada'}
+            {transaction.type === 'WITHDRAW' && 'Transferencia/Retiro Realizado'}
           </div>
           <div>{transaction.type === 'DEPOSIT' ? <BsArrowUpSquareFill className='text-green-500' /> : <BsArrowDownSquareFill className='text-red-500' />}</div>
           <div className='flex items-center justify-evenly w-[24%] gap-12'>

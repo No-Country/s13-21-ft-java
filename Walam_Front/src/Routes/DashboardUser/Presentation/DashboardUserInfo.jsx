@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom'
-import profilePhoto from '../../../assets/Avatar Style 6.jpg'
 import circle from '../../../assets/greenCircle.png'
 import cardImg from '../../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../../../components'
 import { MovementsHistory } from '../../index.js'
+import { FaUserCircle } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import useBalance from '../../../components/CustomHooks/CustonHooks'
 
 const DashboardUserInfo = () => {
   const [userName, setUserName] = useState()
-  // const [balance, setBalance] = useState()
   const { balance } = useBalance()
   const [displayedBalance, setDisplayedBalance] = useState(balance)
 
@@ -26,7 +25,6 @@ const DashboardUserInfo = () => {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
         setUserName(response.data.username)
-        // setBalance(response.data.account.balance)
         console.log(response.data)
       } catch (error) {
         console.error('Error al guardar usuario:', error)
@@ -37,11 +35,9 @@ const DashboardUserInfo = () => {
   }, [])
   return (
     <>
-      <div className='w-[85%] mt-6 flex flex-col justify-center items-center xl:hidden'>
+      <div className='w-[85%] xl:w-0 xl:mt-6 flex flex-col justify-center items-center xl:hidden'>
         <section className='flex gap-2 self-start'>
-          <figure>
-            <img src={profilePhoto} alt='foto de perfil' className='rounded-3xl' />
-          </figure>
+          <FaUserCircle className='text-4xl' />
           <div className='flex justify-center items-end'>
             <p>
               Hola,
@@ -90,7 +86,7 @@ const DashboardUserInfo = () => {
           </button>
         </section>
       </div>
-      <div className='hidden xl:w-full xl:flex'>
+      <div className='hidden xl:w-[68.8%] xl:flex'>
         <MovementsHistory />
       </div>
     </>

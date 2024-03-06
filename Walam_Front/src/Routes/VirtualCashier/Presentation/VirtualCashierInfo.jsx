@@ -4,7 +4,7 @@ import { FaArrowLeft, FaCheck } from 'react-icons/fa'
 import { IoIosClose } from 'react-icons/io'
 import { TiPlus, TiMinus } from 'react-icons/ti'
 import axios from 'axios'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useBalance from '../../../components/CustomHooks/CustonHooks'
 import mercadopago from '../../../assets/mercadopago.png'
 import personalpay from '../../../assets/personalpay.png'
@@ -12,6 +12,7 @@ import applepay from '../../../assets/applepay.png'
 import googlewallet from '../../../assets/googlewallet.png'
 import naranjax from '../../../assets/naranjax.png'
 import paypall from '../../../assets/paypall.png'
+import { Modal } from '../../../components'
 
 const TABLE_HEAD = ['Entidad', 'Monto', 'Estado', '']
 
@@ -53,8 +54,15 @@ const VirtualCashierInfo = () => {
   const [filteredRows, setFilteredRows] = useState(TABLE_ROWS)
   const [amount, setAmount] = useState('')
   const { updateBalance } = useBalance()
+  const navigate = useNavigate()
   const location = useLocation()
   const action = new URLSearchParams(location.search).get('action')
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModalOpen = () => setModalOpen(true)
+  const handleModalClose = () => {
+    setModalOpen(false)
+    navigate('/DashboardUser')
+  }
 
   const filterRows = (text) => {
     const filtered = TABLE_ROWS.filter(row =>
@@ -157,14 +165,23 @@ const VirtualCashierInfo = () => {
                         ? 'flex flex-col gap-2 w-fit'
                         : 'hidden'}
                       >
+
                         {action === 'deposit' && (
-                          <button className='flex gap-2' onClick={handleDeposit}>
-                            <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
-                          </button>)}
+                          <>
+                            <button className='flex gap-2' onClick={() => { handleDeposit(); handleModalOpen() }}>
+                              <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
+                            </button>
+                            <Modal titulo='Depósito Realizado' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                          </>
+                        )}
                         {action === 'withdraw' && (
-                          <button className='flex gap-2' onClick={handleWithdraw}>
-                            <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
-                          </button>)}
+                          <>
+                            <button className='flex gap-2' onClick={() => { handleWithdraw(); handleModalOpen() }}>
+                              <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
+                            </button>
+                            <Modal titulo='Extracción Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                          </>
+                        )}
                       </div>
                     </td>
                   </tr>

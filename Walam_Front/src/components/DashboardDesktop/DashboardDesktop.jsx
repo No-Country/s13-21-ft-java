@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import profilePhoto from '../../assets/Avatar Style 6.jpg'
 import cardImg from '../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../index'
+import { FaUserCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -27,26 +27,23 @@ const DashboarDesktop = () => {
     fetchUser()
   }, [])
   return (
-    <div className='hidden w-[85%] h-[90%] xl:flex flex-col  items-center'>
-      <div className='border rounded-xl px-5 py-11 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full'>
-        <section className='flex gap-2 self-start'>
-          <figure>
-            <img src={profilePhoto} alt='foto de perfil' className='xl:rounded-3xl' />
-          </figure>
-          <div className='flex justify-center items-end'>
-            <p>
+    <div className='hidden w-[500px] h-[90%] xl:flex flex-col  items-center'>
+      <div className='border rounded-xl px-5 py-10 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full '>
+        <section className='flex gap-6 self-center'>
+          <FaUserCircle className='text-4xl' />
+          <div className='flex justify-between items-center gap-3 w-full'>
+            <p className='text-2xl'>
               Hola,
-              <br />
-              <Link to='/UsersDataForm'>{userName}</Link>
+              <Link to='/UsersDataForm'> {userName}</Link>
             </p>
-            <Link to='/UsersDataForm'>
+            <Link className='self-end' to='/UsersDataForm'>
               <IoIosArrowRoundForward className='text-[40px]' />
             </Link>
           </div>
         </section>
         <section className='flex xl:flex-col gap-6'>
           <div className='flex flex-col justify-evenly items-center'>
-            <p className='w-full font-medium'>Disponible</p>
+            <p className='w-full font-medium pt-2'>Disponible</p>
             <p className='w-full text-2xl font-medium'><span>$</span>{balance}<span>,00</span></p>
           </div>
           <div className='flex flex-col xl:flex-row xl:justify-evenly pt-4 xl:pt-2 gap-4'>
