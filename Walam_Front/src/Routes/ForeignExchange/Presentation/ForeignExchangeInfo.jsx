@@ -5,22 +5,64 @@ import { Link } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
 
 export default function ForeignExchangeInfo () {
-  const [exchangeRate, setExchangeRate] = useState(null)
-  const [dateString, setDateString] = useState(null)
+  const dateString = '2024-03-07T16:52:00.000Z'
 
-  useEffect(() => {
-    const fetchExchangeRate = async () => {
-      try {
-        const response = await axios.get('https://dolarapi.com/v1/cotizaciones')
-        setExchangeRate(response.data)
-        setDateString(response.data[0].fechaActualizacion)
-      } catch (error) {
-        console.error('Error fetching exchange rate:', error)
-      }
+  const exchangeRate = [
+    {
+      moneda: 'USD',
+      casa: 'oficial',
+      nombre: 'Dólar',
+      compra: 824.5,
+      venta: 864.5,
+      fechaActualizacion: '2024-03-06T16:52:00.000Z'
+    },
+    {
+      moneda: 'EUR',
+      casa: 'oficial',
+      nombre: 'Euro',
+      compra: 922.03,
+      venta: 922.21,
+      fechaActualizacion: '2024-03-06T16:52:00.000Z'
+    },
+    {
+      moneda: 'BRL',
+      casa: 'oficial',
+      nombre: 'Real Brasileño',
+      compra: 171.2,
+      venta: 171.24,
+      fechaActualizacion: '2024-03-06T16:52:00.000Z'
+    },
+    {
+      moneda: 'CLP',
+      casa: 'oficial',
+      nombre: 'Peso Chileno',
+      compra: 85.89,
+      venta: 86.01,
+      fechaActualizacion: '2024-03-06T16:52:00.000Z'
+    },
+    {
+      moneda: 'UYU',
+      casa: 'oficial',
+      nombre: 'Peso Uruguayo',
+      compra: 21.64,
+      venta: 21.66,
+      fechaActualizacion: '2024-03-06T16:52:00.000Z'
     }
+  ]
 
-    fetchExchangeRate()
-  }, [])
+  // useEffect(() => {
+  //   const fetchExchangeRate = async () => {
+  //     try {
+  //       const response = await axios.get('https://dolarapi.com/v1/cotizaciones')
+  //       setExchangeRate(response.data)
+  //       setDateString(response.data[0].fechaActualizacion)
+  //     } catch (error) {
+  //       console.error('Error fetching exchange rate:', error)
+  //     }
+  //   }
+
+  //   fetchExchangeRate()
+  // }, [])
 
   return (
     <div>
