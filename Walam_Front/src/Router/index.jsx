@@ -30,16 +30,8 @@ export const router = createBrowserRouter([
         <MainLayout />
       </Suspense>
     ),
-    // errorElement: <NotFound />,
-    children: [
-      // {
-      //   index: true,
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Users />
-      //     </Suspense>
-      //   )
-      // },
+    
+    children: [    
 
       {
         path: '/Register',

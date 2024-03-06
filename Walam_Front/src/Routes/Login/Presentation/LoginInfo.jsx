@@ -64,7 +64,7 @@ const LoginInfo = () => {
       <div className='absolute inset-0 rounded-xl bg-loginColor opacity-25' />
       <div className='relative z-10 rounded-xl py-8 px-10 lg:px-20 w-full text-white flex flex-col'>
         <div className='w-[87%] xl:w-full flex justify-between'>
-          <Link to='/'><FaArrowLeft/></Link>
+          <Link to='/'><FaArrowLeft className='xl:hidden' /></Link>
         </div>
         <main className=''>
           <div className='flex flex-col pt-4 xl:pt-0 pb-6'>
@@ -96,7 +96,7 @@ const LoginInfo = () => {
             )}
           </Formik>
           <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
-            <Link to='/Register' className='text-center pt-3 hover:text-lime-400'> Registrarse</Link>
+            <Link to='/Register' className='text-center pt-3'> Registrarse</Link>
           </div>
         </main>
       </div>
