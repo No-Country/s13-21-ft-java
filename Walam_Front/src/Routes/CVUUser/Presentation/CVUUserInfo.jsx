@@ -14,7 +14,7 @@ export default function CVUUserInfo () {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`
         const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
         setUser(response.data.account.cvu)
-        setUser2(response.data.username)
+        setUser2(response.data.alias)
         console.log(response.data)
       } catch (error) {
         console.error('Error al guardar usuario:', error)

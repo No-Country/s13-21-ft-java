@@ -9,15 +9,15 @@ export const BalanceProvider = ({ children }) => {
 
   const updateBalance = async () => {
     try {
-      const token = window.localStorage.getItem('token');
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-      const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users');
-      const balanceAmount = response.data.account.balance;
-      const username = response.data.username;
-      setBalance(balanceAmount);
-      setUserName(username);
+      const token = window.localStorage.getItem('token')
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
+      const balanceAmount = response.data.account.balance
+      const username = response.data.username
+      setBalance(balanceAmount)
+      setUserName(username)
     } catch (error) {
-      console.error('Error al obtener el saldo:', error);
+      console.error('Error al obtener el saldo:', error)
     }
   }
 

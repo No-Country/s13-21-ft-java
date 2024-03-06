@@ -8,6 +8,7 @@ import '../index.css'
 const UserLayout = () => {
   return (
     <div className='
+    box-border
     w-full
     h-full
     justify-self-center
@@ -32,10 +33,10 @@ const UserLayout = () => {
           <div className='flex p-6 flex-col xl:border xl:rounded-xl text-white border-neutral-700 h-screen xl:h-[720px] xl:w-[70%] xl:gap-4'>
             <div className='hidden xl:flex xl:justify-end gap-3'>
               <FaBell />
-              <div className='flex gap-1'>
+              <Link to='/Help' className='flex gap-1'>
                 <FaCircleQuestion />
                 <p className='mt-[-5px]'>Ayuda</p>
-              </div>
+              </Link>
             </div>
             <div className='flex xl:gap-4'>
               <DashboardDesktop />

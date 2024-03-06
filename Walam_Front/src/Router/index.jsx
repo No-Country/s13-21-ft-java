@@ -30,16 +30,7 @@ export const router = createBrowserRouter([
         <MainLayout />
       </Suspense>
     ),
-    // errorElement: <NotFound />,
     children: [
-      // {
-      //   index: true,
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Users />
-      //     </Suspense>
-      //   )
-      // },
 
       {
         path: '/Register',
@@ -67,7 +58,7 @@ export const router = createBrowserRouter([
           <Suspense fallback={<Loader />}>
             <BalanceProvider>
               <UserLayout />
-            </BalanceProvider>            
+            </BalanceProvider>
           </Suspense>
         ),
         children: [
@@ -117,15 +108,6 @@ export const router = createBrowserRouter([
           }
         ]
       }
-
-      // {
-      //   path: '/Reset-password',
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <ResetPassword />
-      //     </Suspense>
-      //   )
-      // }
 
     ]
   }
