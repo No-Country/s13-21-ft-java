@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import profilePhoto from '../../assets/Avatar Style 6.jpg'
 import cardImg from '../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 import { ActionButton, RoundButton } from '../index'
+import { FaUserCircle } from 'react-icons/fa'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 
@@ -27,12 +27,10 @@ const DashboarDesktop = () => {
     fetchUser()
   }, [])
   return (
-    <div className='hidden w-[85%] h-[90%] xl:flex flex-col  items-center'>
-      <div className='border rounded-xl px-5 py-11 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full'>
+    <div className='hidden w-[500px] h-[90%] xl:flex flex-col  items-center'>
+      <div className='border rounded-xl px-5 py-10 bg-DashboardDesktop shadow-md outline-1 border-neutral-700 w-full '>
         <section className='flex gap-2 self-start'>
-          <figure>
-            <img src={profilePhoto} alt='foto de perfil' className='xl:rounded-3xl' />
-          </figure>
+          <FaUserCircle className='text-4xl' />
           <div className='flex justify-center items-end'>
             <p>
               Hola,

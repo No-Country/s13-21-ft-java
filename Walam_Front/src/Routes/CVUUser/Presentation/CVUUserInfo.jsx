@@ -26,7 +26,7 @@ export default function CVUUserInfo () {
 
   return (
     <div className='flex flex-col px-8'>
-      <div className='flex items-center gap-3'>
+      <div className='flex items-center gap-3 pl-4 xl:pl-0'>
         <Link to='/DashboardUser' className='mt-[-30px]'> <FaArrowLeft /></Link>
         <h1 className='font-bold text-2xl'>
           CVU y Alias

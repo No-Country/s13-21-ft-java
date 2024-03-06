@@ -18,7 +18,7 @@ const formatDate = (dateString) => {
 
 const DisplayDate = ({ dateString }) => {
   return (
-    <div>
+    <div className='text-center'>
       <p>Actualizado el {formatDate(dateString)}</p>
     </div>
   )

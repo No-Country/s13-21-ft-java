@@ -25,11 +25,11 @@ const UserLayout = () => {
         <div className='w-full hidden xl:flex bg-transparent pl-12'>
           <Link to='/'><img src='/img/Logox2.png' alt='Logo EcoPay' className='w-[200px] p-4' /></Link>
         </div>
-        <div className='flex items-center justify-center '>
-          <div className='hidden xl:flex'>
+        <div className='flex items-center justify-center h-screen overflow-hidden '>
+          <div className='hidden xl:flex xl:w-[15%]'>
             <NavBar />
           </div>
-          <div className='flex p-6 flex-col xl:border xl:rounded-xl text-white border-neutral-700 xl:h-[720px] xl:gap-4'>
+          <div className='flex p-6 flex-col xl:border xl:rounded-xl text-white border-neutral-700 h-screen xl:h-[720px] xl:w-[70%] xl:gap-4'>
             <div className='hidden xl:flex xl:justify-end gap-3'>
               <FaBell />
               <div className='flex gap-1'>
