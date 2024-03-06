@@ -1,10 +1,7 @@
 package org.nocountry.walam.main.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.nocountry.walam.main.model.dto.AccountDTO;
-import org.nocountry.walam.main.model.dto.TransactionDTO;
-import org.nocountry.walam.main.model.dto.UpdateUserDTO;
-import org.nocountry.walam.main.model.dto.UserDTO;
+import org.nocountry.walam.main.model.dto.*;
 import org.nocountry.walam.main.model.entity.User;
 import org.nocountry.walam.main.model.entity.enums.Country;
 import org.nocountry.walam.main.model.repository.UserRepository;
@@ -63,8 +60,18 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    public User findByAlias(String alias) throws Exception {
+        return userRepository.findByAlias(alias);
+    }
+
+    @Override
+    public boolean existsByAlias(String alias) {
+        return userRepository.existsByAlias(alias);
+    }
+
     public UserDTO mapUserToDTO(User user) {
-        return UserDTO.builder()
+        UserDTO.UserDTOBuilder userDTOBuilder = UserDTO.builder()
                 .id(user.getId())
                 .username(user.getUsername())
                 .firstName(user.getFirstName())
@@ -77,19 +84,34 @@ public class UserServiceImpl implements UserService {
                 .birthday(user.getBirthday())
                 .active(user.isActive())
                 .role(user.getRole())
+                .alias(user.getAlias());
+
+        if (user.getCard() != null) {
+            userDTOBuilder.card(CardDTO.builder()
+                    .id(user.getCard().getId())
+                    .cardHolder(user.getCard().getCardHolder())
+                    .cardNumber(user.getCard().getCardNumber())
+                    .cvv(user.getCard().getCvv())
+                    .creationDate(user.getCard().getCreationDate())
+                    .expirationDate(user.getCard().getExpirationDate())
+                    .active(user.getCard().isActive())
+                    .build());
+        }
+
+        return userDTOBuilder
                 .account(AccountDTO.builder()
                         .id(user.getAccount().getId())
                         .cvu(user.getAccount().getCvu())
                         .balance(user.getAccount().getBalance())
                         .numberAccount(user.getAccount().getNumberAccount())
-                        .transactions(user.getAccount().getTransactions().stream().map(transaction -> {
-                            return TransactionDTO.builder()
-                                    .id(transaction.getId())
-                                    .amount(transaction.getAmount())
-                                    .date(transaction.getDate()).
-                                    type(transaction.getType())
-                                    .build();
-                        }).collect(Collectors.toList()))
+                        .transactions(user.getAccount().getTransactions().stream().map(transaction ->
+                                TransactionDTO.builder()
+                                        .id(transaction.getId())
+                                        .amount(transaction.getAmount())
+                                        .date(transaction.getDate())
+                                        .type(transaction.getType())
+                                        .build()
+                        ).collect(Collectors.toList()))
                         .build())
                 .build();
     }

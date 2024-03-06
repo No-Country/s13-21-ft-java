@@ -131,7 +131,7 @@ public class TransactionServiceImpl implements TransactionService {
     private void saveTransaction(Account origin, Account destiny, double amount) {
         Transaction transactionOrigin = Transaction.builder()
                 .date(LocalDateTime.now())
-                .type(TransactionType.DEPOSIT)
+                .type(TransactionType.WITHDRAW)
                 .originAccount(origin.getNumberAccount())
                 .destinyAccount(destiny.getNumberAccount())
                 .amount(amount).build();
@@ -140,7 +140,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         Transaction transactionDestiny = Transaction.builder()
                 .date(LocalDateTime.now())
-                .type(TransactionType.WITHDRAW)
+                .type(TransactionType.DEPOSIT)
                 .originAccount(origin.getNumberAccount())
                 .destinyAccount(destiny.getNumberAccount())
                 .amount(amount).build();

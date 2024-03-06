@@ -20,6 +20,9 @@ public class UserDTO implements Serializable {
     private String username;
 
     @Min(3)
+    private String alias;
+
+    @Min(3)
     private String firstName;
 
     @Min(3)
@@ -53,4 +56,7 @@ public class UserDTO implements Serializable {
 
     @Valid
     private AccountDTO account;
+
+    @Valid
+    private CardDTO card;
 }
