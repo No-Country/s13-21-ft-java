@@ -16,4 +16,8 @@ public interface UserService {
 
     public void updateUser(String username, UpdateUserDTO userRequest) throws Exception;
 
+    public User findByAlias(String alias) throws Exception;
+
+    public boolean existsByAlias(String alias);
+
 }

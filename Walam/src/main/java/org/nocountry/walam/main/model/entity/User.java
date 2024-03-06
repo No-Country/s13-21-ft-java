@@ -33,6 +33,9 @@ public class User implements UserDetails {
     @Column(name = "username", length = 25 , unique = true)
     private String username;
 
+    @Column(name="alias", length = 25)
+    private String alias;
+
     @Column(name = "firstname", length = 25)
     private String firstName;
 
@@ -70,6 +73,11 @@ public class User implements UserDetails {
     @JsonIgnore
     @JoinColumn(name = "account")
     private Account account;
+
+    @OneToOne
+    @JsonIgnore
+    @JoinColumn(name = "card")
+    private Card card;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

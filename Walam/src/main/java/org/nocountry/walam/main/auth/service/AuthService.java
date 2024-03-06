@@ -16,6 +16,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 import static org.nocountry.walam.main.utils.UtilsAccount.generateAccountNumber;
 import static org.nocountry.walam.main.utils.UtilsAccount.generateCvu;
 
@@ -58,6 +62,13 @@ public class AuthService {
                 .role(Role.USER) // Por defecto los nuevos usuarios tendrán el rol USER.
                 .build();
 
+        String alias= generateAlias();
+
+        while(userRepository.existsByAlias(alias)){
+            alias = generateAlias();
+        }
+        user.setAlias(alias);
+
         String numberAccount = generateAccountNumber();
 
         while (accountService.existsByNumberAccount(numberAccount)){
@@ -87,4 +98,29 @@ public class AuthService {
                 .build();
     }
 
+    private static final List<String> palabras = Arrays.asList(
+            "amarillo", "banana", "cielo", "delfín", "elefante",
+            "fuego", "guitarra", "helicóptero", "isla", "jirafa",
+            "kiwi", "león", "montaña", "nieve", "océano",
+            "paraguas", "queso", "rana", "sol", "tigre",
+            "uva", "viento", "xilófono", "yogur", "zapato",
+            "abrazo", "burbuja", "cascada", "diamante", "ensalada",
+            "flor", "globo", "hamburguesa", "iguana", "jardín",
+            "koala", "luz", "melodía", "nube", "orquídea",
+            "piano", "química", "río", "silla", "tren",
+            "unicornio", "velero", "waffle", "xenón", "yoga",
+            "zoológico", "ágil", "bello", "cálido", "divertido",
+            "energía", "fresco", "grande", "hábil", "inteligente",
+            "joven", "luminoso", "mágico", "noble", "optimista",
+            "poderoso", "rápido", "sereno", "tierno", "único",
+            "valiente", "wisdom", "xenial", "yesterday", "zen"
+    );
+
+    private static String generateAlias(){
+        Random random = new Random();
+        String palabra1= palabras.get(random.nextInt(palabras.size()-1));
+        String palabra2= palabras.get(random.nextInt(palabras.size()-1));
+
+        return palabra1+"."+palabra2+"."+"eco";
+    }
 }
