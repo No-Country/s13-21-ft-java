@@ -232,14 +232,14 @@
     </td>
     <td align='center'>
       <div>
-        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank" rel="author">
           <img width="110" src="https://media.licdn.com/dms/image/D4D35AQEBUs_VG7G_TQ/profile-framedphoto-shrink_200_200/0/1684690990880?e=1710435600&v=beta&t=Nn_-oryrVlCs-_70DTgzX-TbbzeKn83AGISUg56nVj0"/>
         </a>
-        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Diego Gonzalez</br><small>UX-UI</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-          <a href="https://github.com/josuejs23" target="_blank">
+          <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank">
             <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white="/>
           </a>
         </div>
@@ -247,14 +247,14 @@
     </td>
     <td align='center'>
       <div>
-        <a href="https://github.com/leosirx" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank" rel="author">
           <img width="110" src="https://media.licdn.com/dms/image/C5603AQFeYeu5DWFBiw/profile-displayphoto-shrink_200_200/0/1645498067851?e=1715212800&v=beta&t=IFAbm6IcV_BRjknDI329gSXgNgf2G6QwWmbu54_bLYs"/>
         </a>
-        <a href="https://github.com/leosirx" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Yuli Riveros</br><small>UX-UI</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-          <a href="https://github.com/leosirx" target="_blank">
+          <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank">
             <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white="/>
           </a>
         </div>
