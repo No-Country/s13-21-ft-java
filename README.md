@@ -3,19 +3,18 @@
       <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
     </a>
   </div>
-  <hr>
   <!-- PROJECT LOGO -->
   <div align='center'>
     <a href="https://s13-21-ft-java.vercel.app/" target="_blank">
       <img src="./Walam_Front/src/assets/ecopay_logo.png" alt="Banner">
     </a>
   </div>
-  <hr>
+
   <h1 align='center'>Billetera Digital Ecológica</h1>
     <hr>
     <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
 
-<hr>
+
 <!-- TEAMS -->
 <h1 align='center'> Equipo - [s13-21-ft-java]  </h1>
 
