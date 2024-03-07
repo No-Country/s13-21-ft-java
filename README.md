@@ -327,7 +327,7 @@
 <hr>
 <!-- Video -->
 <h2> Video Promocional: </h2>
-<a href='https://drive.google.com/file/d/1muqouh6NgJBvyqeK7ocU4OD4Qa_R5T6V/view'>
+<a href='https://drive.google.com/file/d/1muqouh6NgJBvyqeK7ocU4OD4Qa_R5T6V/view?usp=sharing'>
   <img src='./Walam_Front/src/assets/ecopay_logo.png' alt='Video Thumbnail' />
 </a>
 
