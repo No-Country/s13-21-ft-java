@@ -13,7 +13,7 @@
   <hr>
   <h1 align='center'>Billetera Digital Ecológica</h1>
     <hr>
-    <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
+    <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
 
 <hr>
 <!-- TEAMS -->
