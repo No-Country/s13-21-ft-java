@@ -45,7 +45,7 @@ a lo largo de 5 países.
 
 ### BackEnd
 
-<img height="15" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHkwNXMxbjFiZ3Bqb3Zic3VmNml2cWJyeW0wZWp6OTY5bWV1cTZxdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/HZi7TKjJqYHR7nbVq8/giphy.gif" href='https://www.linkedin.com/in/jesus-pachecom/'/> Alejandro Pachecos
+<img height="15" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHkwNXMxbjFiZ3Bqb3Zic3VmNml2cWJyeW0wZWp6OTY5bWV1cTZxdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/HZi7TKjJqYHR7nbVq8/giphy.gif" href='https://www.linkedin.com/in/jesus-pachecom/'/> Alejandro Pacheco
 <br>
 <img height="15" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHkwNXMxbjFiZ3Bqb3Zic3VmNml2cWJyeW0wZWp6OTY5bWV1cTZxdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/HZi7TKjJqYHR7nbVq8/giphy.gif"/> Darío Benitez 
 <br>
