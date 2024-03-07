@@ -233,7 +233,7 @@
     <td align='center'>
       <div>
         <a href="https://github.com/josuejs23" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/86853211?v=4"/>
+          <img width="110" src="https://media.licdn.com/dms/image/D4D35AQEBUs_VG7G_TQ/profile-framedphoto-shrink_200_200/0/1684690990880?e=1710435600&v=beta&t=Nn_-oryrVlCs-_70DTgzX-TbbzeKn83AGISUg56nVj0"/>
         </a>
         <a href="https://github.com/josuejs23" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Diego Gonzalez</br><small>UX-UI</small></h4>
@@ -248,7 +248,7 @@
     <td align='center'>
       <div>
         <a href="https://github.com/leosirx" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/114456192?v=4"/>
+          <img width="110" src="https://media.licdn.com/dms/image/C5603AQFeYeu5DWFBiw/profile-displayphoto-shrink_200_200/0/1645498067851?e=1715212800&v=beta&t=IFAbm6IcV_BRjknDI329gSXgNgf2G6QwWmbu54_bLYs"/>
         </a>
         <a href="https://github.com/leosirx" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Yuli Riveros</br><small>UX-UI</small></h4>
@@ -263,7 +263,7 @@
     <td align='center'>
       <div>
         <a href="https://www.linkedin.com/in/ariadna-menendez/" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/18339620?v=4"/>
+          <img width="110" src="https://media.licdn.com/dms/image/C4E03AQGgspkIikHLNw/profile-displayphoto-shrink_800_800/0/1628727835399?e=1715212800&v=beta&t=Mmc6LQyk2g3NwwjAJNk-5rjbJtYlOBPpvYWwPehoxwM"/>
         </a>
         <a href="https://www.linkedin.com/in/ariadna-menendez/" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Ariadna Menendez</br><small>Testing</small></h4>
