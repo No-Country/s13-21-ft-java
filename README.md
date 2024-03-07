@@ -15,9 +15,8 @@
   <h1 align='center'>Billetera Digital Ecológica</h1>
 </header>
 <section id='intro'>
-  <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/>
-    <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
-  <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/>
+    <h2 align='center' src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
+  <img height="40" />
 </section>
 <hr>
 <!-- TEAMS -->
