@@ -175,25 +175,15 @@
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         <h2> UX - UI </h2>
-        <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank" rel="author">
-          <img width="110" src="https://media.licdn.com/dms/image/D5603AQEDvJ1muPIyCw/profile-displayphoto-shrink_800_800/0/1689954182213?e=1706745600&v=beta&t=aHuSeZ8rKAZVVxQAkSBLDZvx5c83LEir1Sv3MWIlQgo"/>
+        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/103864663?s=400&u=c15958417e895daefc6bdc014da615b1ff78ea3a&v=4"/>
         </a>
-        <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Diego Gonzalez</br><small>Diseñador UX/UI</small></h4>
-        </a>
-        <div style='display: flex; flex-direction: column'>
-        <a href="https://www.linkedin.com/in/diego-gonzalez-7937aa16/" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
-        </a>
-        <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank" rel="author">
-          <img width="110" src="https://media.licdn.com/dms/image/D5603AQEDvJ1muPIyCw/profile-displayphoto-shrink_800_800/0/1689954182213?e=1706745600&v=beta&t=aHuSeZ8rKAZVVxQAkSBLDZvx5c83LEir1Sv3MWIlQgo"/>
-        </a>
-        <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Carolina Nin</br><small>Diseñador UX/UI</small></h4>
+        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Jorge Beja</br><small>Front-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://www.linkedin.com/in/yuliriverosortiz/" target="_blank">
-          <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+        <a href="https://github.com/JornabeDV" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         </div>
       </div>
