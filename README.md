@@ -76,20 +76,20 @@
           <img width="110" src="https://avatars.githubusercontent.com/u/109118183?v=4"/>
         </a>
         <a href="https://github.com/MatiasNicolasAcevedo" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Diana Castaño</br><small>Front-End</small></h4>
+          <h4 style="margin-top: 1rem;">Matias Acevedo</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/MatiasNicolasAcevedo" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
-        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/103864663?s=400&u=c15958417e895daefc6bdc014da615b1ff78ea3a&v=4"/>
+        <a href="https://github.com/Full-Juan-Ortega" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/91577323?v=4"/>
         </a>
-        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Jorge Beja</br><small>Front-End</small></h4>
+        <a href="https://github.com/Full-Juan-Ortega" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Juan Ortega</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/JornabeDV" target="_blank">
+        <a href="https://github.com/Full-Juan-Ortega" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         </div>
