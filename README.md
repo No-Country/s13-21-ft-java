@@ -17,6 +17,7 @@
 <hr>
 <!-- TEAMS -->
 <h1 align='center'> Equipo - [s13-21-ft-java]  </h1>
+<hr>
 
 <table align='center'>
   <tr>
