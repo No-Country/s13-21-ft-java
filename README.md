@@ -1,22 +1,21 @@
 <header align="center">
-<h2 align='center'>Este es un proyecto de la comunidad:</h2>
-<div align='center'><a href="https://www.nocountry.tech/" target="_blank">
-    <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
-</a>
-</div>
-<hr>
-<!-- PROJECT LOGO -->
-<div align='center'>
-  <a href="https://c15-57-ft-react-agregarback.vercel.app/" target="_blank">
-    <img src="./Walam_Front/src/assets/ecopay_logo.png" alt="Banner">
-  </a>
-</div>
+  <h2 align='center'>Este es un proyecto de la comunidad:</h2>
+  <div align='center'><a href="https://www.nocountry.tech/" target="_blank">
+      <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
+    </a>
+  </div>
+  <hr>
+  <!-- PROJECT LOGO -->
+  <div align='center'>
+    <a href="https://c15-57-ft-react-agregarback.vercel.app/" target="_blank">
+      <img src="./Walam_Front/src/assets/ecopay_logo.png" alt="Banner">
+    </a>
+  </div>
   <hr>
   <h1 align='center'>Aplicación de Billetera Virtual Ecológica</h1>
 </header>
 <section id='intro'>
     <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
-    <hr>
 </section>
 <hr>
 <!-- TEAMS -->
