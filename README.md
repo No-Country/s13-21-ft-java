@@ -12,12 +12,11 @@
   </a>
 </div>
   <hr>
-  <h1 align='center'>Bienvenid@s a Ecopay</h1>
+  <h1 align='center'>Aplicación de Billetera Virtual Ecológica</h1>
 </header>
 <section id='intro'>
-    <p align='center'><strong>Aplicación de Billetera Virtual Ecológica</strong></p>
+    <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
     <hr>
-    <h1> Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</h1>
 </section>
 <hr>
 <!-- TEAMS -->
