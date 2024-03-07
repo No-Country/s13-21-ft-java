@@ -23,8 +23,19 @@
 
 <table align='center'>
   <tr>
+  <h2> FRONT - END </h2>
     <td align='center'>
       <div >
+        <a href="https://github.com/leandrofrossi" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/94393112?v=4"/>
+        </a>
+        <a href="https://github.com/leandrofrossi" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leandro Rossi</br><small>Front-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/leandrofrossi" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
         <a href="https://github.com/Natsumychan" target="_blank" rel="author">
           <img width="110" src="https://avatars.githubusercontent.com/u/94393112?v=4"/>
         </a>
