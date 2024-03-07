@@ -221,7 +221,7 @@
           <img width="110" src="https://avatars.githubusercontent.com/u/121467694?v=4"/>
         </a>
         <a href="https://github.com/JAPMagdaleno" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Joshua Frias</br><small>Back-End</small></h4>
+          <h4 style="margin-top: 1rem;">Alejandro Pacheco</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
           <a href="https://github.com/JAPMagdaleno" target="_blank">
@@ -236,11 +236,11 @@
           <img width="110" src="https://avatars.githubusercontent.com/u/86853211?v=4"/>
         </a>
         <a href="https://github.com/josuejs23" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Josue Zorrilla </br><small>Back-End</small></h4>
+          <h4 style="margin-top: 1rem;">Diego Gonzalez</br><small>UX-UI</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
           <a href="https://github.com/josuejs23" target="_blank">
-            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+            <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white="/>
           </a>
         </div>
       </div>
@@ -251,26 +251,26 @@
           <img width="110" src="https://avatars.githubusercontent.com/u/114456192?v=4"/>
         </a>
         <a href="https://github.com/leosirx" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+          <h4 style="margin-top: 1rem;">Yuli Riveros</br><small>UX-UI</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
           <a href="https://github.com/leosirx" target="_blank">
-            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+            <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white="/>
           </a>
         </div>
       </div>
     </td>
     <td align='center'>
       <div>
-        <a href="https://github.com/enzogsierra" target="_blank" rel="author">
+        <a href="https://www.linkedin.com/in/ariadna-menendez/" target="_blank" rel="author">
           <img width="110" src="https://avatars.githubusercontent.com/u/18339620?v=4"/>
         </a>
-        <a href="https://github.com/enzogsierra" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+        <a href="https://www.linkedin.com/in/ariadna-menendez/" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Ariadna Menendez</br><small>Testing</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-          <a href="https://github.com/enzogsierra" target="_blank">
-            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          <a href="https://www.linkedin.com/in/ariadna-menendez/" target="_blank">
+            <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white="/>
           </a>
         </div>
       </div>
