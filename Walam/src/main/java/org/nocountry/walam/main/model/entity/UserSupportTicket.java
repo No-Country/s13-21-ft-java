@@ -1,15 +1,15 @@
 package org.nocountry.walam.main.model.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.nocountry.walam.main.model.entity.enums.TicketState;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Builder
 @Entity
@@ -17,27 +17,25 @@ import java.time.LocalDateTime;
 public class UserSupportTicket {
 
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @NotBlank
-    @Size(max = 25)
+    @Column(name = "title", length = 25)
     private String title;
 
-    @NotBlank
-    @Size(max = 200)
+    @Column(name = "body", length = 200)
     private String body;
 
-    @NotNull
+    @CreationTimestamp
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @Column(name = "date", updatable = false)
     private LocalDateTime date;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private TicketState state;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private User owner;
-
+    @Column(nullable = false)
+    private String email;
 }

@@ -56,5 +56,19 @@ public class AccountServiceImpl implements AccountService {
     public Account mapDTOToAccount(AccountDTO accountDTO) {
         return AccountMapper.INSTANCE.accountDTOToAccount(accountDTO);}
 
+    public boolean existsByNumberAccount(String numberAccount) {
+        return accountRepository.existsByNumberAccount(numberAccount);
+    }
+    public boolean existsByCvu(String cvu){
+        return accountRepository.existsByCvu(cvu);
+    }
+
+    @Override
+    public void depositToAccount(String numberAccount, Double amount){
+        if(amount > 0.0 && accountRepository.existsByNumberAccount(numberAccount)){
+            Account accountInDb = accountRepository.findByNumberAccount(numberAccount);
+            accountInDb.setBalance( accountInDb.getBalance() + amount);
+        }
+    }
 
 }

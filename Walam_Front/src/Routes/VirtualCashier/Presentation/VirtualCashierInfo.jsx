@@ -1,138 +1,198 @@
-import cardImg from '../../../assets/cardImg.png'
-import profilePhoto from '../../../assets/Avatar Style 6.jpg'
-import { Link } from "react-router-dom"
-import { IoIosArrowRoundBack } from "react-icons/io"
-import { FaSearch } from "react-icons/fa"
-import { PiArrowSquareRight } from 'react-icons/pi'
+import MoneyInput from '../../../components/MoneyInput/MoneyInput'
+import { useEffect, useState } from 'react'
+import { FaArrowLeft, FaCheck } from 'react-icons/fa'
+import { IoIosClose } from 'react-icons/io'
+import { TiPlus, TiMinus } from 'react-icons/ti'
+import axios from 'axios'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useBalance from '../../../components/CustomHooks/CustonHooks'
+import mercadopago from '../../../assets/mercadopago.png'
+import personalpay from '../../../assets/personalpay.png'
+import applepay from '../../../assets/applepay.png'
+import googlewallet from '../../../assets/googlewallet.png'
+import naranjax from '../../../assets/naranjax.png'
+import paypall from '../../../assets/paypall.png'
+import { Modal } from '../../../components'
 
-const TABLE_HEAD = ["Entidad", "Monto Permitido", "Estado", ""]
- 
+const TABLE_HEAD = ['Entidad', 'Monto', 'Estado', '']
+
 const TABLE_ROWS = [
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-spotify.svg",
-    name: "Spotify",
-    amount: "$2,500",
-    status: "Habilitado"    
+    img: mercadopago,
+    name: 'Mercadopago',
+    status: 'Habilitado'
   },
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-amazon.svg",
-    name: "Amazon",
-    amount: "$5,000",
-    status: "Habilitado"
+    img: personalpay,
+    name: 'PersonalPay',
+    status: 'Habilitado'
   },
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-pinterest.svg",
-    name: "Pinterest",
-    amount: "$3,400",
-    status: "Deshabilitado"
+    img: applepay,
+    name: 'ApplePay',
+    status: 'Habilitado'
   },
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-google.svg",
-    name: "Google",
-    amount: "$1,000",
-    status: "Habilitado"
+    img: googlewallet,
+    name: 'GoogleWallet',
+    status: 'Habilitado'
   },
   {
-    img: "https://docs.material-tailwind.com/img/logos/logo-netflix.svg",
-    name: "Netflix",
-    amount: "$14,000",
-    status: "Deshabilitado"
+    img: naranjax,
+    name: 'NaranjaX',
+    status: 'Habilitado'
   },
+  {
+    img: paypall,
+    name: 'PayPall',
+    status: 'Habilitado'
+  }
 ]
 
 const VirtualCashierInfo = () => {
+  const [searchText, setSearchText] = useState('')
+  const [filteredRows, setFilteredRows] = useState(TABLE_ROWS)
+  const [amount, setAmount] = useState('')
+  const { updateBalance } = useBalance()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const action = new URLSearchParams(location.search).get('action')
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModalOpen = () => setModalOpen(true)
+  const handleModalClose = () => {
+    setModalOpen(false)
+    navigate('/DashboardUser')
+  }
 
-    return (
-        <div className='w-[85%] mt-6 flex flex-col justify-center items-center gap-6'>
-            <section className='flex gap-2 self-start'>
-            <Link to='/DashboardUser'><IoIosArrowRoundBack className='text-[40px]' /></Link>
-                <figure>
-                <img src={profilePhoto} alt='foto de perfil' />
-                </figure>
-                <div className='flex justify-center items-end'>
-                    <p>
-                        Hola,
-                        <br />
-                        Pedrita
-                    </p>            
-                </div>
-            </section>
-            <section className='w-full md:w-4/5'>
-                <div className="w-full flex flex-row items-center gap-4 m-4">                
-                    <input label="Search" type="text" placeholder="Buscar..." className="border p-1"/>
-                    <FaSearch className="h-5 w-5"/>
-                </div>
-                <table className="w-full table-auto text-left">
-                        <thead>
-                            <tr>
-                            {TABLE_HEAD.map((head) => (
-                                <th key={head} className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4">{head}</th>
-                            ))}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {TABLE_ROWS.map(
-                            (
-                                {
-                                img,
-                                name,
-                                amount,
-                                status
-                                },
-                                index,
-                            ) => {
-                                const isLast = index === TABLE_ROWS.length - 1;
-                                const classes = isLast
-                                ? "p-4"
-                                : "p-4 border-b border-blue-gray-50";
-                
-                                return (
-                                <tr key={name}>
-                                    <td className={classes}>
-                                    <div className="flex items-center gap-3">
-                                        <img
-                                        src={img}
-                                        alt={name}
-                                        size="md"
-                                        className="border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1 h-10 w-10"
-                                        />
-                                        <p className="font-bold">{name}</p>
-                                    </div>
-                                    </td>
-                                    <td className={classes}>{amount}</td>
-                                    <td className={classes}>
-                                    <div className="w-max">
-                                        <p 
-                                        value={status}
-                                        className={
-                                            status === "Habilitado"
-                                            ? "bg-green-600 rounded p-1 text-white"                   
-                                            : "bg-red-600 rounded p-1 text-white"
-                                        }>{status}</p>
-                                        
-                                    </div>
-                                    </td>                                    
-                                    <td className={classes}>
-                                        <div className='bg-white w-full sticky top-full flex opacity-90 has-tooltip'>
-                                            <span className='tooltip rounded shadow-lg p-2 bg-gray-100 -mt-12 ml-8'>Seleccionar Cajero Virtual</span>                  
-                                            <PiArrowSquareRight className='rounded-full bg-black p-1 h-8 w-8 text-white text-center'/>
-                                        </div>
-                                    </td>
-                                </tr>
-                                );
-                            },
-                            )}
-                        </tbody>
-                </table>               
-            </section>
-            <section className='w-full flex gap-3 items-center  bg-gradient-center from-green-500 to-green-950 rounded-lg py-4 px-2 mt-6 '>
-                <img src={cardImg} alt='Imagen tarjeta virtual EcopPay' className='rounded-3xl' />
-                <p className='text-white font-medium text-lg '>
-                Solicita tu tarjeta Prepaga Virtual sin Costo
-                </p>
-            </section>
-        </div>
+  const filterRows = (text) => {
+    const filtered = TABLE_ROWS.filter(row =>
+      row.name.toLowerCase().includes(text.toLowerCase())
     )
+    setFilteredRows(filtered)
+  }
+
+  useEffect(() => {
+    filterRows(searchText)
+  }, [searchText])
+
+  // Logica para deposito y extraccion de dinero
+  const handleDeposit = async () => {
+    try {
+      const token = window.localStorage.getItem('token')
+      console.log(parseInt(amount))
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      await axios.post('https://s13-21-ft-java.onrender.com/api/v1/deposit', { amount: parseInt(amount) })
+      updateBalance(parseInt(amount))
+    } catch (error) {
+      console.error('Error al guardar usuario:', error)
+    }
+  }
+  const handleWithdraw = async () => {
+    try {
+      const token = window.localStorage.getItem('token')
+      console.log(parseInt(amount))
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      await axios.post('https://s13-21-ft-java.onrender.com/api/v1/withdraw', { amount: parseInt(amount) })
+      updateBalance(-parseInt(amount))
+    } catch (error) {
+      console.error('Error al guardar usuario:', error)
+    }
+  }
+
+  return (
+    <div className='w-full max-w-xl mt-4 flex flex-col justify-center items-center gap-3 pl-2'>
+      <section className='flex items-center gap-3 self-start'>
+        <Link to='/DashBoardUser'><FaArrowLeft /></Link>
+        <h1 className='font-bold text-2xl'>Depósitos y Extracciones</h1>
+      </section>
+      <section className='w-full h-4/5 overflow-y-auto p-2'>
+        <div className='w-full flex flex-row items-center my-3'>
+          <input
+            label='Search' type='text' placeholder='Buscar' className='bg-[#434740] border pl-2 p-1 w-full rounded-lg' value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </div>
+        <table className='w-full table-auto'>
+          <thead>
+            <tr>
+              {TABLE_HEAD.map((head) => (
+                <th key={head} className='bg-[#434740] px-2 py-2'>{head}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filteredRows.map(
+              (
+                {
+                  img,
+                  name,
+                  status
+                },
+                index
+              ) => {
+                const isLast = index === TABLE_ROWS.length - 1
+                const classes = isLast
+                  ? 'p-2'
+                  : 'p-2 border-b border-blue-gray-50'
+                return (
+                  <tr key={name}>
+                    <td className={classes}>
+                      <div className='flex flex-col sm:flex-row items-center gap-3'>
+                        <img
+                          src={img}
+                          alt={name}
+                          size='md'
+                          className='border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1 h-10 w-10'
+                        />
+                        <p className='font-bold'>{name}</p>
+                      </div>
+                    </td>
+                    <td className={classes}>
+                      {status === 'Habilitado'
+                        ? <MoneyInput
+                            value={amount}
+                            onChange={(value) => setAmount(value)}
+                          />
+                        : ''}
+                    </td>
+                    <td className={classes}>
+                      {status === 'Habilitado'
+                        ? <FaCheck className='p-2.5 bg-gradient-to-b from-green-500 to-lime-400 rounded text-white text-xs w-8 h-8' />
+                        : <IoIosClose className='p-1 bg-[#EF8304] rounded text-white w-8 h-8' />}
+                    </td>
+                    <td className={classes}>
+                      <div className={status === 'Habilitado'
+                        ? 'flex flex-col gap-2 w-[100px]'
+                        : 'hidden'}
+                      >
+
+                        {action === 'deposit' && (
+                          <>
+                            <button className='flex gap-2' onClick={() => { handleDeposit(); handleModalOpen() }}>
+                              <TiPlus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Depositar
+                            </button>
+                            <Modal titulo='Depósito Realizado' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                          </>
+                        )}
+                        {action === 'withdraw' && (
+                          <>
+                            <button className='flex gap-2' onClick={() => { handleWithdraw(); handleModalOpen() }}>
+                              <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Extraer
+                            </button>
+                            <Modal titulo='Extracción Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                          </>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                )
+              }
+            )}
+          </tbody>
+        </table>
+      </section>
+    </div>
+  )
 }
-  
+
 export default VirtualCashierInfo

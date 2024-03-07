@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import { MainLayout, UserLayout } from '../Layouts'
+import { BalanceProvider } from '../Context/BalanceContext'
 
 import {
   UsersDataForm,
@@ -10,9 +11,16 @@ import {
   Register,
   ForgotPassword,
   DashboardUser,
-  Deposit,
-  Extract,
-  VirtualCashier    
+  VirtualCashier,
+  Transfer,
+  ConfirmTransfer,
+  MovementsHistory,
+  HistoryDetails,
+  CVUUser,
+  ForeignExchange,
+  Help,
+  VirtualCard,
+  Donate
 } from '../Routes'
 
 export const router = createBrowserRouter([
@@ -23,20 +31,8 @@ export const router = createBrowserRouter([
         <MainLayout />
       </Suspense>
     ),
-    // errorElement: <NotFound />,
     children: [
-      // {
-      //   index: true,
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <Users />
-      //     </Suspense>
-      //   )
-      // },
-      {
-        path: '/UsersDataForm',
-        element: <UsersDataForm />
-      },
+
       {
         path: '/Register',
         element: (
@@ -61,52 +57,62 @@ export const router = createBrowserRouter([
         path: '/',
         element: (
           <Suspense fallback={<Loader />}>
-            <UserLayout />
+            <BalanceProvider>
+              <UserLayout />
+            </BalanceProvider>
           </Suspense>
         ),
         children: [
           {
             path: '/DashboardUser',
             element: <DashboardUser />
+          },
+          {
+            path: '/Transfer',
+            element: <Transfer />
+          },
+          {
+            path: '/ConfirmTransfer',
+            element: <ConfirmTransfer />
+          },
+          {
+            path: '/MovementsHistory',
+            element: <MovementsHistory />
+          },
+          {
+            path: '/HistoryDetails/:id',
+            element: <HistoryDetails />
+          },
+          {
+            path: '/CVUUser',
+            element: <CVUUser />
+          },
+          {
+            path: '/VirtualCashier',
+            element: <VirtualCashier />
+          },
+          {
+            path: '/UsersDataForm',
+            element: <UsersDataForm />
+          },
+          {
+            path: '/ForeignExchange',
+            element: <ForeignExchange />
+          },
+          {
+            path: '/Help',
+            element: <Help />
+          },
+          {
+            path: '/VirtualCard',
+            element: <VirtualCard />
+          },
+          {
+            path: '/Donate',
+            element: <Donate />
           }
         ]
-      },
-      {
-        path: '/Deposit',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Deposit />
-          </Suspense>
-        )
-      },
-      {
-        path: '/Extract',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Extract />
-          </Suspense>
-        )
-      },
-      {
-        path: '/VirtualCashier',
-        element: (
-          <Suspense fallback={<Loader />}>
-            <VirtualCashier />
-          </Suspense>
-        )
       }
-
-  
-   
-
-      // {
-      //   path: '/Reset-password',
-      //   element: (
-      //     <Suspense fallback={<Loader />}>
-      //       <ResetPassword />
-      //     </Suspense>
-      //   )
-      // }
 
     ]
   }

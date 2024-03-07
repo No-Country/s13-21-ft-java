@@ -3,17 +3,17 @@ import { Field, ErrorMessage } from 'formik'
 export default function FormInput ({ id, name, type, placeholder, errors, value }) {
   const invalid = 'invalid:border-red-600 invalid:text-red-600 invalid:border-red-600 focus:invalid:ring-red-500'
 
-  const normal = 'focus:outline-none  text-gray-700 '
+  const normal = 'focus:outline-none  text-white'
   return (
-    <div className='mb-2 h-[90px]'>
+    <div className='mb-2 h-[90px] w-full'>
       <label
-        className='block text-gray-700 text-sm mb-2'
+        className='block text-white text-sm mb-2'
         htmlFor={id}
       >
         {name}
       </label>
       <Field
-        className={`font-roboto shadow appearance-none border rounded w-full py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem]
+        className={`font-roboto shadow appearance-none border rounded w-full bg-[#434740] border-gray-800 py-3 px-3 leading-tight text-[0.8rem] lg:text-[1rem]
           ${errors ? invalid : normal}`}
         id={id}
         type={type}
