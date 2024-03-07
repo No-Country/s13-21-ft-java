@@ -201,7 +201,7 @@
           <img width="110" src="https://avatars.githubusercontent.com/u/18339620?v=4"/>
         </a>
         <a href="https://github.com/enzogsierra" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+          <h4 style="margin-top: 1rem;">Enzo Sierra</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
           <a href="https://github.com/enzogsierra" target="_blank">
