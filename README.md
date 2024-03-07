@@ -17,7 +17,6 @@
 <hr>
 <!-- TEAMS -->
 <h1 align='center'> Equipo - [s13-21-ft-java]  </h1>
-<hr>
 
 <table align='center'>
   <tr>
@@ -161,6 +160,71 @@
         </a>
         <div style='display: flex; flex-direction: column'>
           <a href="https://github.com/joshuaFrias95" target="_blank">
+            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td align='center'>
+      <div>
+        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/86853211?v=4"/>
+        </a>
+        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Josue Zorrilla </br><small>Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+          <a href="https://github.com/josuejs23" target="_blank">
+            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td align='center'>
+      <div>
+        <a href="https://github.com/leosirx" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/114456192?v=4"/>
+        </a>
+        <a href="https://github.com/leosirx" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+          <a href="https://github.com/leosirx" target="_blank">
+            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          </a>
+        </div>
+      </div>
+    </td>
+    <td align='center'>
+      <div>
+        <a href="https://github.com/enzogsierra" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/18339620?v=4"/>
+        </a>
+        <a href="https://github.com/enzogsierra" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+          <a href="https://github.com/enzogsierra" target="_blank">
+            <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+          </a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<table align='center'>
+  <tr>
+    <td align='center'>
+      <div>
+        <a href="https://github.com/JAPMagdaleno" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/121467694?v=4"/>
+        </a>
+        <a href="https://github.com/JAPMagdaleno" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Joshua Frias</br><small>Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+          <a href="https://github.com/JAPMagdaleno" target="_blank">
             <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
         </div>
