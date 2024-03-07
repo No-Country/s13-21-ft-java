@@ -18,39 +18,6 @@ export default function UsersDataFormInfo () {
     phone: '',
     country: ''
   })
-  
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const token = window.localStorage.getItem('token')
-        axios.defaults.headers.common.Authorization = `Bearer ${token}`
-        const response = await axios.get('https://s13-21-ft-java.onrender.com/api/v1/users')
-        const userData = response.data
-        if (userData) {
-          setFormValues({
-            firstName: userData.firstName || "",
-            lastName: userData.lastName || "",
-            noIdentidad: userData.noIdentidad || "",
-            birthday: userData.birthday || "",
-            phone: userData.phone || "",
-            country: userData.country || "",
-          });
-        }
-        setLoading(false)
-        console.log(userData)
-        console.log(formValues)        
-      } catch (error) {
-        console.error('Error al guardar usuario:', error)
-        setLoading(false)
-      }
-    }
-    fetchUser()
-  }, [])
-
-  if (loading) {
-    return <div className='text-xl pt-4'>Cargando información...</div>;
-  }
 
   useEffect(() => {
     const fetchUser = async () => {

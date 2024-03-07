@@ -145,7 +145,7 @@ const DonateInfo = () => {
                           <button className='flex gap-2' onClick={() => { handleWithdraw(); handleModalOpen() }}>
                             <TiMinus className='rounded-full bg-black p-1 h-6 w-6 text-white text-center' /> Donar
                           </button>
-                          <Modal titulo='Extracción Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
+                          <Modal titulo='Donación Realizada' texto='Operación Exitosa!' isOpen={modalOpen} closeModal={handleModalClose} />
                         </>
                       </div>
                     </td>
