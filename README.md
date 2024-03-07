@@ -145,11 +145,14 @@
           <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/enzogsierra" target="_blank">
+        <a href="https://github.com/leosirx" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         <a href="https://github.com/enzogsierra" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Enzo Sierra</br><small>Back-End</small></h4>
+          <img width="110" src="https://avatars.githubusercontent.com/u/18339620?v=4"/>
+        </a>
+        <a href="https://github.com/enzogsierra" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
         <a href="https://github.com/enzogsierra" target="_blank">
