@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FaArrowLeft } from 'react-icons/fa'
-import userImg from '../../../assets/Avatar Style 6.jpg'
+import { FaArrowLeft, FaUserCircle } from 'react-icons/fa'
 
 export default function ConfirmTransferInfo () {
   return (
@@ -15,12 +14,12 @@ export default function ConfirmTransferInfo () {
       </div>
       <h2 className='pt-6 font-medium text-xs self-center'>Código transferencia: EPU000D00M00A0000T0000</h2>
       <div className='flex flex-col px-8'>
-        <div className='shadow-inner rounded-2xl mt-6 p-6 bg-zinc-100 flex flex-col items-center border-2'>
+        <div className='shadow-inner rounded-2xl mt-6 p-6 bg-zinc-100 flex flex-col items-center border-2 xl:border xl:rounded-xl xl:bg-zinc-800 xl:shadow-md xl:outline-1 xl:border-neutral-700'>
           <h2 className='font-medium pb-3'>Transferencia exitosa</h2>
           <hr className='border-1 w-[300px]' />
           <p className='pt-3'>Destinatario</p>
           <div className='flex items-center gap-3 p-3'>
-            <img src={userImg} alt='user image' className='rounded-3xl' />
+            <FaUserCircle className='text-4xl' />
             <p className='font-medium'>Carla Coe</p>
           </div>
           <hr className='border-1 w-[300px]' />

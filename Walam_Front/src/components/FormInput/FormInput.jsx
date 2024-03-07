@@ -3,7 +3,7 @@ import { Field, ErrorMessage } from 'formik'
 export default function FormInput ({ id, name, type, placeholder, errors, value }) {
   const invalid = 'invalid:border-red-600 invalid:text-red-600 invalid:border-red-600 focus:invalid:ring-red-500'
 
-  const normal = 'focus:outline-none  text-gray-700 '
+  const normal = 'focus:outline-none  text-white'
   return (
     <div className='mb-2 h-[90px] w-full'>
       <label

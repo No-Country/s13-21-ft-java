@@ -1,26 +1,23 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { FaArrowLeft } from 'react-icons/fa'
-import { FormButton, FormInput, GoogleButton, PasswordInput } from '../../../components'
+import { FormButton, FormInput, PasswordInput } from '../../../components'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import { useState } from 'react'
-import { useAuthenticateUserMutation, setUser } from '../../../api/apiSlice'
-import { useDispatch } from 'react-redux'
+import axios from 'axios'
 
 const LoginInfo = () => {
   const navigate = useNavigate()
   const [error, setError] = useState('')
-  const [userEmail, setUserEmail] = useState('')
-  const [userPassword, setUserPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [authenticateUser] = useAuthenticateUserMutation()
-  const dispatch = useDispatch()
 
   const handleLogin = async (values) => {
-    const { email, password } = values
+    const { username, password } = values
     try {
-      const response = await authenticateUser({ email, password }).unwrap()
-      dispatch(setUser(response)) // Actualiza el usuario en Redux
+      const response = await axios.post('https://s13-21-ft-java.onrender.com/auth/login', { username, password })
+      // Guarda el token de autenticación en localStorage o Redux según tu preferencia
+      window.localStorage.setItem('token', response.data.token)
+      window.localStorage.setItem('username', username)
       navigate('/DashboardUser')
       console.log(response)
     } catch (error) {
@@ -31,7 +28,7 @@ const LoginInfo = () => {
 
   const validationSchema = Yup.object().shape({
     // Definir la validación del esquema Yup para los campos del formulario
-    email: Yup.string().email('El correo no es válido').required('El correo es requerido'),
+    username: Yup.string().required('El correo es requerido'),
     password: Yup.string().max(12, 'La contraseña debe tener máximo 12 caracteres')
       .matches(
         /^(?=.*[a-z])/,
@@ -58,16 +55,16 @@ const LoginInfo = () => {
 
   const initialValues = {
     // Define initial values on the form
-    email: userEmail,
-    password: userPassword
+    username: '',
+    password: ''
   }
 
   return (
-    <div className='relative w-full md:w-1/2 xl:max-w-[520px]'>
-      <div className='absolute inset-0 xl:rounded-xl xl:bg-loginColor opacity-25' />
-      <div className='relative z-10 xl:rounded-xl py-8 px-20 w-full xl:text-white flex flex-col'>
+    <div className='relative w-4/5 sm:w-2/3 md:w-3/5 lg:max-w-[520px]'>
+      <div className='absolute inset-0 rounded-xl bg-loginColor opacity-25' />
+      <div className='relative z-10 rounded-xl py-8 px-10 lg:px-20 w-full text-white flex flex-col'>
         <div className='w-[87%] xl:w-full flex justify-between'>
-          <Link to='/'><FaArrowLeft className='xl:hidden' /></Link>
+          <Link to='/'><FaArrowLeft/></Link>
         </div>
         <main className=''>
           <div className='flex flex-col pt-4 xl:pt-0 pb-6'>
@@ -85,7 +82,7 @@ const LoginInfo = () => {
             {({ errors, values }) => (
               <Form className='rounded pt-6 h-[320px]'>
                 {/* Form inputs */}
-                <FormInput name='Correo electrónico' type='email' placeholder='Ingrese correo electrónico' errors={errors} id='email' value={values.email} />
+                <FormInput name='username' type='name' placeholder='Ingrese User Name' errors={errors} id='username' value={values.username} />
                 <PasswordInput name='Contraseña' placeholder='Ingrese contraseña' id='password' value={values.password} showPassword={showPassword} togglePasswordVisibility={togglePasswordVisibility} />
                 <div className='flex flex-col lg:flex-row justify-between items-center'>
                   <Link className=' text-sm font-medium text-black-900 dark:text-black-300' to='/reset-password '>¿Olvidaste tu contraseña?</Link>
@@ -99,8 +96,7 @@ const LoginInfo = () => {
             )}
           </Formik>
           <div className='flex flex-col justify-center pt-[270px] xl:pt-[180px]'>
-            <GoogleButton />
-            <Link to='/Register' className='text-center pt-3'> Registrarse</Link>
+            <Link to='/Register' className='text-center pt-3 hover:text-lime-400'> Registrarse</Link>
           </div>
         </main>
       </div>

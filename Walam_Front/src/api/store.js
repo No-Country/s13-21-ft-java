@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { userReducer } from './apiSlice'
+import balanceReducer from './balanceSlice'
 
 const store = configureStore({
   reducer: {
-    user: userReducer
+    balance: balanceReducer
   }
 })
 

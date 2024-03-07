@@ -1,26 +1,61 @@
 import { Link } from 'react-router-dom'
-import profilePhoto from '../../../assets/Avatar Style 6.jpg'
 import circle from '../../../assets/greenCircle.png'
 import cardImg from '../../../assets/cardImg.png'
 import { IoIosArrowRoundForward } from 'react-icons/io'
-import { ActionButton, RoundButton } from '../../../components'
+import { ActionButton, Modal, RoundButton } from '../../../components'
 import { MovementsHistory } from '../../index.js'
+import { FaUserCircle } from 'react-icons/fa'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useBalance } from '../../../Context/BalanceContext.jsx'
 
 const DashboardUserInfo = () => {
+  const { balance, userName, updateBalance } = useBalance()
+  const [loading, setLoading] = useState(true)
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModalOpen = () => setModalOpen(true)
+  const handleModalClose = () => setModalOpen(false)
+
+  const handleCard = async () => {
+    try {
+      const token = window.localStorage.getItem('token')
+      if (!token) {
+        throw new Error('Token no encontrado en el almacenamiento local')
+      }
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      const data = await axios.post('https://s13-21-ft-java.onrender.com/api/v1/card/create')
+      console.log(data)
+    } catch (error) {
+      console.error('Error al solicitar la tarjeta:', error.message)
+      // Manejar el error, por ejemplo, mostrar un mensaje al usuario
+    }
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await updateBalance()
+      setLoading(false)
+    }
+
+    fetchData()
+  }, [updateBalance])
+
+  if (loading) {
+    return <div>Cargando...</div>
+  }
+
   return (
     <>
-      <div className='w-[85%] mt-6 flex flex-col justify-center items-center xl:hidden'>
+      <div className='w-[85%] xl:w-0 xl:mt-6 flex flex-col justify-center items-center xl:hidden'>
         <section className='flex gap-2 self-start'>
-          <figure>
-            <img src={profilePhoto} alt='foto de perfil' />
-          </figure>
-          <div className='flex justify-center items-end'>
-            <p>
+          <FaUserCircle className='text-4xl' />
+          <div className='flex justify-center items-center gap-3 w-full'>
+            <p className='text-xl'>
               Hola,
-              <br />
-              <Link to='/UsersDataForm'>Pedrita</Link>
+              <Link to='/UsersDataForm' className='font-semibold text-2xl'> {userName}</Link>
             </p>
-            <Link to='/UsersDataForm'>
+            <Link to='/UsersDataForm' className='flex items-center'>
+              <p>(Datos Usuario)</p>
               <IoIosArrowRoundForward className='text-[40px]' />
             </Link>
           </div>
@@ -28,28 +63,36 @@ const DashboardUserInfo = () => {
         <section className='flex gap-6'>
           <div className='flex flex-col justify-evenly items-center'>
             <p className='w-full font-medium'>Disponible</p>
-            <p className='w-full text-2xl font-medium'>$ 0.000.000,00</p>
+            <p className='w-full text-2xl font-medium'><span>$</span>{balance}<span>,00</span></p>
             <Link to='/MovementsHistory'><p className='w-full text-green-700 font-medium text-center'>Historial de Movimientos</p></Link>
           </div>
           <div className='flex flex-col pt-4 gap-4'>
-            <ActionButton info='Depositar' option='option1' link='/Transfer' />
+            <ActionButton info='Depositar' option='option1' link='/VirtualCashier?action=deposit' />
             <ActionButton info='Transferir' option='option2' link='/Transfer' />
-            <ActionButton info='Extraer' option='option3' />
+            <ActionButton info='Extraer' option='option3' link='/VirtualCashier?action=withdraw' />
           </div>
         </section>
-        <section className='w-full flex gap-3 items-center  bg-gradient-center from-green-500 to-green-950 rounded-lg py-4 px-2 mt-6 '>
-          <img src={cardImg} alt='Imagen tarjeta virtual EcopPay' className='rounded-3xl' />
-          <p className='text-white font-medium text-lg '>
-            Solicita tu tarjeta Prepaga Virtual sin Costo
-          </p>
+        <section className='w-full flex gap-3 items-center py-4 px-2 mt-6 border rounded-xl p-5 bg-DashboardDesktop shadow-md outline-1 border-neutral-700'>
+          <img src={cardImg} onClick={() => { handleModalOpen(); handleCard() }} alt='Imagen tarjeta virtual EcopPay' className=' cursor-pointer rounded-3xl w-[240px] h-[120px] order-1' />
+          <Modal titulo='Tarjeta Solicitada con éxito!' texto='Esperamos que la disfrutes!' isOpen={modalOpen} closeModal={handleModalClose} />
+          <div className='flex flex-col items-end py-3'>
+            <p className='text-white font-sm text-lg pl-4 text-right '>
+              Solicita tu tarjeta Virtual ECOPAY Haciendo Click Acá!
+            </p>
+            <img src='/img/Top Estate Agent.png' alt='Usuarios EcoPay' className='w-[160px]' />
+          </div>
         </section>
         <section className=' w-full mt-8 flex justify-evenly  '>
-          <RoundButton info='Recargas' option='option1' />
+          <Link to='/Donate'>
+            <RoundButton info='Donación' option='option1' />
+          </Link>
           <RoundButton info='QR' option='option2' />
           <Link to='/CVUUser'>
             <RoundButton info='CVU' option='option3' />
           </Link>
-          <RoundButton info='Divisas' option='option4' />
+          <Link to='/ForeignExchange'>
+            <RoundButton info='Divisas' option='option4' />
+          </Link>
           <RoundButton info='Ver más' option='option5' />
         </section>
         <section className='w-full mt-8 '>
@@ -60,7 +103,9 @@ const DashboardUserInfo = () => {
           </button>
         </section>
       </div>
-      <MovementsHistory />
+      <div className='hidden xl:w-[68.8%] xl:flex'>
+        <MovementsHistory />
+      </div>
     </>
   )
 }
