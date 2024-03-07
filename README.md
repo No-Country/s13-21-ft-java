@@ -15,7 +15,9 @@
   <h1 align='center'>Billetera Digital Ecológica</h1>
 </header>
 <section id='intro'>
+  <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/>
     <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
+  <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/>
 </section>
 <hr>
 <!-- TEAMS -->
@@ -219,7 +221,7 @@
 
 <br>
 
-## <img height="40" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNTViZHg3ODNqY2Qzd3E4bHBlYzFmcm8ycHpwY3E3MXFhZ3B5OXRidCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/elsKdwHmTJDmLAMJga/giphy.gif"/> 
+##  
 ## Vistas
 ![ecopay1](https://github.com/No-Country/s13-21-ft-java/assets/103864663/16e79a7d-4873-4165-a225-c5b5e162ed83)
 ![image](https://github.com/No-Country/s13-21-ft-java/assets/103864663/c5924ad1-dec4-4a3b-b961-fe87e3dfb020)
