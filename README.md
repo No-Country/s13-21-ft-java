@@ -1,4 +1,4 @@
-[<header align="center">
+<header align="center">
   <h2 align='center'>Este es un proyecto de la comunidad:</h2>
   <div align='center'><a href="https://www.nocountry.tech/" target="_blank">
       <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
@@ -12,7 +12,7 @@
     </a>
   </div>
   <hr>
-  <h1 align='center'>Aplicación de Billetera Virtual Ecológica</h1>
+  <h1 align='center'>Billetera Digital Ecológica</h1>
 </header>
 <section id='intro'>
     <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
@@ -75,14 +75,14 @@
     </td>
     <td align='center'>
       <div >
-        <a href="https://github.com/Natsumychan" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/94393112?v=4"/>
+        <a href="https://github.com/joshuaFrias95" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/71472790?v=4"/>
         </a>
-        <a href="https://github.com/Natsumychan" target="_blank" rel="author">
+        <a href="https://github.com/joshuaFrias95" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Diana Castaño</br><small>Front-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/Natsumychan" target="_blank">
+        <a href="https://github.com/joshuaFrias95" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         <a href="https://github.com/JornabeDV" target="_blank" rel="author">
@@ -195,4 +195,3 @@
 <img height="15" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHkwNXMxbjFiZ3Bqb3Zic3VmNml2cWJyeW0wZWp6OTY5bWV1cTZxdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/HZi7TKjJqYHR7nbVq8/giphy.gif"/> Ariadna Menendez 
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white) ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
-](https://github.com/No-Country/s13-21-ft-java)https://github.com/No-Country/s13-21-ft-java
