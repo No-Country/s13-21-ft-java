@@ -27,7 +27,7 @@
     <td align='center'>
       <div >
         <a href="https://github.com/leandrofrossi" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/94393112?v=4"/>
+          <img width="110" src="https://avatars.githubusercontent.com/u/108770954?v=4"/>
         </a>
         <a href="https://github.com/leandrofrossi" target="_blank" rel="author">
           <h4 style="margin-top: 1rem;">Leandro Rossi</br><small>Front-End</small></h4>
