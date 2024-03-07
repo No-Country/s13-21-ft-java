@@ -16,11 +16,12 @@ a lo largo de 5 países.
 
 <br>
 
-## Funcionamiento
-
-Al registrarte en **Ecopay**,  se te brindará un número de cuenta y una tarjeta de débito prepagada
-que podrás utilizar para recibir o enviar dinero de forma rápida y segura, brindándote la seguridad
-de tener una huella de carbono sustentable en cada operación.
+## Vistas
+![ecopay1](https://github.com/No-Country/s13-21-ft-java/assets/103864663/16e79a7d-4873-4165-a225-c5b5e162ed83)
+![image](https://github.com/No-Country/s13-21-ft-java/assets/103864663/c5924ad1-dec4-4a3b-b961-fe87e3dfb020)
+![ecopay3](https://github.com/No-Country/s13-21-ft-java/assets/103864663/ffd3b6ac-4b4e-45f9-9326-b6579a1e7e43)
+![ecopay4](https://github.com/No-Country/s13-21-ft-java/assets/103864663/89c2a099-ef3e-419c-b356-d4ad35c6512f)
+![ecopay5](https://github.com/No-Country/s13-21-ft-java/assets/103864663/278792b5-169e-4b8b-8da8-322dbf84f6fe)
 
 <br>
 
