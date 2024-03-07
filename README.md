@@ -1,4 +1,3 @@
-<header align="center">
   <h2 align='center'>Este es un proyecto de la comunidad:</h2>
   <div align='center'><a href="https://www.nocountry.tech/" target="_blank">
       <img style='background-color:black;' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsukYB3HL90LSwYv_RIR2O2OlCV8Sbkx2eNHv8nRvOu8L16FxLQ0nPzY02wQ_BJOfQZw&usqp=CAU" width="200">
@@ -15,7 +14,6 @@
   <h1 align='center'>Billetera Digital Ecológica</h1>
     <hr>
     <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
-</header>
 
 <hr>
 <!-- TEAMS -->
