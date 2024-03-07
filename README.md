@@ -7,7 +7,7 @@
   <hr>
   <!-- PROJECT LOGO -->
   <div align='center'>
-    <a href="https://c15-57-ft-react-agregarback.vercel.app/" target="_blank">
+    <a href="https://s13-21-ft-java.vercel.app/" target="_blank">
       <img src="./Walam_Front/src/assets/ecopay_logo.png" alt="Banner">
     </a>
   </div>
@@ -116,6 +116,7 @@
       </div>
     </td>
     <td align='center'>
+      <h2> BACK - END </h2>
       <div >
         <a href="https://github.com/joshuaFrias95" target="_blank" rel="author">
           <img width="110" src="https://avatars.githubusercontent.com/u/71472790?v=4"/>
@@ -127,14 +128,24 @@
         <a href="https://github.com/joshuaFrias95" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
-        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
-          <img width="110" src="https://avatars.githubusercontent.com/u/103864663?s=400&u=c15958417e895daefc6bdc014da615b1ff78ea3a&v=4"/>
+        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/86853211?v=4"/>
         </a>
-        <a href="https://github.com/JornabeDV" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Jorge Beja</br><small>Front-End</small></h4>
+        <a href="https://github.com/josuejs23" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Josue Zorrilla </br><small>Back-End</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/JornabeDV" target="_blank">
+        <a href="https://github.com/josuejs23" target="_blank">
+          <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
+        </a>
+        <a href="https://github.com/leosirx" target="_blank" rel="author">
+          <img width="110" src="https://avatars.githubusercontent.com/u/114456192?v=4"/>
+        </a>
+        <a href="https://github.com/leosirx" target="_blank" rel="author">
+          <h4 style="margin-top: 1rem;">Leonardo Cortés</br><small>Back-End</small></h4>
+        </a>
+        <div style='display: flex; flex-direction: column'>
+        <a href="https://github.com/leosirx" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
         </div>
