@@ -13,10 +13,10 @@
   </div>
   <hr>
   <h1 align='center'>Billetera Digital Ecológica</h1>
-</header>
-<section id='intro'>
+    <hr>
     <h2 align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></h2>
-</section>
+</header>
+
 <hr>
 <!-- TEAMS -->
 <h1 align='center'> Equipo - [s13-21-ft-java]  </h1>
