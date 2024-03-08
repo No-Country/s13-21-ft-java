@@ -324,7 +324,10 @@
    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" alt="Logo" width="60" height="60">
   </a>
   <a href='https://www.discord.gg/'>
-    <img src="https://img.icons8.com/color/480/discord-new-logo.png" alt="Logo" width="60" height="60">
+    <img src="https://img.icons8.com/color/480/discord-new-logo.png" alt="Logo" width="70" height="65">
+  </a>
+   <a href='https://trello.com/'>
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-original.svg" alt="Logo" width="60" height="60">
   </a>
 </section>
 
