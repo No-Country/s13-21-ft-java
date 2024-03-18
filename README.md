@@ -13,6 +13,48 @@
   <hr>
   <h1 align='center'>Billetera Digital Ecológica</h1>
     <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
+<hr>
+
+<dl>
+  <dd>
+    🔸Características:
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Billetera virtual diseñada pensando en la ecología y el medio ambiente.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Su objetivo es simplificar las transacciones financieras.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Reducir la huella de carbono.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Ayudando a la disminución del consumo de papel, plástico y energía.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Depósitos, Transferencias, Extracciones.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Historial de movimientos.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Consulta de valor de divisas.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Incluye tarjeta virtual.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Seguridad avanzada con tecnología de cifrado.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Interfaz intuitiva con estilo minimalista.
+    </dd>
+  <dd>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Integración con servicios ecológicos.
+    </dd>
+  
+  </dd>
+</dl>
 
 <hr>
 <!-- TEAMS -->
@@ -338,6 +380,20 @@
   <img src='./Walam_Front/src/assets/ecopay_logo.png' alt='Video Thumbnail' />
 </a>
 
+<hr>
+ <dd>
+    🔸 <b>Postman Collection:</b>
+    <a href="https://drive.google.com/file/d/1V16jwVYbMnqIDw6iH2M6pC28MOALSR4A/view?usp=drive_link" target="_blank">[ Link a Google Drive ]</a>
+   </dd>
+    <dd>
+      <b>Instrucciones:</b> Descargar el archivo. Abrir Postman. Ir a File -> Import -> Seleccionar el archivo descargado. 
+   </dd>
+   <br>
+    <dd>
+    🔸 <b>Swagger UI:</b>
+    <a href="https://s13-21-ft-java.onrender.com/swagger-ui/index.html#/" target="_blank">[ Link a Documentacion en Swagger ]</a>
+   </dd>
+<hr>
 <!-- ACKNOWLEDGMENTS -->
 <div align='center'>
   <h3>Agradecimientos</h3>
