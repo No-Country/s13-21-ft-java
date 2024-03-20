@@ -16,11 +16,14 @@
 <hr>
 <dl>
   <dd>
-    🔸 <b>User Experience - User Interface:</b>
+    🔸 <b>UX / UI 👩‍💻:</b>
     <a href="https://www.figma.com/proto/JqeVizlLMPgJSF8Hi4iWQM/s13-21-ft-Java-Dise%C3%B1o?node-id=1166-989&scaling=scale-down
 " target="_blank">[ Link a Figma ]</a>
    </dd>
-
+  <dd>
+    🔸 <b>Diseño 🎨:</b>
+    <a href="https://www.figma.com/file/JqeVizlLMPgJSF8Hi4iWQM/s13-21-ft-Java-Dise%C3%B1o?type=design&node-id=85-733&mode=design&t=MAb1QJJkOiGGJMGP-0" target="_blank">[ Link a Figma ]</a>
+   </dd>
 
   <dd>
     🔸 <b>Características:</b>
