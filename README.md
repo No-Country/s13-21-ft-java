@@ -14,10 +14,16 @@
   <h1 align='center'>Billetera Digital Ecológica</h1>
     <p align='center'><strong>Es más que una herramienta financiera, es una declaración de compromiso con el futuro de nuestro planeta.</strong></p>
 <hr>
-
 <dl>
   <dd>
-    🔸Características:
+    🔸 <b>User Experience - User Interface:</b>
+    <a href="https://www.figma.com/proto/JqeVizlLMPgJSF8Hi4iWQM/s13-21-ft-Java-Dise%C3%B1o?node-id=1166-989&scaling=scale-down
+" target="_blank">[ Link a Figma ]</a>
+   </dd>
+
+
+  <dd>
+    🔸 <b>Características:</b>
     </dd>
   <dd>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🔹Billetera virtual diseñada pensando en la ecología y el medio ambiente.
